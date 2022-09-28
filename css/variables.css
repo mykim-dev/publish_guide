@@ -1,0 +1,37 @@
+:root {
+  --color-primary: #8B4CA5;
+  --color-success: #67c23a;
+  --color-warning: #e6a23c;
+  --color-danger: #f56c6c;
+  --color-error: #f56c6c;
+  --color-info: #909399;
+
+  --base-font-family: 'Noto Sans KR';
+
+  --base-height: 32px;
+  --base-padding: 0 8px;
+  --base-margin: 2px;
+  --base-font-size: 13px;
+  --base-font-color: #555;
+  --base-border-radius: 4px;
+  --base-border-color: #e1e1e1;
+  --base-background-color: #fff;
+  --base-box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, .36), 0px 8px 20px rgba(0, 0, 0, .72);
+
+  --input-height: var(--base-height);
+  --input-margin: var(--base-margin);
+  --input-font-color: var(--base-font-color);
+  --input-border-radius: var(--base-border-radius);
+  --input-border-color: var(--base-border-color);
+  --input-disabled-background-color: rgba(0,0,0,0.2);
+  --input-disabled-border-color: rgba(0,0,0,0.1);
+  
+  --grid-border-color: #eaf2f9;  
+  --grid-cell-font-size: 12px;
+  --grid-cell-border-color: #ebeef5;
+  --grid-cell-background-color: #fff;
+  --grid-header-background-color: #f5fafc;
+
+  --pagination-selected-background-color: #9dc5d4;
+  --pagination-selected-color: #fff;
+}  

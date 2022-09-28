@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .tmp{width:20px;height:20px;border:1px solid red;}
+        .tmp:before{display:block;content:"";width:10px;height:10px;background-color:green;}
+        .tmp:after{display:block;content:"";width:10px;height:10px;background-color:blue;}
+        .tmp:checked{background-color: transparent;}
+        .tmp:checked::after{background-color: cyan;}
+
+        .tmp2{width:30px;height:30px;position:relative;}
+        .tmp2:before,
+        .tmp2:after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;border-radius:3px;}
+        .tmp2:before{display:block;background-color:green;}
+        .tmp2:after{display:none;background-color:blue;}
+        .tmp2:checked::after{display:block;}
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h2 class="qs-title">List</h2>
+    <div class="qs-list-wrap">
+        <input type="checkbox" class="tmp">
+        <br>
+        <br>
+        <br>
+        <input type="checkbox" class="tmp2">
+    </div>
+</div>
+</body>
+</html>
