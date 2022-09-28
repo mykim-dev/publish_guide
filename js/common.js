@@ -27,8 +27,7 @@ function selectInit() {
                 if(find_select.options[find_select.selectedIndex].index == i){
                     find_select_data.push({
                         label: op.text,
-                        value: op.value,
-                        selected: selected
+                        value: op.value
                     });
                 }else{
                     find_select_data.push({
@@ -42,7 +41,7 @@ function selectInit() {
             console.log(find_select_data);
             find_select.style.display = "none";
             
-            // return new tui.SelectBox(`#${item.id}`, { data: find_select_data });
+            return new tui.SelectBox(`#${item.id}`, { data: find_select_data });
         }
     };
 }

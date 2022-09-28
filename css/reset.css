@@ -2,7 +2,7 @@
 *, *::before, *::after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;}
 html,body{width:inherit;height:inherit;-webkit-font-smoothing:antialiased;box-sizing:border-box;}
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-size: var(--base-font-size);vertical-align: baseline;background: transparent;}
-body,input,textarea,select,button,table,pre{font-family:"Noto Sans KR", "맑은고딕", "Malgun Gothic", 'Apple SD Gothic Neo', "돋움", dotum, Arial, sans-serif;font-size: var(--base-font-size);font-weight:400;color:var(--base-font-color);line-height: 1;}
+body,input,textarea,select,button,table,pre{font-family:"Noto Sans KR", "맑은고딕", "Malgun Gothic", 'Apple SD Gothic Neo', "돋움", dotum, Arial, sans-serif;font-size: var(--base-font-size);font-weight:400;color:var(--base-font-color);line-height: 1.4;}
 blockquote, q {quotes: none;}
 blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}
 :focus{outline:1px solid transparent;}
@@ -51,10 +51,11 @@ input[type="url"]{-webkit-appearance: none;background-image: linear-gradient(tra
 
 /* toast lib */
 .tui-datepicker-input{width:initial;height:initial;border:0;}
-.tui-datepicker-input{flex:1;margin: var(--input-margin);}
+.tui-datepicker-input{flex:1;}
 .tui-datepicker-input>input{height: var(--input-height);padding:0 8px 0 28px;border:1px solid var(--input-border-color);border-radius:4px;/*font-size: inherit;color:inherit*/}
 .tui-datepicker-input>.tui-ico-date{right: initial;left: 8px;}
-.tui-datepicker{border-color:var(--input-border-color);border-radius:var(--input-border-radius);z-index:9;}
+.tui-datepicker{top: 31px;left: 0;border-color:var(--input-border-color);border-radius:var(--input-border-radius);z-index:9;}
+
 
 .tui-select-box{width: 100%;}
 .tui-select-box-input, 
