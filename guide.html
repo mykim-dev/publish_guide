@@ -26,21 +26,26 @@
 <body>
 <div class="wrap">
     <div class="qs-row">
-        <div class="qs-col-12">
+        <div class="qs-col-24">
 
             <!-- toolbar -->
             <dl class="qs-toolbar">
                 <dt>
                     <h2 class="qs-title">Form</h2>
                     <div class="el-button-group">
-                        <button class="qs-button">신규</button>
-                        <button class="qs-button qs-button--primary">조회</button>
-                        <button class="qs-button toolbar-toggle"><i class="qs-icon fas fa-search"></i></button>
+                        <button type="button" class="qs-button qs-button-primary">primary</button>
+                        <button type="button" class="qs-button qs-button-success">success</button>
+                        <button type="button" class="qs-button qs-button-warning">warning</button>
+                        <button type="button" class="qs-button qs-button-danger">danger</button>
+                        <button type="button" class="qs-button qs-button-error">error</button>
+                        <button type="button" class="qs-button qs-button-info">info</button>
+                        <button type="button" class="qs-button"><i class="qs-icon fas fa-search"></i></button>
+                        <button type="button" class="qs-button toolbar-toggle"><i class="qs-icon fas fa-angle-down"></i></button>
                     </div>
                 </dt>
                 <dd>
                     <div class="qs-row">
-                        <div class="qs-col-12">
+                        <div class="qs-col-8">
                             <div class="qs-form-item flex-direction">
                                 <label class="qs-form-item__label">qs-text</label>
                                 <div class="qs-form-item__content">
@@ -48,7 +53,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="qs-col-12">
+                        <div class="qs-col-8">
+                            <div class="qs-form-item flex-direction">
+                                <label class="qs-form-item__label">qs-lookup</label>
+                                <div class="qs-form-item__content">
+                                    <div class="qs-lookup">
+                                        <input type="text" disabled>
+                                        <button type="button"><i class="qs-icon fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qs-col-8">
                             <div class="qs-form-item flex-direction">
                                 <label class="qs-form-item__label">qs-select</label>
                                 <div class="qs-form-item__content">

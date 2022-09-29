@@ -3,14 +3,14 @@
   --color-success: #67c23a;
   --color-warning: #e6a23c;
   --color-danger: #f56c6c;
-  --color-error: #f56c6c;
+  --color-error: #ff0000;
   --color-info: #909399;
 
   --base-font-family: 'Noto Sans KR';
 
   --base-height: 32px;
   --base-padding: 0 8px;
-  --base-margin: 2px;
+  --base-margin: 2px 4px;
   --base-font-size: 13px;
   --base-font-color: #555;
   --base-border-radius: 4px;

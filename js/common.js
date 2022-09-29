@@ -65,6 +65,9 @@ function makePicker (id, user_option = {}) {
     let picker_option = {
         language: 'ko',
         showAlways: false,
+        calendar: {
+            showToday: false
+        },
         autoClose: true,
         format: 'yyyyMMdd',
         input: {},
