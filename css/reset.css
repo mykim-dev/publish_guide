@@ -5,7 +5,7 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 body,input,textarea,select,button,table,pre{font-family:"Noto Sans KR", "맑은고딕", "Malgun Gothic", 'Apple SD Gothic Neo', "돋움", dotum, Arial, sans-serif;font-size: var(--base-font-size);font-weight:400;color:var(--base-font-color);line-height: 1;}
 blockquote, q {quotes: none;}
 blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}
-:focus{outline:1px solid transparent;}
+:focus{outline: 0;}
 ins {text-decoration: none;}
 del {text-decoration: line-through;}
 img{border:0px none;}
@@ -52,6 +52,7 @@ input[type="url"]{-webkit-appearance: none;background-image: linear-gradient(tra
 /* toast lib */
 .tui-datepicker-input{width:initial;height:initial;border:0;}
 .tui-datepicker-input{flex:1;}
+<<<<<<< HEAD
 .tui-datepicker-input>input{height: var(--input-height);padding:0 8px 0 28px;border:1px solid var(--input-border-color);border-radius:4px;font-size: var(--base-font-size);/*color:inherit*/}
 .tui-datepicker-input>input:focus{border-color: var(--color-primary);}
 .tui-datepicker-input>.tui-ico-date{right: initial;left: 8px;}
@@ -61,10 +62,23 @@ input[type="url"]{-webkit-appearance: none;background-image: linear-gradient(tra
 .tui-calendar td, .tui-calendar th{line-height: 39px;}
 .tui-calendar .tui-calendar-month,
 .tui-calendar .tui-calendar-year{line-height: 50px;}
+=======
+.tui-datepicker-input>input{height: var(--input-height);padding:0 8px 0 28px;font-size:var(--base-font-size);border:1px solid var(--input-border-color);border-radius:4px;/*font-size: inherit;color:inherit*/}
+.tui-datepicker-input>.tui-ico-date{right: initial;left: 8px;}
+.tui-datepicker{top: 31px;left: 0;border-color:var(--input-border-color);border-radius:var(--input-border-radius);z-index:9;overflow: hidden;}
+.tui-calendar .tui-calendar-header{display: flex;flex-direction: column-reverse;}
+.tui-calendar .tui-calendar-header-inner{display: flex;justify-content: center;align-items: center;}
+
+.tui-calendar td, 
+.tui-calendar th{height: initial;padding: 8px;}
+.tui-calendar .tui-calendar-month,
+.tui-calendar .tui-calendar-year{height: initial;padding: 12px 0;}
+>>>>>>> a3f88e2116a27af58a9e592e3e8968cc67b93f65
 
 .tui-select-box{width: 100%;}
 .tui-select-box-input, 
 .tui-select-box-item, 
+<<<<<<< HEAD
 .tui-select-box-item-group-label{height: var(--input-height);border-radius: var(--input-border-radius);border-color: var(--input-border-color);color: var(--base-font-color);}
 .tui-select-box-icon, 
 .tui-select-box-placeholder{color: var(--base-font-color);}
@@ -74,6 +88,13 @@ input[type="url"]{-webkit-appearance: none;background-image: linear-gradient(tra
 .tui-select-box-open>.tui-select-box-icon{margin-top: 12px;transform: rotate(135deg);}
 .tui-select-box-dropdown{border-color: var(--base-border-color);z-index: 99;}
 
+=======
+.tui-select-box-item-group-label{height: var(--input-height);border-radius: var(--input-border-radius);border-color: var(--input-border-color);}
+.tui-select-box-dropdown{border-radius: var(--input-border-radius);}
+.tui-select-box-dropdown, 
+.tui-select-box-input.tui-select-box-open{border-color: var(--input-border-color);}
+.tui-select-box-input:focus{outline: 0;}
+>>>>>>> a3f88e2116a27af58a9e592e3e8968cc67b93f65
 
 .tui-grid-cell{border:1px solid var(--grid-cell-border-color) !important;background-color: var(--grid-cell-background-color) !important;}
 .tui-grid-cell.tui-grid-cell-header{font-size: var(--grid-cell-font-size);font-weight: 500;background-color: var(--grid-header-background-color) !important;}

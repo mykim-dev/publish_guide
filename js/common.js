@@ -64,6 +64,9 @@ function qsPicker(id, user_option = {}) {
             showToday: false
         },
         showAlways: false,
+        calendar: {
+            showToday: false
+        },
         autoClose: true,
         format: 'yyyyMMdd',
         input: {},
