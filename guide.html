@@ -26,16 +26,16 @@
 <body>
 <div class="wrap">
     <div class="qs-row">
-        <div class="qs-col-12">
+        <div class="qs-col-24">
 
             <!-- toolbar -->
             <dl class="qs-toolbar">
                 <dt>
                     <h2 class="qs-title">Form</h2>
-                    <div class="el-button-group">
+                    <div class="qs-button-group">
                         <button class="qs-button">신규</button>
                         <button class="qs-button qs-button--primary">조회</button>
-                        <button class="qs-button toolbar-toggle"><i class="qs-icon fas fa-search"></i></button>
+                        <button class="qs-button toolbar-toggle"><i class="qs-icon"></i></button>
                     </div>
                 </dt>
                 <dd>
@@ -108,13 +108,25 @@
             </dl>
         
         </div>
-        <div class="qs-col-12">
+        <div class="qs-col-24">
+            <!-- toolbar -->
+            <dl class="qs-toolbar">
+                <dt>
+                    <div class="qs-title">test</div>
+                    <button class="qs-button toolbar-toggle"><i class="qs-icon"></i></button>
+                </dt>
+                <dd>
+                    <div id="test"></div>
+                </dd>
+            </dl>
 
         </div>
     </div>
 </div>
 
 <script>
+    let grid = qsGrid('test');
+    // console.log(grid)
 </script>
 </body>
 </html>

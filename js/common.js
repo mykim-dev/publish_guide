@@ -1,61 +1,57 @@
 'use strict';
 
 (function() {
-    // console.log("IIFE")
+    console.log("IIFE");
 })();
 
-/* toolbar */
-// document.on('click', document.getElementsByClassName('toolbar-toggle'), function(e){
-//     console.log(e)
-
-// });
-
 window.onload = function() {
-    pickerInit();
-    selectInit();
+    init();
 }
 
-/* select */
-function selectInit() {
+function init() {
+    /* toolbar */
+    for(let item of Object.values(document.querySelectorAll('.toolbar-toggle'))) {    
+        item.addEventListener('click', () => {
+            item.closest('.qs-toolbar').classList.toggle('close');
+        });
+    }
+
+    /* select */
     for(let item of Object.values(document.querySelectorAll('.qs-select'))) {
-        let find_select = item.querySelector('select');        
-        if(find_select.className != 'tui-select-box-hidden'){
-            let find_select_data = [];
-            for (let i=0; i<find_select.length; i++){       
-                let op = find_select[i];
+        qsSelectBox(item.id);
+    }
 
-                if(find_select.options[find_select.selectedIndex].index == i){
-                    find_select_data.push({
-                        label: op.text,
-                        value: op.value
-                    });
-                }else{
-                    find_select_data.push({
-                        label: op.text,
-                        value: op.value
-                    });
-                }
-            }
-
-            console.log(item.id);
-            console.log(find_select_data);
-            find_select.style.display = "none";
-            
-            return new tui.SelectBox(`#${item.id}`, { data: find_select_data });
-        }
-    };
-}
-
-/* picker */
-function pickerInit() {
+    /* picker */
     for(let item of Object.values(document.querySelectorAll('.qs-date'))) {
         if(!item.innerHTML) {
-            makePicker(item.id);
+            qsPicker(item.id);
         }
     };
 }
 
-function makePicker (id, user_option = {}) {    
+function qsSelectBox(id, user_data = []) {
+    document.getElementById(id).querySelector('select').style.color = 'transparent';
+    document.getElementById(id).querySelector('select').style.borderColor = 'transparent';
+    document.getElementById(id).querySelector('select').style.display = 'none';
+    let select_data = [];
+    
+    if(user_data.length > 0) {
+        select_data = user_data;
+    }else{        
+        for(let item of Object.values(document.getElementById(id).querySelectorAll('option'))){
+            select_data.push({
+                label: item.innerText,
+                value: item.value,
+                disabled: item.getAttribute('disabled') === null ? false : true,
+                selected: item.getAttribute('selected') === null ? false : true
+            })
+        }
+    }    
+    return new tui.SelectBox(`#${id}`, { data: select_data });
+}
+
+
+function qsPicker(id, user_option = {}) {    
     if(!id) {
         return;
     }
@@ -64,6 +60,9 @@ function makePicker (id, user_option = {}) {
 
     let picker_option = {
         language: 'ko',
+        calendar: {
+            showToday: false
+        },
         showAlways: false,
         autoClose: true,
         format: 'yyyyMMdd',
@@ -82,13 +81,13 @@ function makePicker (id, user_option = {}) {
         <input type="text" id="startpicker-input-${ctrl_id}" class="datepicker-input" readonly />
         <span class="tui-ico-date"></span>
     </div>
-    <div id="startpicker-container-${ctrl_id}" class="datepicker-container"></div>`;
+    <div id="startpicker-container-${ctrl_id}" class="datepicker-container datepicker-container-start"></div>`;
     let picker_end_html = `
     <div class="tui-datepicker-input tui-has-focus">
         <input type="text" id="endpicker-input-${ctrl_id}" class="datepicker-input" readonly />
         <span class="tui-ico-date"></span>
     </div>
-    <div id="endpicker-container-${ctrl_id}" class="datepicker-container"></div>`;
+    <div id="endpicker-container-${ctrl_id}" class="datepicker-container datepicker-container-end"></div>`;
     let new_picker = {};
 
     switch(picker_type) {
@@ -166,30 +165,30 @@ function makePicker (id, user_option = {}) {
     return new_picker;
 }
 
-// function makeGrid(id) {    
-//     if(!id) {
-//         return;
-//     }
+function qsGrid(id) {
+    if(!id) {
+        return;
+    }
 
-//     let grid_option = {
-//         el: document.getElementById(id),
-//         scrollX: true,
-//         scrollY: true,
-//         rowHeight: 32,
-//         minRowHeight: 32,
-//         bodyHeight: 337,
-//         rowHeaders: ['rowNum', 'checkbox'],
-//         header: {
-//             height: 32,
-//         },
-//         columns: [],
-//         data: [],        
-//         pageOptions: {
-//             useClient: false,
-//             perPage: 5
-//         }
-//     }
+    let grid_option = {
+        el: document.getElementById(id),
+        scrollX: true,
+        scrollY: true,
+        rowHeight: 32,
+        minRowHeight: 32,
+        bodyHeight: 500,
+        // rowHeaders: ['rowNum', 'checkbox'],
+        header: {
+            height: 32,
+        },
+        columns: [],
+        data: [],        
+        pageOptions: {
+            useClient: false,
+            perPage: 10
+        }
+    }
 
-//     let new_grid = new tui.Grid(grid_option);
-//     return new_grid;
-// }
+    let new_grid = new tui.Grid(grid_option);
+    return new_grid;
+}
