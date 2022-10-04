@@ -81,13 +81,13 @@ function qsPicker(id, user_option = {}) {
     let picker_end_date = (user_option.endDate) ? user_option.endDate : new Date(picker_today.getFullYear(), picker_today.getMonth() + 1, 0);
     let picker_start_html = `
     <div class="tui-datepicker-input tui-has-focus">
-        <input type="text" id="startpicker-input-${ctrl_id}" class="datepicker-input" readonly />
+        <input type="number" id="startpicker-input-${ctrl_id}" class="datepicker-input" readonly />
         <span class="tui-ico-date"></span>
     </div>
     <div id="startpicker-container-${ctrl_id}" class="datepicker-container datepicker-container-start"></div>`;
     let picker_end_html = `
     <div class="tui-datepicker-input tui-has-focus">
-        <input type="text" id="endpicker-input-${ctrl_id}" class="datepicker-input" readonly />
+        <input type="number" id="endpicker-input-${ctrl_id}" class="datepicker-input" readonly />
         <span class="tui-ico-date"></span>
     </div>
     <div id="endpicker-container-${ctrl_id}" class="datepicker-container datepicker-container-end"></div>`;

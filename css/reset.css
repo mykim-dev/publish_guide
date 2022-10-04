@@ -52,8 +52,9 @@ input[type="url"]{-webkit-appearance: none;background-image: linear-gradient(tra
 /* toast lib */
 .tui-datepicker-input{width:initial;height:initial;border:0;}
 .tui-datepicker-input{flex:1;}
-<<<<<<< HEAD
-.tui-datepicker-input>input{height: var(--input-height);padding:0 8px 0 28px;border:1px solid var(--input-border-color);border-radius:4px;font-size: var(--base-font-size);/*color:inherit*/}
+.tui-datepicker-input>input{height: var(--input-height);padding:0 8px 0 30px;border:1px solid var(--input-border-color);border-radius:4px;font-size: var(--base-font-size);/*color:inherit*/}
+.tui-datepicker-input>input[type="number"]::-webkit-outer-spin-button,
+.tui-datepicker-input>input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;}
 .tui-datepicker-input>input:focus{border-color: var(--color-primary);}
 .tui-datepicker-input>.tui-ico-date{right: initial;left: 8px;}
 .tui-datepicker{top: 31px;left: 0;border-color:var(--input-border-color);border-radius:var(--input-border-radius);z-index:99;}
@@ -62,39 +63,24 @@ input[type="url"]{-webkit-appearance: none;background-image: linear-gradient(tra
 .tui-calendar td, .tui-calendar th{line-height: 39px;}
 .tui-calendar .tui-calendar-month,
 .tui-calendar .tui-calendar-year{line-height: 50px;}
-=======
-.tui-datepicker-input>input{height: var(--input-height);padding:0 8px 0 28px;font-size:var(--base-font-size);border:1px solid var(--input-border-color);border-radius:4px;/*font-size: inherit;color:inherit*/}
-.tui-datepicker-input>.tui-ico-date{right: initial;left: 8px;}
-.tui-datepicker{top: 31px;left: 0;border-color:var(--input-border-color);border-radius:var(--input-border-radius);z-index:9;overflow: hidden;}
-.tui-calendar .tui-calendar-header{display: flex;flex-direction: column-reverse;}
-.tui-calendar .tui-calendar-header-inner{display: flex;justify-content: center;align-items: center;}
-
-.tui-calendar td, 
-.tui-calendar th{height: initial;padding: 8px;}
-.tui-calendar .tui-calendar-month,
-.tui-calendar .tui-calendar-year{height: initial;padding: 12px 0;}
->>>>>>> a3f88e2116a27af58a9e592e3e8968cc67b93f65
 
 .tui-select-box{width: 100%;}
 .tui-select-box-input, 
 .tui-select-box-item, 
-<<<<<<< HEAD
 .tui-select-box-item-group-label{height: var(--input-height);border-radius: var(--input-border-radius);border-color: var(--input-border-color);color: var(--base-font-color);}
 .tui-select-box-icon, 
 .tui-select-box-placeholder{color: var(--base-font-color);}
 .tui-select-box-input:focus{outline: 0px solid transparent;}
+.tui-select-box-placeholder{width:calc(100% - 30px);}
 .tui-select-box-icon{width: 8px;height: 8px;margin-top: 10px;border: 0;border-left: 2px solid var(--base-font-color);border-bottom: 2px solid var(--base-font-color);transform: rotate(-45deg);background: none;}
 .tui-select-box-input.tui-select-box-open{border-color: var(--color-primary);}
 .tui-select-box-open>.tui-select-box-icon{margin-top: 12px;transform: rotate(135deg);}
 .tui-select-box-dropdown{border-color: var(--base-border-color);z-index: 99;}
-
-=======
 .tui-select-box-item-group-label{height: var(--input-height);border-radius: var(--input-border-radius);border-color: var(--input-border-color);}
 .tui-select-box-dropdown{border-radius: var(--input-border-radius);}
 .tui-select-box-dropdown, 
 .tui-select-box-input.tui-select-box-open{border-color: var(--input-border-color);}
 .tui-select-box-input:focus{outline: 0;}
->>>>>>> a3f88e2116a27af58a9e592e3e8968cc67b93f65
 
 .tui-grid-cell{border:1px solid var(--grid-cell-border-color) !important;background-color: var(--grid-cell-background-color) !important;}
 .tui-grid-cell.tui-grid-cell-header{font-size: var(--grid-cell-font-size);font-weight: 500;background-color: var(--grid-header-background-color) !important;}

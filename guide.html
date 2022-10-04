@@ -32,36 +32,38 @@
             <dl class="qs-toolbar">
                 <dt>
                     <h2 class="qs-title">Form</h2>
-<<<<<<< HEAD
                     <div class="qs-button-group">
                         <button class="qs-button">신규</button>
                         <button class="qs-button qs-button--primary">조회</button>
-                        <button class="qs-button toolbar-toggle"><i class="qs-icon"></i></button>
-=======
-                    <div class="el-button-group">
                         <button type="button" class="qs-button qs-button-primary">primary</button>
                         <button type="button" class="qs-button qs-button-success">success</button>
                         <button type="button" class="qs-button qs-button-warning">warning</button>
                         <button type="button" class="qs-button qs-button-danger">danger</button>
                         <button type="button" class="qs-button qs-button-error">error</button>
                         <button type="button" class="qs-button qs-button-info">info</button>
-                        <button type="button" class="qs-button"><i class="qs-icon fas fa-search"></i></button>
-                        <button type="button" class="qs-button toolbar-toggle"><i class="qs-icon fas fa-angle-down"></i></button>
->>>>>>> a3f88e2116a27af58a9e592e3e8968cc67b93f65
+                        <button type="button" class="qs-button toolbar-toggle"><i class="qs-icon"></i></button>
                     </div>
                 </dt>
                 <dd>
                     <div class="qs-row">
-                        <div class="qs-col-8">
-                            <div class="qs-form-item flex-direction">
+                        <div class="qs-col-6">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-text</label>
                                 <div class="qs-form-item__content">
                                     <input type="text" class="qs-text">
                                 </div>
                             </div>
                         </div>
-                        <div class="qs-col-8">
-                            <div class="qs-form-item flex-direction">
+                        <div class="qs-col-6">
+                            <div class="qs-form-item direction-column">
+                                <label class="qs-form-item__label">qs-number</label>
+                                <div class="qs-form-item__content">
+                                    <input type="number" class="qs-number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qs-col-6">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-lookup</label>
                                 <div class="qs-form-item__content">
                                     <div class="qs-lookup">
@@ -71,8 +73,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="qs-col-8">
-                            <div class="qs-form-item flex-direction">
+                        <div class="qs-col-6">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-select</label>
                                 <div class="qs-form-item__content">
                                     <div id="select1" class="qs-select">
@@ -85,8 +87,10 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="qs-row">
                         <div class="qs-col-8">
-                            <div class="qs-form-item flex-direction">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-date single</label>
                                 <div class="qs-form-item__content">
                                     <div id="date1" class="qs-date" date-type="single"></div>
@@ -94,7 +98,7 @@
                             </div>
                         </div>
                         <div class="qs-col-8">
-                            <div class="qs-form-item flex-direction">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-date month</label>
                                 <div class="qs-form-item__content">
                                     <div id="date2" class="qs-date" date-type="month"></div>
@@ -102,15 +106,17 @@
                             </div>
                         </div>
                         <div class="qs-col-8">
-                            <div class="qs-form-item flex-direction">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-date year</label>
                                 <div class="qs-form-item__content">
                                     <div id="date3" class="qs-date" date-type="year"></div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="qs-row">
                         <div class="qs-col-12">
-                            <div class="qs-form-item flex-direction">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-date range</label>
                                 <div class="qs-form-item__content">
                                     <div id="date4" class="qs-date" date-type="range"></div>
@@ -118,14 +124,70 @@
                             </div>
                         </div>
                         <div class="qs-col-12">
-                            <div class="qs-form-item flex-direction">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-date period</label>
                                 <div class="qs-form-item__content">
                                     <div id="date5" class="qs-date" date-type="period"></div>
                                 </div>
                             </div>
+                        </div>                        
+                    </div>
+                    <div class="qs-row">
+                        <div class="qs-col-8">
+                            <div class="qs-form-item">
+                                <label class="qs-form-item__label">qs-check</label>
+                                <div class="qs-form-item__content">
+                                    <div class="qs-check">
+                                        <input id="chk1" type="checkbox">
+                                        <label for="chk1">basic</label>
+                                    </div>
+                                    <div class="qs-check">
+                                        <input id="chk2" type="checkbox" checked>
+                                        <label for="chk2">checked</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        
+                        <div class="qs-col-8">
+                            <div class="qs-form-item">
+                                <label class="qs-form-item__label">qs-radio</label>
+                                <div class="qs-form-item__content">
+                                    <div class="qs-radio">
+                                        <input id="radio1" type="radio" name="radio">
+                                        <label for="radio1">basic</label>
+                                    </div>
+                                    <div class="qs-radio">
+                                        <input id="radio2" type="radio" name="radio" checked>
+                                        <label for="radio2">checked</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qs-row">
+                        <div class="qs-col-8">
+                            <div class="qs-form-item">
+                                <label class="qs-form-item__label">qs-file</label>
+                                <div class="qs-form-item__content">
+                                    <div class="qs-file">
+                                        <input type="file">
+                                        <label for=""></label>
+                                    </div>
+                                    <div class="qs-file">
+                                        <input type="file">
+                                        <label for=""></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qs-col-8">
+                            <div class="qs-form-item">
+                                <label class="qs-form-item__label">qs-textarea</label>
+                                <div class="qs-form-item__content">
+                                    <textarea class="qs-textarea"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </dd>
             </dl>
