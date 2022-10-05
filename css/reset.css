@@ -20,6 +20,10 @@ input[type="search"],
 input[type="tel"],
 input[type="text"],
 input[type="url"]{-webkit-appearance: none;background-image: linear-gradient(transparent, transparent);}
+input::placeholder,
+input::-webkit-input-placeholder{color: var(--input-placeholder-font-color);}
+input:disabled{background-color: var(--input-disabled-background-color);}
+
 
 /* div */
 .qs-row{display: flex;flex-wrap: wrap;padding:0;margin:0;list-style:none;position: relative;box-sizing: border-box;}
@@ -52,7 +56,7 @@ input[type="url"]{-webkit-appearance: none;background-image: linear-gradient(tra
 /* toast lib */
 .tui-datepicker-input{width:initial;height:initial;border:0;}
 .tui-datepicker-input{flex:1;}
-.tui-datepicker-input>input{height: var(--input-height);padding:0 8px 0 30px;border:1px solid var(--input-border-color);border-radius:4px;font-size: var(--base-font-size);/*color:inherit*/}
+.tui-datepicker-input>input{height: var(--input-height);padding:0 8px 0 30px;font-size:var(--input-font-size);border:1px solid var(--input-border-color);border-radius:4px;}
 .tui-datepicker-input>input[type="number"]::-webkit-outer-spin-button,
 .tui-datepicker-input>input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;}
 .tui-datepicker-input>input:focus{border-color: var(--color-primary);}
@@ -67,14 +71,17 @@ input[type="url"]{-webkit-appearance: none;background-image: linear-gradient(tra
 .tui-select-box{width: 100%;}
 .tui-select-box-input, 
 .tui-select-box-item, 
-.tui-select-box-item-group-label{height: var(--input-height);border-radius: var(--input-border-radius);border-color: var(--input-border-color);color: var(--base-font-color);}
+.tui-select-box-item-group-label{height: var(--input-height);font-size:var(--input-font-size);border-radius: var(--input-border-radius);border-color: var(--input-border-color);color: var(--base-font-color);}
+.tui-select-box-item, 
+.tui-select-box-item-group-label, 
+.tui-select-box-placeholder{line-height: var(--input-height);}
 .tui-select-box-icon, 
 .tui-select-box-placeholder{color: var(--base-font-color);}
 .tui-select-box-input:focus{outline: 0px solid transparent;}
-.tui-select-box-placeholder{width:calc(100% - 30px);}
-.tui-select-box-icon{width: 8px;height: 8px;margin-top: 10px;border: 0;border-left: 2px solid var(--base-font-color);border-bottom: 2px solid var(--base-font-color);transform: rotate(-45deg);background: none;}
+.tui-select-box-placeholder{width:calc(100% - 20px);font-size:var(--input-font-size);}
+.tui-select-box-icon{width: 8px;height: 8px;margin-top: 6px;border: 0;border-left: 1px solid var(--input-icon-color);border-bottom: 1px solid var(--input-icon-color);transform: rotate(-45deg);background: none;}
 .tui-select-box-input.tui-select-box-open{border-color: var(--color-primary);}
-.tui-select-box-open>.tui-select-box-icon{margin-top: 12px;transform: rotate(135deg);}
+.tui-select-box-open>.tui-select-box-icon{margin-top: 10px;transform: rotate(135deg);}
 .tui-select-box-dropdown{border-color: var(--base-border-color);z-index: 99;}
 .tui-select-box-item-group-label{height: var(--input-height);border-radius: var(--input-border-radius);border-color: var(--input-border-color);}
 .tui-select-box-dropdown{border-radius: var(--input-border-radius);}

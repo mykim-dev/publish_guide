@@ -26,7 +26,7 @@
 <body>
 <div class="wrap">
     <div class="qs-row">
-        <div class="qs-col-24">
+        <div class="qs-col-12">
 
             <!-- toolbar -->
             <dl class="qs-toolbar">
@@ -35,34 +35,44 @@
                     <div class="qs-button-group">
                         <button class="qs-button">신규</button>
                         <button class="qs-button qs-button--primary">조회</button>
-                        <button type="button" class="qs-button qs-button-primary">primary</button>
+                        <!-- <button type="button" class="qs-button qs-button-primary">primary</button>
                         <button type="button" class="qs-button qs-button-success">success</button>
                         <button type="button" class="qs-button qs-button-warning">warning</button>
                         <button type="button" class="qs-button qs-button-danger">danger</button>
                         <button type="button" class="qs-button qs-button-error">error</button>
-                        <button type="button" class="qs-button qs-button-info">info</button>
+                        <button type="button" class="qs-button qs-button-info">info</button> -->
                         <button type="button" class="qs-button toolbar-toggle"><i class="qs-icon"></i></button>
                     </div>
                 </dt>
                 <dd>
                     <div class="qs-row">
-                        <div class="qs-col-6">
+                        <div class="qs-col-8">
                             <div class="qs-form-item direction-column">
-                                <label class="qs-form-item__label">qs-text</label>
+                                <label class="qs-form-item__label">qs-text [type=text]</label>
                                 <div class="qs-form-item__content">
-                                    <input type="text" class="qs-text">
+                                    <input type="text" class="qs-text" placeholder="Please input">
                                 </div>
                             </div>
                         </div>
-                        <div class="qs-col-6">
+                        <div class="qs-col-8">
+                            <div class="qs-form-item direction-column">
+                                <label class="qs-form-item__label">qs-text [type=number]</label>
+                                <div class="qs-form-item__content">
+                                    <input type="number" class="qs-text" placeholder="Please input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qs-col-8">
                             <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-number</label>
                                 <div class="qs-form-item__content">
-                                    <input type="number" class="qs-number">
+                                    <input type="number" class="qs-number" placeholder="Please input">
                                 </div>
                             </div>
                         </div>
-                        <div class="qs-col-6">
+                    </div>
+                    <div class="qs-row">
+                        <div class="qs-col-8">
                             <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-lookup</label>
                                 <div class="qs-form-item__content">
@@ -73,7 +83,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="qs-col-6">
+                        <div class="qs-col-8">
                             <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-select</label>
                                 <div class="qs-form-item__content">
@@ -133,8 +143,8 @@
                         </div>                        
                     </div>
                     <div class="qs-row">
-                        <div class="qs-col-8">
-                            <div class="qs-form-item">
+                        <div class="qs-col-12">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-check</label>
                                 <div class="qs-form-item__content">
                                     <div class="qs-check">
@@ -148,8 +158,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="qs-col-8">
-                            <div class="qs-form-item">
+                        <div class="qs-col-12">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-radio</label>
                                 <div class="qs-form-item__content">
                                     <div class="qs-radio">
@@ -165,23 +175,27 @@
                         </div>
                     </div>
                     <div class="qs-row">
-                        <div class="qs-col-8">
-                            <div class="qs-form-item">
+                        <div class="qs-col-24">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-file</label>
                                 <div class="qs-form-item__content">
                                     <div class="qs-file">
-                                        <input type="file">
-                                        <label for=""></label>
-                                    </div>
-                                    <div class="qs-file">
-                                        <input type="file">
-                                        <label for=""></label>
-                                    </div>
+                                        <input type="file" id="file1">
+                                        <label for="file1">select file</label>
+                                        <ul class="file-list">
+                                            <li class="file-list-item">
+                                                <span class="file-info">testtest.xlsx</span>
+                                                <span class="file-delete">삭제</span>
+                                            </li>
+                                        </ul>
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="qs-col-8">
-                            <div class="qs-form-item">
+                    </div>
+                    <div class="qs-row">
+                        <div class="qs-col-24">
+                            <div class="qs-form-item direction-column">
                                 <label class="qs-form-item__label">qs-textarea</label>
                                 <div class="qs-form-item__content">
                                     <textarea class="qs-textarea"></textarea>
@@ -193,7 +207,7 @@
             </dl>
         
         </div>
-        <div class="qs-col-24">
+        <div class="qs-col-12">
             <!-- toolbar -->
             <dl class="qs-toolbar">
                 <dt>

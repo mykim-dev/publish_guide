@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #8B4CA5;
+  --color-primary: #9dc5d4;
   --color-success: #67c23a;
   --color-warning: #e6a23c;
   --color-danger: #f56c6c;
@@ -8,25 +8,30 @@
 
   --base-font-family: 'Noto Sans KR';
 
-  --base-height: 32px;
+  --base-height: 27px;
   --base-padding: 0 8px;
   --base-margin: 2px 4px;
-  --base-font-size: 13px;
-  --base-font-color: #555;
-  --base-placeholder-font-color: #cdcdcd;
+  --base-font-size: 14px;
+  --base-font-color: #000;  
   --base-border-radius: 4px;
-  --base-border-color: #e1e1e1;
+  --base-border-color: #e8e8e8;
   --base-background-color: #fff;
   --base-box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, .36), 0px 8px 20px rgba(0, 0, 0, .72);
 
   --input-height: var(--base-height);
   --input-margin: var(--base-margin);
+  --input-font-size: 0.875rem;
   --input-font-color: var(--base-font-color);
   --input-border-radius: var(--base-border-radius);
   --input-border-color: var(--base-border-color);
-  --input-disabled-background-color: rgba(0,0,0,0.2);
-  --input-disabled-border-color: rgba(0,0,0,0.1);
-  
+  --input-icon-color: #000;
+  --input-disabled-background-color: #f1f1f1;
+  --input-placeholder-font-color: #c0c4cc;
+
+  --input-active-font-color: #21667e;
+  --input-active-border-color: #9dc5d4;
+  --input-active-background-color: #9dc5d4;
+    
   --grid-border-color: #eaf2f9;  
   --grid-cell-font-size: 12px;
   --grid-cell-border-color: #ebeef5;
