@@ -120,7 +120,7 @@ ul.qs-list > li .date,
 ul.qs-list > li .info{display:block;margin:0 2px;color:#8b8b8b;font-size:0.9em;}
 
 /* form */
-.qs-form-item{display: flex;padding: 2px;}
+.qs-form-item{display: flex;padding: 4px 2px;}
 .qs-form-item > .qs-form-item__label{display: flex;flex: 0 0 120px;align-items: center;padding:4px 2px;margin: var(--base-margin);}
 .qs-form-item > .qs-form-item__content{display: flex;}
 .qs-form-item > .qs-form-item__content > .qs-text,

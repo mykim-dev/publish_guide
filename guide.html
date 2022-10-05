@@ -19,6 +19,8 @@
 <link rel="stylesheet" type="text/css" href="./lib/tui/tui-grid.min.css">
 <script type="text/javascript" src="./lib/tui/tui-grid.min.js"></script>
 
+<script type="text/javascript" src="./basic-dummy.js"></script>
+
 <link rel="stylesheet" type="text/css" href="./css/common.css">
 <script type="text/javascript" src="./js/common.js"></script>
 
@@ -215,7 +217,7 @@
                     <button class="qs-button toolbar-toggle"><i class="qs-icon"></i></button>
                 </dt>
                 <dd>
-                    <div id="test"></div>
+                    <div id="grid"></div>
                 </dd>
             </dl>
 
@@ -224,8 +226,209 @@
 </div>
 
 <script>
-    let grid = qsGrid('test');
-    // console.log(grid)
+    class RowNumberRenderer {
+        constructor(props) {
+            const el = document.createElement('span');
+            el.innerHTML = `No.${props.formattedValue}`;
+            this.el = el;
+        }
+
+        getElement() {
+            return this.el;
+        }
+
+        render(props) {
+            this.el.innerHTML = `No.${props.formattedValue}`;
+        }
+    }
+
+    class CheckboxRenderer {
+        constructor(props) {
+            const { grid, rowKey } = props;
+
+            const label = document.createElement('label');
+            label.className = 'checkbox tui-grid-row-header-checkbox';
+            label.setAttribute('for', String(rowKey));
+
+            const hiddenInput = document.createElement('input');
+            hiddenInput.className = 'hidden-input';
+            hiddenInput.id = String(rowKey);
+
+            const customInput = document.createElement('span');
+            customInput.className = 'custom-input';
+
+            label.appendChild(hiddenInput);
+            label.appendChild(customInput);
+
+            hiddenInput.type = 'checkbox';
+            label.addEventListener('click', (ev) => {
+                ev.preventDefault();
+
+                if (ev.shiftKey) {
+                    grid[!hiddenInput.checked ? 'checkBetween' : 'uncheckBetween'](rowKey);
+                    return;
+                }
+
+                grid[!hiddenInput.checked ? 'check' : 'uncheck'](rowKey);
+            });
+
+            this.el = label;
+
+            this.render(props);
+        }
+
+        getElement() {
+            return this.el;
+        }
+
+        render(props) {
+            const hiddenInput = this.el.querySelector('.hidden-input');
+            const checked = Boolean(props.value);
+
+            hiddenInput.checked = checked;
+        }
+    }
+
+    const grid = new tui.Grid({
+        el: document.getElementById('grid'),
+        // data: {
+        //     api: {
+        //         readData: { url: '/api/readData', method: 'GET' }
+        //     }
+        // },
+        data: gridData,
+        pageOptions: {
+            useClient: true,
+            perPage: 10
+        },
+        header: {
+            height: 32,
+            align: 'center',
+            valign: 'middle',
+            columns: [
+                {
+                    name: 'name',
+                    align: 'left',  // left, center, right
+                    valign: 'middle'    // top, middle, bottom
+                }
+            ]
+        },
+        width: 'auto',
+        rowHeight: 32,
+        minRowHeight: 32,
+        bodyHeight: 337,
+        minBodyHeight: 337,
+        columnOptions: {
+            minWidth: 100,
+            resizable: true,
+            frozenCount: 1,
+            frozenBorderWidth: 1,            
+        },
+        useClientSort: true,
+        editingEvent: 'click', // 
+        scrollX: true,
+        scrollY: true,
+        heightResizable: true,
+        selectionUnit: 'cell',   // cell, row        
+        // rowHeaders: ['rowNum'],
+        rowHeaders: [
+            {
+                type: 'rowNum', // rowNum, checkbox
+                width: '50',
+                align: 'center',
+                renderer: {
+                    type: RowNumberRenderer
+                }
+            },
+            {
+                type: 'checkbox',                
+                header: `
+                    <label for="all-checkbox" class="checkbox">
+                        <input type="checkbox" id="all-checkbox" class="hidden-input" name="_checked" />
+                        <span class="custom-input"></span>
+                    </label>
+                `,
+                width: '50',
+                align: 'center',
+                renderer: {
+                    type: CheckboxRenderer
+                }
+            }
+        ],        
+        columns: [
+            {
+                name: 'name',
+                ellipsis: true,
+                align: 'center',
+                valign: 'middle',
+                className: '',                
+                header: 'Name',
+                width: 100,
+                hidden: false,
+                resizable: true,
+                defaultValue: '0',
+                escapeHTML: false,
+                ignored: false,
+                sortable: true,
+                sortingType: 'desc',
+                editor: {
+                    type: 'text',
+                    options: {}
+                }
+            },
+            {
+                header: 'Artist',
+                name: 'artist',
+                sortingType: 'asc',
+                sortable: true,
+                filter: { type: 'text', showApplyBtn: true, showClearBtn: true }
+            },
+            {
+                header: 'Type',
+                name: 'type'
+            },
+            {
+                header: 'Release',
+                name: 'release'
+            },
+            {
+                header: 'Genre',
+                name: 'genre',
+                validation: {
+                    regExp: /[a-z]+_[a-z]/
+                }
+            },
+            {
+                header: 'Price',
+                name: 'price',
+                align: 'right',
+                validation: {
+                    regExp: /\B(?=(\d{3})+(?!\d))/
+                }
+            }
+        ],
+        summary: {
+            height: 32,            
+            position: 'bottom',
+            columnContent: {
+                price: {
+                    template: (e) => {
+                        console.log(e)
+                        return `SUM: ${e.sum}`
+                    }
+                }                
+            }
+        },
+        draggable: true
+    });
+
+    grid.on('check', function(ev) {
+      console.log('check', ev);
+    });
+
+    grid.on('uncheck', function(ev) {
+      console.log('uncheck', ev);
+    });
 </script>
 </body>
 </html>
