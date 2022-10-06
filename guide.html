@@ -242,53 +242,6 @@
         }
     }
 
-    class CheckboxRenderer {
-        constructor(props) {
-            const { grid, rowKey } = props;
-
-            const label = document.createElement('label');
-            label.className = 'checkbox tui-grid-row-header-checkbox';
-            label.setAttribute('for', String(rowKey));
-
-            const hiddenInput = document.createElement('input');
-            hiddenInput.className = 'hidden-input';
-            hiddenInput.id = String(rowKey);
-
-            const customInput = document.createElement('span');
-            customInput.className = 'custom-input';
-
-            label.appendChild(hiddenInput);
-            label.appendChild(customInput);
-
-            hiddenInput.type = 'checkbox';
-            label.addEventListener('click', (ev) => {
-                ev.preventDefault();
-
-                if (ev.shiftKey) {
-                    grid[!hiddenInput.checked ? 'checkBetween' : 'uncheckBetween'](rowKey);
-                    return;
-                }
-
-                grid[!hiddenInput.checked ? 'check' : 'uncheck'](rowKey);
-            });
-
-            this.el = label;
-
-            this.render(props);
-        }
-
-        getElement() {
-            return this.el;
-        }
-
-        render(props) {
-            const hiddenInput = this.el.querySelector('.hidden-input');
-            const checked = Boolean(props.value);
-
-            hiddenInput.checked = checked;
-        }
-    }
-
     const grid = new tui.Grid({
         el: document.getElementById('grid'),
         // data: {
@@ -341,18 +294,9 @@
                 }
             },
             {
-                type: 'checkbox',                
-                header: `
-                    <label for="all-checkbox" class="checkbox">
-                        <input type="checkbox" id="all-checkbox" class="hidden-input" name="_checked" />
-                        <span class="custom-input"></span>
-                    </label>
-                `,
+                type: 'checkbox',
                 width: '50',
-                align: 'center',
-                renderer: {
-                    type: CheckboxRenderer
-                }
+                align: 'center'
             }
         ],        
         columns: [
@@ -403,7 +347,7 @@
                 name: 'price',
                 align: 'right',
                 validation: {
-                    regExp: /\B(?=(\d{3})+(?!\d))/
+                    regExp: /\B(?=(\d{3})+(?!\d))/g
                 }
             }
         ],
@@ -414,9 +358,9 @@
                 price: {
                     template: (e) => {
                         console.log(e)
-                        return `SUM: ${e.sum}`
+                        return `sum: ${e.sum}<br>avg: ${e.avg}`
                     }
-                }                
+                }
             }
         },
         draggable: true
