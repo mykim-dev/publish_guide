@@ -9,6 +9,8 @@ window.onload = function() {
 }
 
 function init() {
+    // document.body.classList.add(checkAgent());
+
     /* toolbar */
     for(let item of Object.values(document.querySelectorAll('.toolbar-toggle'))) {    
         item.addEventListener('click', () => {
@@ -194,4 +196,22 @@ function qsGrid(id) {
 
     let new_grid = new tui.Grid(grid_option);
     return new_grid;
+}
+
+function checkAgent(){ 
+    var userAgent = navigator.userAgent.toLowerCase(); //userAgent 값 얻기    
+    
+    if ( userAgent.indexOf('android') > -1) {
+        //안드로이드
+        console.log("android");
+        return "android";        
+    } else if ( userAgent.indexOf("iphone") > -1||userAgent.indexOf("ipad") > -1||userAgent.indexOf("ipod") > -1 ) {
+        //IOS
+        console.log("ios");
+        return "ios";        
+    } else {
+        //아이폰, 안드로이드 외
+        console.log("other");
+        return "other";
+    }    
 }

@@ -37,6 +37,8 @@
   --grid-cell-border-color: #ebeef5;
   --grid-cell-background-color: #fff;
   --grid-header-background-color: #f5fafc;
+  --grid-hover-background-color: #f6f6f6;
+  --grid-current-background-color: #e4f3f7;
 
   --pagination-selected-background-color: #9dc5d4;
   --pagination-selected-color: #fff;
