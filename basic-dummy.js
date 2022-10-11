@@ -10,7 +10,7 @@ var gridData = [
     genre: 'Pop',
     genreCode: '1',
     grade: '2',
-    price: 10000,
+    price: null,
     downloadCount: 1000,
     listenCount: 5000,
   },

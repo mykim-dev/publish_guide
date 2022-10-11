@@ -282,7 +282,7 @@ const grid = new tui.Grid({
     scrollX: true,
     scrollY: true,
     heightResizable: true,
-    selectionUnit: 'cell',   // cell, row        
+    selectionUnit: 'row',   // cell, row        
     // rowHeaders: ['rowNum'],
     rowHeaders: [
         {
@@ -303,11 +303,11 @@ const grid = new tui.Grid({
         {
             name: 'name',
             ellipsis: true,
-            align: 'center',
+            align: 'left',
             valign: 'middle',
             className: '',                
             header: 'Name',
-            width: 100,
+            width: 140,
             hidden: false,
             resizable: true,
             defaultValue: '0',
@@ -338,32 +338,35 @@ const grid = new tui.Grid({
         {
             header: 'Genre',
             name: 'genre',
-            validation: {
-                regExp: /[a-z]+_[a-z]/
-            }
+            // validation: {
+            //     regExp: /[a-z]+_[a-z]/
+            // }
         },
         {
             header: 'Price',
             name: 'price',
             align: 'right',
-            validation: {
+            defaultValue: 0,
+            dataType: 'number',
+            validation: {                
                 regExp: /\B(?=(\d{3})+(?!\d))/g
             }
         }
     ],
-    summary: {
-        height: 32,            
-        position: 'bottom',
-        columnContent: {
-            price: {
-                template: (e) => {
-                    console.log(e)
-                    return `sum: ${e.sum}<br>avg: ${e.avg}`
-                }
-            }
-        }
-    },
+    // summary: {
+    //     height: 32,            
+    //     position: 'bottom',
+    //     columnContent: {
+    //         price: {
+    //             template: (e) => {
+    //                 console.log(e)
+    //                 return `sum: ${e.sum}<br>avg: ${e.avg}`
+    //             }
+    //         }
+    //     }
+    // },
     draggable: true,
+    contextMenu: null
 });
 
 grid.on('check', function(ev) {

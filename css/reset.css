@@ -94,27 +94,28 @@ input:disabled{background-color: var(--input-disabled-background-color);}
 .tui-grid-container .tui-grid-cell.tui-grid-cell-row-header > span{font-size: var(--grid-cell-font-size);}
 .tui-grid-container .tui-grid-cell .tui-grid-cell-content{padding: 0;font-size: var(--grid-cell-font-size);}
 .tui-grid-container .tui-grid-cell .tui-grid-cell-content button{height: 18px;line-height: 16px;padding: 0 4px;margin: 0 2px;border-radius: 2px;border: 1px solid var(--input-border-color);}
-
-.tui-grid-container .tui-grid-row-hover .tui-grid-cell{background-color: var(--grid-hover-background-color);}
-.tui-grid-container .tui-grid-cell-current-row .tui-grid-cell{background-color: var(--grid-current-background-color);}
-
 .tui-grid-container .tui-grid-border-line-top{border-top: 1px solid var(--grid-border-color);}
 .tui-grid-container .tui-grid-border-line-left{border-left: 1px solid var(--grid-border-color);}
 .tui-grid-container .tui-grid-border-line-right{border-right: 1px solid var(--grid-border-color);}
 .tui-grid-container .tui-grid-border-line-bottom{border-bottom: 1px solid var(--grid-border-color);}
 
-.tui-grid-container .tui-grid-context-menu{display: none;}
+.tui-grid-container .tui-grid-row-hover .tui-grid-cell{background-color: var(--grid-hover-background-color);}
 .tui-grid-container .tui-grid-layer-focus-border,
 .tui-grid-container .tui-grid-layer-focus .tui-grid-layer-focus-border,
 .tui-grid-container .tui-grid-layer-focus-deactive .tui-grid-layer-focus-border{background-color: transparent;}
+.tui-grid-container .tui-grid-layer-selection{background-color: transparent;border-color: transparent;}
+.tui-grid-container .tui-grid-cell-row-header.tui-grid-cell-selected{background-color: transparent;}
+.tui-grid-container .tui-grid-cell-current-row .tui-grid-cell,
+.tui-grid-container .tui-grid-cell-current-row .tui-grid-cell-row-header.tui-grid-cell-selected{background-color: var(--grid-current-background-color);}
 
-.tui-grid-container .tui-pagination{height: 30px;margin: 20px 0 10px;display: flex;justify-content: center;align-items: center;}
-.tui-grid-container .tui-pagination .tui-page-btn{display:inline-flex;justify-content: center;align-items: center;width:28px;height:28px;line-height: 28px;padding: 0;margin: 0 2px;border-radius:2px;border-width:1px 1px 1px 1px;border:1px solid var(--grid-cell-border-color);}
-.tui-grid-container .tui-pagination .tui-first-child.tui-is-selected{color: var(--pagination-selected-color);border-color: var(--pagination-selected-background-color);background: var(--pagination-selected-background-color);}
-.tui-grid-container .tui-pagination .tui-first+.tui-prev, 
-.tui-grid-container .tui-pagination .tui-next+.tui-last, 
-.tui-grid-container .tui-pagination .tui-next-is-ellip{border-left: 1px solid var(--grid-cell-border-color);border-right: 1px solid var(--grid-cell-border-color);}
-.tui-grid-container .tui-pagination .tui-last-child, 
-.tui-grid-container .tui-pagination .tui-next-is-ellip{border-right:1px solid var(--grid-cell-border-color)}
-.tui-grid-container .tui-pagination .tui-first-child.tui-is-selected, 
-.tui-grid-container .tui-pagination strong.tui-first-child{margin-left: 2px;}
+.tui-grid-container input[type=checkbox]{position: relative;z-index: 0;}
+.tui-grid-container input[type=checkbox]:before{display: block;content: "";width: 15px;height: 15px;position: absolute;top: -1px;left: -1px;border-radius: 3px;border:1px solid var(--input-border-color);background-color: #fff;z-index: 1;}
+.tui-grid-container input[type=checkbox]:after{display: none;content: "";width: 9px;height: 6px;position: absolute;top: 2px;left: 2px;border-left: 2px solid var(--input-active-font-color);border-bottom: 2px solid var(--input-active-font-color);transform: rotate(-45deg);z-index: 2;}
+.tui-grid-container input[type=checkbox]:checked::before{border-color: var(--input-active-font-color);}
+.tui-grid-container input[type=checkbox]:checked:after{display: block;}
+
+.tui-grid-container .tui-pagination .tui-first-child.tui-is-selected,
+.tui-grid-container .tui-pagination .tui-is-selected:hover,
+.tui-grid-container .tui-pagination .tui-last-child.tui-is-selected,
+.tui-grid-container .tui-pagination .tui-is-selected, 
+.tui-grid-container .tui-pagination strong{background-color: var(--pagination-selected-background-color);border-color: var(--pagination-selected-background-color);}

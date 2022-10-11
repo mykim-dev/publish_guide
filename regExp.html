@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자주 사용하는 정규표현식</title>
+</head>
+<body>
+<div class="wrap">    
+</div>
+
+<script>
+    // 1. 특정 단어로 시작하는지 검사한다.
+    const url = 'http://example.com';
+
+    // 'http'로 시작하는지 검사
+    // ^ : 문자열의 처음을 의미한다.
+    const regexr = /^http/;
+
+    console.log(regexr.test(url)); // true
+
+
+    // 2. 특정 단어로 끝나는지 검사한다.
+    const fileName = 'index.html';
+
+    // 'html'로 끝나는지 검사
+    // $ : 문자열의 끝을 의미한다.
+    const regexr = /html$/;
+
+    console.log(regexr.test(fileName)); // true
+
+    // 3. 숫자인지 검사한다.
+    const targetStr = '12345';
+
+    // 모두 숫자인지 검사
+    // [^]: 부정(not)을 의미한다. 얘를 들어 [^a-z]는 알파벳 소문자로 시작하지 않는 모든 문자를 의미한다.
+    // [] 바깥의 ^는 문자열의 처음을 의미한다.
+    const regexr = /^\d+$/;
+
+    console.log(regexr.test(targetStr)); // true
+
+
+    // 4. 하나 이상의 공백으로 시작하는지 검사한다.
+    const targetStr = ' Hi!';
+
+    // 1개 이상의 공백으로 시작하는지 검사
+    // \s : 여러 가지 공백 문자 (스페이스, 탭 등) => [\t\r\n\v\f]
+    const regexr = /^[\s]+/;
+
+    console.log(regexr.test(targetStr)); // true
+
+
+    // 5. 메일 주소 형식에 맞는지 검사한다.
+    const email = 'ungmo2@gmail.com';
+
+    const regexr = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+    console.log(regexr.test(email)); // true
+    
+
+    // 6. 핸드폰 번호 형식에 맞는지 검사한다.
+    const cellphone = '010-1234-5678';
+
+    const regexr = /^\d{3}-\d{3,4}-\d{4}$/;
+
+    console.log(regexr.test(cellphone)); // true
+</script>
+</body>
+</html>
