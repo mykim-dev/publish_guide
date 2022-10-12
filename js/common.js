@@ -9,7 +9,7 @@ window.onload = function() {
 }
 
 function init() {
-    // document.body.classList.add(checkAgent());
+    document.body.classList.add(checkAgent());
 
     /* toolbar */
     for(let item of Object.values(document.querySelectorAll('.toolbar-toggle'))) {    
@@ -198,20 +198,39 @@ function qsGrid(id) {
     return new_grid;
 }
 
+function formatter_price(value) {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function formatter_htel(value) {
+    const telNum = value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+    return telNum;
+}
+
+function formatter_email(value) {
+    const regexr = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+    return regexr.test(value);
+}
+
 function checkAgent(){ 
     var userAgent = navigator.userAgent.toLowerCase(); //userAgent 값 얻기    
     
     if ( userAgent.indexOf('android') > -1) {
         //안드로이드
-        console.log("android");
-        return "android";        
+        // console.log("android");
+        // return "android";
+        document.body.classList.add('agent-mobile');
+        document.body.classList.add('agent-android');
     } else if ( userAgent.indexOf("iphone") > -1||userAgent.indexOf("ipad") > -1||userAgent.indexOf("ipod") > -1 ) {
         //IOS
-        console.log("ios");
-        return "ios";        
+        // console.log("ios");
+        // return "ios";
+        document.body.classList.add('agent-mobile');
+        document.body.classList.add('agent-ios');
     } else {
         //아이폰, 안드로이드 외
-        console.log("other");
-        return "other";
+        // console.log("other");
+        // return "other";
+        document.body.classList.add('agent-pc');
     }    
 }

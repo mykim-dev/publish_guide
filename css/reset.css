@@ -2,7 +2,7 @@
 *, *::before, *::after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;}
 html,body{width:inherit;height:inherit;-webkit-font-smoothing:antialiased;box-sizing:border-box;}
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-size: var(--base-font-size);vertical-align: baseline;background: transparent;}
-body,input,textarea,select,button,table,pre{font-family:"Noto Sans KR", "맑은고딕", "Malgun Gothic", 'Apple SD Gothic Neo', "돋움", dotum, Arial, sans-serif;font-size: var(--base-font-size);font-weight:400;color:var(--base-font-color);line-height: 1;}
+body,input,textarea,select,button,table,pre{font-family: var(--base-font-family);font-size: var(--base-font-size);font-weight: 400;color: var(--base-font-color);line-height: 1;}
 blockquote, q {quotes: none;}
 blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}
 :focus{outline: 0;}
@@ -89,11 +89,16 @@ input:disabled{background-color: var(--input-disabled-background-color);}
 .tui-select-box-input.tui-select-box-open{border-color: var(--input-border-color);}
 .tui-select-box-input:focus{outline: 0;}
 
-.tui-grid-container .tui-grid-cell{padding: 4px 10px;font-size:var(--grid-cell-font-size);border:1px solid var(--grid-cell-border-color);background-color: var(--grid-cell-background-color);}
-.tui-grid-container .tui-grid-cell.tui-grid-cell-header{font-size: var(--grid-cell-font-size);font-weight: 500;background-color: var(--grid-header-background-color);}
+.tui-grid-container{font-family: var(--base-font-family);}
+.tui-grid-container .tui-grid-cell{padding: 4px;font-size:var(--grid-cell-font-size);border:1px solid var(--grid-cell-border-color);background-color: var(--grid-cell-background-color);}
+.tui-grid-container .tui-grid-cell.tui-grid-cell-header{padding:4px 8px;position:relative;font-size: var(--grid-cell-font-size);font-weight: 500;background-color: var(--grid-header-background-color);}
 .tui-grid-container .tui-grid-cell.tui-grid-cell-row-header > span{font-size: var(--grid-cell-font-size);}
-.tui-grid-container .tui-grid-cell .tui-grid-cell-content{padding: 0;font-size: var(--grid-cell-font-size);}
+.tui-grid-container .tui-grid-btn-sorting{}
+.tui-grid-container .tui-grid-btn-filter{}
+.tui-grid-container .tui-grid-cell .tui-grid-cell-content{padding: 4px;font-size: var(--grid-cell-font-size);}
 .tui-grid-container .tui-grid-cell .tui-grid-cell-content button{height: 18px;line-height: 16px;padding: 0 4px;margin: 0 2px;border-radius: 2px;border: 1px solid var(--input-border-color);}
+.tui-grid-container .tui-grid-cell-content input[type=password], 
+.tui-grid-container .tui-grid-cell-content input[type=text]{padding: 4px;}
 .tui-grid-container .tui-grid-border-line-top{border-top: 1px solid var(--grid-border-color);}
 .tui-grid-container .tui-grid-border-line-left{border-left: 1px solid var(--grid-border-color);}
 .tui-grid-container .tui-grid-border-line-right{border-right: 1px solid var(--grid-border-color);}
@@ -114,6 +119,8 @@ input:disabled{background-color: var(--input-disabled-background-color);}
 .tui-grid-container input[type=checkbox]:checked::before{border-color: var(--input-active-font-color);}
 .tui-grid-container input[type=checkbox]:checked:after{display: block;}
 
+.tui-grid-container .tui-grid-pagination{display: flex;justify-content: center;align-items: center;}
+.tui-grid-container .tui-pagination .page-total{margin-right: 30px;}
 .tui-grid-container .tui-pagination .tui-first-child.tui-is-selected,
 .tui-grid-container .tui-pagination .tui-is-selected:hover,
 .tui-grid-container .tui-pagination .tui-last-child.tui-is-selected,

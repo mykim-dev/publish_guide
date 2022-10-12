@@ -214,7 +214,10 @@
             <dl class="qs-toolbar">
                 <dt>
                     <div class="qs-title">test</div>
-                    <button class="qs-button toolbar-toggle"><i class="qs-icon"></i></button>
+                    <div>
+                        <button class="qs-button" id="resetData">resetData</button>
+                        <button class="qs-button toolbar-toggle"><i class="qs-icon"></i></button>
+                    </div>
                 </dt>
                 <dd>
                     <div id="grid"></div>
@@ -272,7 +275,7 @@ const grid = new tui.Grid({
     bodyHeight: 337,
     minBodyHeight: 337,
     columnOptions: {
-        minWidth: 100,
+        // minWidth: 100,
         resizable: true,
         frozenCount: 1,
         frozenBorderWidth: 1,            
@@ -281,7 +284,7 @@ const grid = new tui.Grid({
     editingEvent: 'click', // 
     scrollX: true,
     scrollY: true,
-    heightResizable: true,
+    heightResizable: false,
     selectionUnit: 'row',   // cell, row        
     // rowHeaders: ['rowNum'],
     rowHeaders: [
@@ -305,13 +308,13 @@ const grid = new tui.Grid({
             ellipsis: true,
             align: 'left',
             valign: 'middle',
-            className: '',                
+            className: 'test',                
             header: 'Name',
             width: 140,
             hidden: false,
             resizable: true,
             defaultValue: '0',
-            escapeHTML: false,
+            escapeHTML: true,
             ignored: false,
             sortable: true,
             sortingType: 'desc',
@@ -333,23 +336,28 @@ const grid = new tui.Grid({
         },
         {
             header: 'Release',
-            name: 'release'
+            name: 'release',
+            formatter({value}) {
+                // console.log(value);
+                return formatter_htel(value);
+            }
         },
         {
             header: 'Genre',
             name: 'genre',
-            // validation: {
-            //     regExp: /[a-z]+_[a-z]/
-            // }
+            formatter({value}) {
+                // console.log(value);
+                return formatter_email(value);
+            }
         },
         {
             header: 'Price',
             name: 'price',
             align: 'right',
             defaultValue: 0,
-            dataType: 'number',
-            validation: {                
-                regExp: /\B(?=(\d{3})+(?!\d))/g
+            formatter({value}) {
+                // console.log(value);
+                return formatter_price(value);
             }
         }
     ],
@@ -366,7 +374,15 @@ const grid = new tui.Grid({
     //     }
     // },
     draggable: true,
-    contextMenu: null
+    contextMenu: null,
+    onGridMounted(ev) {
+        console.log('onGridMounted',ev);
+        document.querySelector(".tui-grid-pagination").insertAdjacentHTML("afterbegin",`<div class="page-total">총  <b>${ev.instance.getPaginationTotalCount()}</b>건</div>`);
+    },
+    onGridUpdated(ev) {
+        console.log('onGridUpdated',ev);
+        document.querySelector(".page-total b").innerHTML(`${ev.instance.getPaginationTotalCount()}`);
+    }
 });
 
 grid.on('check', function(ev) {
@@ -375,6 +391,13 @@ grid.on('check', function(ev) {
 
 grid.on('uncheck', function(ev) {
     console.log('uncheck', ev);
+});
+
+document.querySelector("#resetData").addEventListener("click", function(){
+    console.log("click");
+    const tmpData = gridData.filter(item => item.price >= 20000)
+    console.log(tmpData)
+    grid.resetData(tmpData);
 });
 </script>
 </body>
