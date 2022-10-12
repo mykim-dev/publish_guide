@@ -297,9 +297,9 @@ const grid = new tui.Grid({
             type: 'rowNum', // rowNum, checkbox
             width: '60',
             align: 'center',
-            renderer: {
-                type: RowNumberRenderer
-            }
+            // renderer: {
+            //     type: RowNumberRenderer
+            // }
         },
         {
             type: 'checkbox',
@@ -379,15 +379,20 @@ const grid = new tui.Grid({
     //     }
     // },
     draggable: true,
-    contextMenu: null,
-    onGridMounted(ev) {
-        console.log('onGridMounted',ev);
-        document.querySelector(".tui-grid-pagination").insertAdjacentHTML("afterbegin",`<div class="page-total">총  <b>${ev.instance.getPaginationTotalCount()}</b>건</div>`);
-    },
-    onGridUpdated(ev) {
-        console.log('onGridUpdated',ev);
-        document.querySelector(".page-total b").innerHTML(`${ev.instance.getPaginationTotalCount()}`);
-    }
+    contextMenu: null
+});
+
+grid.on('onGridMounted', function(ev) {
+    dataTotalCount(ev);
+});
+
+grid.on('onGridUpdated', function(ev) {
+    dataTotalCount(ev);
+});
+
+grid.on('afterPageMove', function(ev) {
+    console.log(ev)
+    dataTotalCount(ev);
 });
 
 grid.on('check', function(ev) {
@@ -397,6 +402,19 @@ grid.on('check', function(ev) {
 grid.on('uncheck', function(ev) {
     console.log('uncheck', ev);
 });
+
+// grid.on('click', function(ev) {
+//     console.log('click', ev);
+//     check(ev.rowkey)
+// });
+
+function dataTotalCount(ev){
+    if(document.querySelector(".page-total")){
+        document.querySelector(".page-total b").innerText = `${ev.instance.getPaginationTotalCount()}`;
+    }else{
+        document.querySelector(".tui-grid-pagination").insertAdjacentHTML("afterbegin",`<div class="page-total">총  <b>${ev.instance.getPaginationTotalCount()}</b>건</div>`);
+    }    
+}
 
 document.querySelector("#resetData").addEventListener("click", function(){
     console.log("click");
