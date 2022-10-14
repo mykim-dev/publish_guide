@@ -1,0 +1,46 @@
+/** @define TableColumn */
+/// QSTableColumn control style<br />
+/// @author hl.lee
+.qs-table-column {
+
+  &__btn-link {
+    color: $qs-anchor-color;
+    
+    &:hover {
+      text-decoration: underline;
+      color: $qs-anchor-color-hover !important;
+    }
+  }
+
+  &-search {
+    .el-input--medium {
+      > .el-input__inner {
+        height: 36px !important;
+        line-height: 36px;
+      }
+    }
+  }
+
+  &_useMultiSelect {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+
+    .el-select.el-select-medium {
+      width: 175px;
+    }
+
+    .qs-button-select_search {
+      padding: 10px 10px;
+      margin-left: 5px;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $qs-button-background-color-hover;
+        color: $qs-button-color-hover;
+        border-color: $qs-button-border-color-hover;
+      }
+    }
+  }
+}

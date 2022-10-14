@@ -1,0 +1,51 @@
+/** @define searchbar */
+/// navbar 전체검색영역 style<br />
+/// @author sj.baek
+.qs-searchbar {
+  min-width: $qs-searchbar-icon-width;
+  height: $qs-searchbar-input-height;
+  position: relative;
+  text-align: right;
+
+  &__input.el-input.el-input--medium {
+    height: 100%;
+    width: 0;
+    text-align: left;
+    transition: width 0.3s ease-in-out;
+    border-bottom: $qs-searchbar-input-border-width solid $qs-searchbar-input-border-color;
+    line-height: $qs-searchbar-input-height - $qs-searchbar-input-border-width;
+
+    > input {
+      width: 100%;
+      padding: 0;
+      border: 0 none;
+      color: $qs-searchbar-input-color;
+    }
+
+    &.is-open {
+      width: $qs-searchbar-input-width;
+      transition: width 0.3s ease-in-out;
+    }
+  }
+
+  &__icon-wrap {
+    width: $qs-searchbar-icon-width;
+    height: $qs-searchbar-icon-height;
+    // height: $qs-searchbar-input-height - $qs-searchbar-input-border-width - 1px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    // background-color: $qs-white;
+    text-align: right;
+    cursor: pointer;
+  }
+
+  // &__icon {
+  //   position: absolute;
+  //   top: $qs-searchbar-input-height - $qs-searchbar-input-border-width - $qs-searchbar-icon-width;
+  //   right: 0;
+  //   font-size: $qs-navbar-icon-font-size;
+  //   cursor: pointer;
+  // }
+}

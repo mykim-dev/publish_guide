@@ -1,0 +1,77 @@
+/** @define label */
+/// QSLabel control style<br />
+/// @author sj.baek
+.qs-label {
+  display: inline-block;
+  padding: $qs-label-padding-top $qs-label-padding-right $qs-label-padding-bottom $qs-label-padding-left;
+  position: relative;
+  width: 100%;
+  @include qs-clearfix();
+
+  &::before {
+    content: "";
+    width: 1px;
+    height: 50%;
+    top: 50%;
+    left: 0;
+    background-color: #ccc;
+    position: absolute;
+    transform: translateY(-50%);
+  }
+
+  &:first-child {
+    padding-left: 0;
+
+    &::before {
+      width: 0;
+    }
+  }
+
+  &__label {
+    float: left;
+    width: 50%;
+    text-align: left;
+    @include qs-set-oneline-height(#{$qs-form-item-height});
+
+    &.is-label-only {
+      width: 100%;
+      text-align: center;
+      font-weight: $qs-label-font-weight;
+      color: $qs-label-color;
+      // font-size: $qs-label-font-size;
+      // @include qs-set-oneline-height(#{$qs-label-height});
+    }
+  }
+
+  &__data {
+    float: left;
+    width: 50%;
+    text-align: right;
+
+    &.is-data-only {
+      width: 100%;
+      text-align: center;
+      font-weight: $qs-label-content-font-weight;
+      color: $qs-label-content-color;
+      // font-size: $qs-label-content-font-size;
+      // @include qs-set-oneline-height(#{$qs-label-height});
+    }
+  }
+
+  &.is-dashboard-item {
+    display: block;
+    .qs-label__data {
+      &.is-data-only {
+        font-size: 40px;
+        font-weight: 600;
+        color: #111;
+        height: 250px;
+        line-height: 250px;
+      }
+    }
+  }
+  //20201012 style 적용을 위해 추가 - hl.lee
+  &.has-border {
+    border-style: solid;
+  }
+}

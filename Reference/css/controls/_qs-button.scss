@@ -1,0 +1,54 @@
+/** @define button */
+/// QSToolbarButton control style<br /> 
+/// @author sj.baek
+.qs-button {
+  display: inline-block;
+  margin-left: $qs-button-spacing;
+
+  &__wrap {
+    position: absolute;
+    top: 0;
+    right: $qs-button-wrap-position-right;
+    @include qs-set-oneline-height(#{$qs-component-title-height});
+
+    &--bottom {
+      text-align: right;
+      padding-top: 10px;
+      border-top: 1px solid $qs-form-inner-border-color;
+    }
+  }
+
+  > button.el-button {
+    padding: $qs-button-padding-y $qs-button-padding-x;
+    border: 1px solid $qs-button-border-color;
+    font-size: $qs-button-font-size;
+    font-weight: $qs-button-font-weight;
+    color: $qs-button-color;
+    background-color: $qs-button-background-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $qs-button-background-color-hover;
+      color: $qs-button-color-hover;
+      border-color: $qs-button-border-color-hover;
+    }
+
+    &:disabled {
+      color: $qs-button-color-disabled;
+      border-color: $qs-button-border-color-disabled;
+      background-color: $qs-button-background-color;
+    }
+
+    > span {
+      color: inherit;
+      font-weight: inherit;
+      font-size: inherit;
+
+      > svg {
+        font-size: inherit;
+        margin-right: $qs-button-image-margin-right;
+      }
+    }
+  }
+}

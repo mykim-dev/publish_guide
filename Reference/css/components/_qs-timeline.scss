@@ -1,0 +1,25 @@
+/** @define timeline */
+/// QSTimeline component style<br />
+/// @author sh.won
+.qs-timeline{
+    padding-top: $qs-component-margin-top;
+    overflow:auto; 
+    .qs-timeline__card{
+        p{
+            margin-bottom:10px;
+        }
+        div{
+            color:#787878
+        }
+    }
+
+    .el-timeline-item__tail{
+        left:5px
+    }
+    
+    .el-timeline-item__node--normal{
+        left:0px
+    }
+
+}
+  

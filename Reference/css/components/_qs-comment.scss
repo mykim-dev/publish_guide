@@ -1,0 +1,57 @@
+/** @define comment */
+/// QSComment component style<br />
+/// @author sj.baek
+.qs-comment {
+  &-row {
+    padding: $qs-comment-padding-x $qs-comment-padding-y;
+    border-bottom: $qs-comment-border-width solid $qs-comment-border-color;
+    position: relative;
+
+    &:last-child {
+      border-bottom: 0 none;
+    }
+
+    .qs-label{width:initial;}
+  }
+
+  &-item {
+    &--top {
+      margin-bottom: $qs-comment-top-bottom-margin;
+    }
+  }
+  &--empty {
+    text-align: center;
+    line-height: 50px;
+  }
+
+  .qs-comment__btn-more {
+    display: block;
+    width: 100%;
+    border: 0 none;
+    font-size: $qs-comment-more-button-font-size;
+    color: $qs-comment-more-button-color;
+    font-weight: $qs-comment-more-button-font-weight;
+    background-color: $qs-comment-more-button-background-color;
+
+    &:hover {
+      font-size: $qs-comment-more-button-font-size;
+      color: $qs-comment-more-button-color;
+      font-weight: $qs-comment-more-button-font-weight;
+      background-color: $qs-comment-more-button-background-color-hover;
+    }
+
+    &:focus {
+      font-size: $qs-comment-more-button-font-size;
+      color: $qs-comment-more-button-color;
+      font-weight: $qs-comment-more-button-font-weight;
+      background-color: $qs-comment-more-button-background-color-hover;
+    }
+
+    &:active {
+      font-size: $qs-comment-more-button-font-size;
+      color: $qs-comment-more-button-color;
+      font-weight: $qs-comment-more-button-font-weight;
+      background-color: $qs-comment-more-button-background-color-hover;
+    }
+  }
+}

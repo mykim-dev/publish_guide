@@ -1,0 +1,52 @@
+/** @define hamburger */
+/// navbar의 좌측 햄버거 메뉴버튼 style<br />
+/// @author sj.baek
+.qs-hamburger {
+  float: left;
+  padding: $qs-hamburger-svg-padding-y $qs-hamburger-svg-padding-x;
+  @include qs-set-oneline-height(#{$qs-hamburger-height});
+
+  & > i {
+    display: block;
+    width: 20px;
+    height: 17px;
+    margin-top: 2px;
+    position: relative;
+    border-top:2px solid $active-background-color;
+    cursor: pointer;
+
+    &::before{
+      display: block;
+      content:'';
+      width: 16px;
+      height: 0;
+      position: absolute;
+      top: 7px;
+      left: 0;
+      border-top: 2px solid $active-background-color;
+      transform: translateY(-2px);
+    }
+
+    &::after{
+      display: block;
+      content:'';
+      width: 12px;
+      height: 0;
+      position: absolute;
+      top: 12px;
+      left: 0;
+      border-top: 2px solid $active-background-color;
+    }
+  }
+}
+
+.is-close{
+  & .qs-hamburger{
+    & > i {
+      &::before,
+      &::after{
+        width: 20px;
+      }
+    }
+  }
+}

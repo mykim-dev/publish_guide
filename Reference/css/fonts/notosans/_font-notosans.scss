@@ -1,0 +1,72 @@
+// notosans thin
+@font-face {
+  font-family: 'notosans';
+  src: url('~assets/styles/fonts/notosans/otf/NotoSansKR-Thin.otf');
+  src:
+    url('~assets/styles/fonts/notosans/eot/NotoSansKR-Thin.eot#iefix') format("embedded-opentype"),
+    url('~assets/styles/fonts/notosans/otf/NotoSansKR-Thin.otf') format("opentype"),
+    url('~assets/styles/fonts/notosans/woff/NotoSansKR-Thin.woff') format('woff'),
+    url('~assets/styles/fonts/notosans/ttf/NotoSansKR-Thin.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100;
+}
+// notosans light
+@font-face {
+  font-family: 'notosans';
+  src: url('~assets/styles/fonts/notosans/otf/NotoSansKR-Light.otf');
+  src:
+    url('~assets/styles/fonts/notosans/eot/NotoSansKR-Light.eot#iefix') format("embedded-opentype"),
+    url('~assets/styles/fonts/notosans/otf/NotoSansKR-Light.otf') format("opentype"),
+    url('~assets/styles/fonts/notosans/woff/NotoSansKR-Light.woff') format('woff'),
+    url('~assets/styles/fonts/notosans/ttf/NotoSansKR-Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 300;
+}
+// notosans regular
+@font-face {
+  font-family: 'notosans';
+  src: url('~assets/styles/fonts/notosans/woff/NotoSansKR-Regular.woff');
+  src:
+    url('~assets/styles/fonts/notosans/eot/NotoSansKR-Regular.eot#iefix') format("embedded-opentype"),
+    url('~assets/styles/fonts/notosans/otf/NotoSansKR-Regular.otf') format("opentype"),
+    url('~assets/styles/fonts/notosans/woff/NotoSansKR-Regular.woff') format('woff'),
+    url('~assets/styles/fonts/notosans/ttf/NotoSansKR-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+// notosans medium
+@font-face {
+  font-family: 'notosans';
+  src: url('~assets/styles/fonts/notosans/otf/NotoSansKR-Medium.otf');
+  src:
+    url('~assets/styles/fonts/notosans/eot/NotoSansKR-Medium.eot#iefix') format("embedded-opentype"),
+    url('~assets/styles/fonts/notosans/otf/NotoSansKR-Medium.otf') format("opentype"),
+    url('~assets/styles/fonts/notosans/woff/NotoSansKR-Medium.woff') format('woff'),
+    url('~assets/styles/fonts/notosans/ttf/NotoSansKR-Medium.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 500;
+}
+// notosans bold
+@font-face {
+  font-family: 'notosans';
+  src: url('~assets/styles/fonts/notosans/otf/NotoSansKR-Bold.otf');
+  src:
+    url('~assets/styles/fonts/notosans/eot/NotoSansKR-Bold.eot#iefix') format("embedded-opentype"),
+    url('~assets/styles/fonts/notosans/otf/NotoSansKR-Bold.otf') format("opentype"),
+    url('~assets/styles/fonts/notosans/woff/NotoSansKR-Bold.woff') format('woff'),
+    url('~assets/styles/fonts/notosans/ttf/NotoSansKR-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+}
+// notosans black
+@font-face {
+  font-family: 'notosans';
+  src: url('~assets/styles/fonts/notosans/otf/NotoSansKR-Black.otf');
+  src:
+    url('~assets/styles/fonts/notosans/eot/NotoSansKR-Black.eot#iefix') format("embedded-opentype"),
+    url('~assets/styles/fonts/notosans/otf/NotoSansKR-Black.otf') format("opentype"),
+    url('~assets/styles/fonts/notosans/woff/NotoSansKR-Black.woff') format('woff'),
+    url('~assets/styles/fonts/notosans/ttf/NotoSansKR-Black.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 900;
+}

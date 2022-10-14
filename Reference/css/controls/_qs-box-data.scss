@@ -1,0 +1,27 @@
+/** @define box data */
+/// QSBoxData control style<br />
+/// @author sh.won
+
+.qs-box-data {
+  color: #111;
+
+  .qs-box-data__item {
+    color: inherit;
+    font-size: 46px;
+    // font-size: 32px;
+    font-weight: 600;
+    word-break: keep-all;
+    text-overflow: unset;
+    max-width: 100%;
+    white-space: nowrap;
+    width: 100%;
+
+    .qs-box-data__suffix {
+      font-size: 23px;
+      // font-size: 16px;
+      vertical-align: baseline;
+      line-height: 43px;
+      margin-left: 5px;
+    }
+  }
+} 

@@ -1,0 +1,23 @@
+/** @define symbol-palette */
+/// QSSymbolPalette component style<br />
+/// @author sj.baek
+.qs-symbol-palette {
+  float: left;
+  height: 100%;
+
+  .e-symbol-draggable {
+    position: relative;
+  }
+
+  .e-symbolpalette .e-symbol-selected,
+  .e-symbolpalette .e-symbol-hover:hover {
+    background-color: transparent;
+  }
+
+  .e-accordion .e-acrdn-item.e-select.e-expand-state > .e-acrdn-header .e-acrdn-header-icon,
+  .e-accordion .e-acrdn-item.e-select.e-expand-state > .e-acrdn-header .e-acrdn-header-content,
+  .e-accordion .e-acrdn-item.e-select.e-selected.e-expand-state > .e-acrdn-header .e-acrdn-header-icon,
+  .e-accordion .e-acrdn-item.e-select.e-selected.e-expand-state > .e-acrdn-header .e-acrdn-header-content {
+    color: $qs-symbol-palette-header-color;
+  }
+}

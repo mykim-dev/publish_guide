@@ -1,0 +1,46 @@
+/** @define button */
+/// QSButton control style<br /> 
+/// @author sj.baek
+.qs-form-button {
+  @include qs-set-form-style('.qs-form-button');
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  
+  > button.el-button {
+    padding: $qs-form-button-padding-y $qs-form-button-padding-x;
+    border: 1px solid $qs-form-button-border-color;
+    font-size: $qs-form-button-font-size;
+    font-weight: $qs-form-button-font-weight;
+    color: $qs-form-button-color;
+    background-color: $qs-form-button-background-color;
+    height: $qs-form-button-height;
+    overflow: hidden;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $qs-form-button-background-color-hover;
+      color: $qs-form-button-color-hover;
+      border-color: $qs-form-button-border-color-hover;
+    }
+
+    &:disabled {
+      color: $qs-form-button-color-disabled;
+      border-color: $qs-form-button-border-color-disabled;
+      background-color: $qs-form-button-background-color-disabled;
+    }
+
+    > span {
+      color: inherit;
+      font-weight: inherit;
+      font-size: inherit;
+
+      > svg {
+        font-size: inherit;
+        margin-right: $qs-form-button-image-margin-right;
+      }
+    }
+  }
+}
+  

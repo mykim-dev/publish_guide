@@ -1,0 +1,64 @@
+/** @define tree */
+/// QSTree component style<br />
+/// @author sj.baek
+.qs-tree {
+  overflow-x: auto;
+  
+  &__search-area {
+    margin-top: $qs-component-margin-top;
+  }
+
+  &__input {
+    .el-input__inner {
+      font-size: $qs-form-item-font-size;
+      border-color: $qs-input-border-color;
+      background-color: $qs-input-background-color;
+      color: $qs-input-color;
+      border-radius: $qs-form-item-border-radius;
+      @include qs-set-oneline-height(#{$qs-form-item-height});
+
+      &:focus {
+        border-color: $qs-input-border-color-focus;
+      }
+    }
+  }
+
+  &__button-area {
+    display: flex;
+    margin-left: 10px;
+    
+    .el-button {
+      width: 18px;
+      height: 18px;
+      padding: 0;
+      border: 0 none;
+
+      &--medium {
+        border-radius: initial;
+      }
+      
+      &.qs-tree__button-expand {
+        background: url("~assets/img/tree_expand.png") no-repeat center;
+        background-size: contain;
+      }
+
+      &.qs-tree__button-collapse {
+        background: url("~assets/img/tree_collapse.png") no-repeat center;
+        background-size: contain;
+      }
+    }
+  }
+
+  & &__tree {
+    padding-top: $qs-component-margin-top;
+    color: $qs-text-color-high;
+
+    .el-tree-node {
+      &__content {
+        .custom-tree-node {
+          @include qs-text-overflow-ellipsis();
+        }
+      }
+    }
+  }
+}

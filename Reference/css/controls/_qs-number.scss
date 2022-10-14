@@ -1,0 +1,43 @@
+/** @define number */
+/// QSNumber control style<br />
+/// @author sj.baek
+.qs-number {
+  margin-bottom: $qs-form-item-margin-bottom;
+  @include qs-set-form-style('.qs-number', 'input');
+
+  &__input.el-input-number {
+    .el-input-number__increase,
+    .el-input-number__decrease {
+      height: 25px;
+      line-height: 25px;
+      top: 1px;
+      background-color: $qs-input-background-color;
+      color: $qs-form-inner-button-color;
+      border-top: 0 none;
+      border-bottom: 0 none;
+
+      &:hover {
+        color: $qs-form-inner-button-color;
+
+        &:not(.is-disabled) ~ .el-input .el-input__inner:not(.is-disabled) {
+          color: $qs-form-inner-button-color;
+          border-color: $qs-input-border-color;
+        }
+      }
+    }
+
+    &.is-disabled {
+      .el-input-number__increase,
+      .el-input-number__decrease {
+        color: $qs-form-inner-button-color;
+        background-color: $qs-input-background-color-disabled;
+      }
+    }
+  }
+}
+
+.el-input-number {
+  &.el-invisible {
+    display: none;
+  }
+}

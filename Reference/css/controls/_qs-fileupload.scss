@@ -1,0 +1,441 @@
+.qs-fileupload {
+  margin-bottom: $qs-form-item-margin-bottom;
+  position: relative;
+  @include qs-set-form-style('.qs-fileupload');
+
+  &__fileupload {
+    display: block;
+    position: relative;
+    font-size: $qs-form-item-font-size;
+    color: $qs-input-color;
+    width: 100%;
+    height: $qs-form-item-height;
+    padding: 0 $qs-form-item-height 0 $qs-fileupload-thumb-width;
+    border: 1px solid $qs-input-border-color;
+    @include qs-box-sizing();
+
+    &.is-multiple {
+      padding: 0;
+    }
+
+    &.is-readonly {
+      background-color: $qs-input-background-color-disabled;
+    }
+  }
+
+  &__label {
+    position: relative;
+  }
+
+  &__content {
+    border: 1px solid $qs-input-border-color;
+    border-radius: 4px;
+  }
+
+  &__desc {
+    color: #8e9091;
+    font-size: $qs-font-size-xs;
+    font-weight: $qs-font-weight-base;
+    position: absolute;
+    right: 0;
+    top: 1px; 
+  }
+
+  &__form {
+    // border: 1px solid $qs-input-border-color;
+    padding: 15px;
+
+    &.is-invisible {
+      display: none;
+      + .qs-fileupload__detail {
+        border-top: 0 none;
+        height: 100%;
+      }
+    }
+  }
+
+  &__thumb {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: inherit;
+    color: inherit;
+    width: $qs-fileupload-thumb-width;
+    height: $qs-form-inner-button-height;
+    line-height: $qs-form-inner-button-height;
+    border-right: 1px solid $qs-input-border-color;
+    text-align: center;
+
+    > span {
+      font-size: inherit;
+      color: inherit;
+    }
+
+    > img {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+  }
+
+  &__name {
+    width: 100%;
+    font-size: inherit;
+    color: inherit;
+    height: $qs-form-inner-button-height;
+    line-height: $qs-form-inner-button-height;
+    text-align: center;
+
+    &--multiple {
+      width: 100%;
+      border: 1px dashed $qs-input-border-color;
+      height: 100%;
+      line-height: $qs-fileupload-list-row-height;
+      color: #b3b3b3;
+      border-radius: 4px;
+      display: table !important;
+      cursor: pointer;
+
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &__button {
+    &.el-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: $qs-form-item-height;
+      //20201012 style 수정 - hl.lee
+      height: 100%;
+      // height: $qs-form-inner-button-height;
+      line-height: $qs-form-inner-button-height;
+      padding: 0;
+      border-left: 1px solid $qs-form-inner-border-color;
+      border-right: 0 none;
+      border-top: 0 none;
+      border-bottom: 0 none;
+      border-radius: 0;
+      background-color: $qs-input-background-color;
+      color: $qs-form-inner-button-color;
+      cursor: pointer;
+      z-index: 2;
+
+      &:hover {
+        background-color: $qs-input-background-color;
+        color: $qs-form-inner-button-color;
+        border-color: $qs-form-inner-border-color;
+      }
+
+      &.is-disabled {
+        color: $qs-input-color-disabled;
+        background-color: $qs-input-background-color-disabled;
+
+        &:hover {
+          color: $qs-input-color-disabled;
+          background-color: $qs-input-background-color-disabled;
+        }
+      }
+    }
+  }
+
+  &__drop-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: transparent;
+  }
+
+  &__preview {
+    text-align: center;
+
+    > img {
+      width: auto;
+      max-width: $qs-fildupload-preview-max-width;
+    }
+  }
+
+  &__detail {
+    position: relative;
+    border-top: $qs-fileupload-list-th-border-width solid $qs-fileupload-list-th-border-top-color;;
+    height: calc(100% - 82px);
+    overflow-y: auto;
+
+    &-list {
+      width: 100%;
+      border-collapse: collapse;
+
+      tr {
+        border-bottom: 1px solid #dddddd;
+
+        &:last-child {
+          border-bottom: 0 none;
+        }
+      }
+
+      td {
+        text-align: center;
+        background-color: $qs-fileupload-list-td-background-color;
+        padding: 15px 0;
+        &:first-child {
+          padding-left: 15px;
+        }
+      }
+
+      &__thumb {
+        width: auto;
+        height: auto;
+        width: 40px;
+        height: 40px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        vertical-align: middle;
+        display: inline-block;
+        cursor: pointer;
+
+        &.angle1 {
+          transform: rotate(90deg);
+        }
+  
+        &.angle2 {
+          transform: rotate(180deg);
+        }
+  
+        &.angle3 {
+          transform: rotate(270deg);
+        }    
+      }
+
+      &__no-file {
+        display: block;
+        width: 54px;
+        height: 54px;
+        background: url("~assets/img/no_file.png") no-repeat center;
+        margin: 0 auto;
+      }
+
+      &__no-image {
+        display: block;
+        width: 54px;
+        height: 54px;
+        background: url("~assets/img/no_image.png") no-repeat center;
+        margin: 0 auto;
+      }
+    }
+    
+    &-info {
+      width: 100%;
+      border-collapse: collapse;
+
+      tr {
+        border-bottom: 0 none;
+      }
+
+      td {
+        font-size: 12px;
+        font-weight: 400;
+        text-align: center;
+        background-color: $qs-fileupload-list-td-background-color;
+        padding: 0px 15px;
+        @include qs-text-overflow-ellipsis();
+
+        &.is-left {
+          text-align: left;
+        }
+
+        img {
+          width: auto;
+          height: auto;
+          max-height: 54px;
+          vertical-align: middle;
+          cursor: pointer;
+        }
+      }
+
+      &__file-name {
+        font-size: 12px;
+        width: 340px;
+        color: #666;
+        @include qs-text-overflow-ellipsis();
+      }
+
+      &__file-size {
+        color: #b3b3b3;
+        @include qs-text-overflow-ellipsis();
+      }
+
+      &__file-process {
+        background-color: #4590f7;
+        height: 10px;
+        width: 0%;
+      }
+
+      &__file-download {
+        display: inline-block;
+        width: 17px;
+        height: 17px;
+        background: url("~assets/img/fileupload_download.png") no-repeat center;
+        cursor: pointer;
+      }
+
+      &__image-rotate {
+        width: 28px;
+        height: 22px;
+        display: inline-block;
+        background: url("~assets/img/fileupload_rotate.png") no-repeat center;
+        cursor: pointer;
+      }
+
+      &__file-delete {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: url("~assets/img/fileupload_delete.png") no-repeat center;
+        cursor: pointer;
+      }
+
+      &__file-open {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: url("~assets/img/fileupload_open.png") no-repeat center;
+        cursor: pointer;
+        background-size: cover;
+      }
+
+      .done {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: url("~assets/img/fileupload_done.png") no-repeat center;
+        background-size: 100%;
+      }
+
+      .start {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: url("~assets/img/fileupload_start.png") no-repeat center;
+        background-size: 100%;
+        cursor: pointer;
+      }
+
+      .retry {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: url("~assets/img/fileupload_retry.png") no-repeat center;
+        background-size: 100%;
+        cursor: pointer;
+      }
+
+      .stop {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: url("~assets/img/fileupload_paste.png") no-repeat center;
+        background-size: 100%;
+        cursor: pointer;
+      }
+
+      .el-button {
+        padding: 0;
+        border: 0 none;
+        border-radius: 0;
+        background-color: $qs-input-background-color;
+        cursor: pointer;
+        &:hover, &:focus {
+          color: initial;
+          border-color: initial;
+          background-color: initial;
+        }
+      }
+    }
+  }
+
+  &__download {
+    display: inline-block;
+    width: $qs-form-item-height;
+    height: $qs-form-inner-button-height;
+    line-height: $qs-form-inner-button-height;
+    padding: 0;
+    border: 0 none;
+    border-radius: 0;
+    background-color: $qs-input-background-color;
+    color: $qs-form-inner-button-color;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $qs-input-background-color;
+      color: $qs-form-inner-button-color;
+      border-color: $qs-form-inner-border-color;
+    }
+
+    &:focus {
+      background-color: $qs-input-background-color;
+      color: $qs-form-inner-button-color;
+      border-color: $qs-form-inner-border-color;
+    }
+  }
+
+  &__summary {
+    font-size: $qs-form-item-font-size;
+    color: $qs-input-color;
+    padding-left: $qs-form-inner-button-padding-x;
+    //20201012 style 수정 - hl.lee
+    height: 100%;
+    // height: $qs-form-inner-button-height;
+    line-height: $qs-form-inner-button-height;
+    @include qs-text-overflow-ellipsis();
+  }
+
+  .vue-dropzone {
+    .dz-message {
+      height: 100%;
+      position: relative;
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .dz-preview {
+      display: none;
+    }
+  }
+
+  .qs-filepond {
+    border: 1px dashed #ddd;
+    border-radius: 4px;
+    height: 100%;
+    cursor: pointer;
+
+    .filepond--drop-label {
+      transform: none;
+      color: #b3b3b3;
+      height: 100%;
+      min-height: auto;
+    }
+
+    .filepond--root {
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    .filepond--list-scroller, .filepond--panel {
+      display: none;
+    }
+
+  }
+}

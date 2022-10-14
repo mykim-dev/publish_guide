@@ -1,0 +1,132 @@
+.qs-login {
+  height: $qs-login-height;
+  background-color: $qs-login-background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-area {
+    height: $qs-login-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &-logo--big {
+    height: $qs-login-logo-big-height;
+    position: relative;
+    margin: $qs-login-logo-big-margin;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-img--login {
+    height: $qs-login-img-login-height;
+    position: relative;
+    margin: $qs-login-img-login-margin;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-form {
+    width: $qs-login-form-width;
+    .el-form-item {
+      margin-bottom: $qs-login-form-item-margin-bottom;
+    }
+  }
+  &-input {
+    .el-input {
+      > input[type=text], > input[type=password] {
+        font-family: sans-serif;
+        width: $qs-login-form-input-width;
+        height: $qs-login-form-input-height !important;
+        line-height: $qs-login-form-input-line-height;
+        font-size: $qs-login-form-input-font-size;
+        font-weight: $qs-login-form-input-font-weight;
+        padding: $qs-login-form-input-padding-y $qs-login-form-input-padding-x;
+        border: $qs-login-form-input-border-width solid $qs-login-form-input-border-color;
+        border-radius: $qs-login-form-input-border-radius;
+        @include qs-box-sizing();
+        &:hover {
+          border-color: $qs-login-form-input-border-color-hover;
+        }
+        &:focus {
+          border-color: $qs-login-form-input-border-color-focus;
+        }
+        &[readonly] {
+          background-color: $qs-login-form-input-background-color-readonly;
+        }
+      }
+      &.is-disabled {
+        > input[type=text] {
+          border-color: $qs-login-form-input-border-color;
+          background-color: $qs-login-form-input-background-color-disabled;
+          &:hover {
+            border-color: $qs-login-form-input-border-color;
+          }
+          &:focus {
+            border-color: $qs-login-form-input-border-color;
+          }
+        }
+      }
+    }
+  }
+
+  &-button {
+    &.el-button {
+      margin-top: $qs-login-form-button-margin-top;
+      width: $qs-login-form-button-width;
+      height: $qs-login-form-button-height;
+      line-height: $qs-login-form-button-line-height;
+      font-size: $qs-login-form-button-font-size;
+      font-weight: $qs-login-form-button-font-weight;
+      color: $qs-login-form-button-color;
+      text-align: center;
+      border-color: $qs-login-form-button-border-color;
+      border-radius: $base-border-radius;
+      background-color: $qs-login-form-button-background-color;
+      padding: 0;
+      &:active {
+        color: $qs-login-form-button-color;
+        border-color: $qs-login-form-button-border-color;
+        background-color: $qs-login-form-button-background-color;
+      }
+      &:hover {
+        color: $qs-login-form-button-color;
+        border-color: $qs-login-form-button-border-color;
+        background-color: $qs-login-form-button-background-color;
+      }
+      &:focus {
+        color: $qs-login-form-button-color;
+        border-color: $qs-login-form-button-border-color;
+        background-color: $qs-login-form-button-background-color;
+      }
+    }
+  }
+  &-copyright {
+    margin-top: 15px;
+    font-size: $qs-login-copyright-font-size;
+    font-weight: $qs-login-copyright-font-weight;
+    color: $qs-login-copyright-color;
+    display: block;
+  }
+
+  &-forgot--pwd {
+    text-align: center;
+    color: #9f9f9f;
+    margin-top: 30px;
+    font-size: 12px;
+    letter-spacing: -0.18px;
+
+    > span {
+      color: #9f9f9f;
+      margin-left: 10px;
+      text-decoration: underline;
+      text-underline-position: under;
+      font-size: 12px;
+      letter-spacing: -0.18px;
+      cursor: pointer;
+    }
+  }
+}

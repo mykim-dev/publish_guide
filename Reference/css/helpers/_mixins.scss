@@ -1,0 +1,434 @@
+/// Mixin설명: box style 초기화
+/// @author sj.baek
+@mixin qs-reset-box-model {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/// Mixin설명: table style 초기화
+/// @author sj.baek
+@mixin qs-reset-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border-spacing: 0;
+}
+
+/// Mixin설명: list style 초기화
+/// @author sj.baek
+@mixin qs-reset-list-style {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/// Mixin설명: font 초기화
+/// @author sj.baek
+@mixin qs-default-font {
+  font-family: $qs-font-family-base;
+  font-size: $qs-font-size-root;
+  font-style: normal;
+}
+
+/// Mixin설명: font 초기화(상속)
+/// @author sj.baek
+@mixin qs-reset-font {
+  font: inherit;
+  font-size: 100%;
+  font-weight: $qs-font-weight-base;
+  font-style: normal;
+}
+
+/// 함수설명: font 설정시 size, weight, color값을 받아 css property를 생성
+/// @param {String|Number} $weight
+///     폰트의 두께값
+/// @param {String|Number} $size
+///     폰트의 크기값
+/// @param {String} $color
+///     폰트의 색상값
+/// @author sj.baek
+@mixin qs-font($weight, $size, $color) {
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+
+/// Mixin설명: 부유값(float) 초기화
+/// @author sj.baek
+@mixin qs-clearfix {
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+  }
+}
+
+/// Mixin설명: caption 등의 텍스트 숨김처리가 필요한 부분에 적용
+/// @author sj.baek
+@mixin qs-hide {
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/// Mixin설명: box-sizing 속성 조절
+/// @param {String} $box-model [border-box]
+///     변경할 box-sizing 속성
+/// @author sj.baek
+@mixin qs-box-sizing($box-model: border-box) {
+  -webkit-box-sizing: $box-model;
+  -moz-box-sizing: $box-model;
+  box-sizing: $box-model;
+}
+
+/// Mixin설명: border-radius 속성 조절
+/// @param {String} $radius [3px]
+///     변경할 border-radius값
+/// @author sj.baek
+@mixin qs-border-radius($radius: 3px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+/// Mixin설명: Theme적용 Mixin
+/// @param {Object} $themes [$themes]
+///     전체 테마를 가지고 있는 scss object
+/// @author sj.baek
+@mixin qs-themify($themes: $themes) {
+  @each $theme,
+    $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key,
+        $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+/// Mixin설명: 부모class에 따라서 style적용을 변경할 때 사용
+/// @param {String} $parent
+///     현재 사용할 content의 부모class값
+/// @author sj.baek
+@mixin qs-control-by-parent($parent) {
+  #{$parent} & {
+    @content;
+  }
+}
+
+/// Mixin설명: height와 line-height값을 지정
+/// @param {String|Number} $height
+///     사용할 높이값
+/// @author sj.baek
+@mixin qs-set-oneline-height($height) {
+  @if type-of($height)==number {
+    $height: #{$height}px;
+  }
+
+  height: #{$height};
+  line-height: #{$height};
+}
+
+/// Mixin설명: form control들의 type별로 분기해서 style 적용
+/// @param {String} $parent
+///     form control의 class값
+/// @param {$string} $tag-type [input]
+///     form control의 type(input, checkbox, select, ....etc)
+/// @author sj.baek
+@mixin qs-set-form-style($parent, $tag-type: 'input') {
+  @include qs-set-form-label-style($parent);
+  @include qs-set-form-input-style($parent, $tag-type);
+}
+
+/// Mixin설명: form control들의 label style 공통처리
+/// @param {String} $parent
+///     form control의 class값
+/// @author sj.baek
+@mixin qs-set-form-label-style($parent) {
+  #{$parent} {
+    &__label {
+      display: block;
+      font-size: $qs-form-item-font-size;
+      font-weight: $qs-font-weight-base;
+      margin-bottom: $qs-form-item-label-margin-bottom;
+      color: $qs-input-color;
+      @include qs-text-overflow-ellipsis();
+
+      &.is-required {
+        padding-left: 10px;
+        position: relative;
+
+        &::before {
+          content: "\002A";
+          font-size: inherit;
+          font-weight: inherit;
+          color: $qs-danger;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 10px;
+          height: 100%;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+/// Mixin설명: form control들의 content style 공통처리
+/// @param {String} $parent
+///     form control의 class값
+/// @param {$string} $tag-type [input]
+///     form control의 type(input, checkbox, select, ....etc)
+/// @author sj.baek
+@mixin qs-set-form-input-style($parent, $tag-type: 'input') {
+  #{$parent} {
+    &__#{$tag-type} {
+      @if $tag-type !='checkbox'and $tag-type !='radio' {
+        width: 100%;
+      }
+      @if $tag-type=='textarea' {
+        .el-textarea__inner {
+          font-size: $qs-form-item-font-size;
+          border-color: $qs-input-border-color;
+          background-color: $qs-input-background-color;
+          color: $qs-input-color;
+          border-radius: $qs-form-item-border-radius;
+          resize: none;
+          height: 100%;
+          padding: 5 7px;
+          &:focus {
+            border-color: $qs-input-border-color-focus;
+          }
+        }
+      }
+      @else {
+        .el-input__inner {
+          font-size: $qs-form-item-font-size;
+          border-color: $qs-input-border-color;
+          background-color: $qs-input-background-color;
+          color: $qs-input-color;
+          border-radius: $qs-form-item-border-radius;
+          padding: 0 7px;
+          @include qs-set-oneline-height(#{$qs-form-item-height});
+
+          &:focus {
+            border-color: $qs-input-border-color-focus;
+          }
+        }
+      }
+
+      &.el-input-number--medium {
+        line-height: $qs-form-inner-button-height;
+        height: $qs-form-inner-button-height;
+      }
+
+      &.el-input--prefix {
+        & .el-input__inner {
+          padding-left: 30px;
+        }
+      }
+
+      &.is-left {
+        @if $tag-type=='textarea' {
+          .el-textarea__inner {
+            text-align: left;
+          }
+        }
+        @else {
+          .el-input__inner {
+            text-align: left;
+          }
+        }
+      }
+
+      &.is-center {
+        @if $tag-type=='textarea' {
+          .el-textarea__inner {
+            text-align: center;
+          }
+        }
+        @else {
+          .el-input__inner {
+            text-align: center;
+          }
+        }
+      }
+
+      &.is-right {
+        @if $tag-type=='textarea' {
+          .el-textarea__inner {
+            text-align: right;
+          }
+        }
+        @else {
+          .el-input__inner {
+            text-align: right;
+          }
+        }
+      }
+
+      &.is-disabled {
+        .el-input__inner {
+          border-color: $qs-input-border-color-disabled;
+          background-color: $qs-input-background-color-disabled;
+          color: $qs-input-color-disabled;
+        }
+
+        .el-textarea__inner {
+          border-color: $qs-input-border-color-disabled;
+          background-color: $qs-input-background-color-disabled;
+          color: $qs-input-color-disabled;
+        }
+      }
+
+      &.search-size-sm {
+        .el-input {
+          .el-input__suffix {
+            top: 3px;
+          }
+        }
+
+        .el-input.is-focus {
+          .el-input__suffix {
+            top: -3px;
+          }
+        }
+
+        .el-input__inner {
+          font-size: $qs-form-item-font-size;
+          border-color: $qs-input-border-color;
+          background-color: $qs-input-background-color;
+          color: $qs-input-color;
+          border-radius: $qs-form-item-border-radius;
+          padding: 0 7px;
+          @include qs-set-oneline-height(#{$qs-form-item-height-xs});
+
+          &:focus {
+            border-color: $qs-input-border-color-focus;
+          }
+        }
+      }
+    }
+
+
+  }
+}
+
+/// Mixin설명: element ui의 radio style override
+/// @author sj.baek
+@mixin qs-set-radio-style() {
+  .el-radio {
+    color: $qs-radio-label-color;
+    font-weight: $qs-font-weight-base;
+    margin-right: 20px;
+
+    .el-radio__input {
+      .el-radio__inner {
+        border-color: $qs-radio-border-color;
+        background-color: $qs-radio-background-color;
+
+        &::after {
+          background-color: $qs-radio-pseudo-background-color;
+        }
+      }
+
+      &.is-checked {
+        .el-radio__inner {
+          border-color: $qs-radio-border-color-checked;
+          background-color: $qs-radio-background-color-checked;
+
+          &::after {
+            background-color: $qs-radio-pseudo-background-color-checked;
+            width: $qs-radio-inner-bullet-checked-width;
+            height: $qs-radio-inner-bullet-checked-height;
+          }
+        }
+
+        & + .el-radio__label {
+          color: $qs-radio-label-color-checked;
+        }
+      }
+    }
+
+    .el-radio__label{
+      font-size: $qs-label-font-size;
+      padding-left:2px;
+    }
+  }
+}
+
+/// Mixin설명: element ui의 checkbox style override
+/// @author sj.baek
+@mixin qs-set-checkbox-style() {
+  .el-checkbox {
+    .el-checkbox__input {
+      .el-checkbox__inner {
+        border-color: $qs-checkbox-border-color;
+        background-color: $qs-checkbox-background-color;
+      }
+
+      & + .el-checkbox__label {
+        color: $qs-text-color-high;
+        font-size: $qs-form-item-font-size;
+      }
+
+      &.is-focus {
+        .el-checkbox__inner {
+          border-color: $qs-checkbox-border-color;
+        }
+      }
+
+      &.is-checked,
+      &.is-indeterminate {
+        .el-checkbox__inner {
+          border-color: $qs-checkbox-border-color-checked;
+          background-color: $qs-checkbox-background-color-checked;
+
+          &::after {
+            border-color: $qs-checkbox-pseudo-border-color-checked;
+            border-width: $qs-checkbox-border-width;
+          }
+        }
+
+        & + .el-checkbox__label {
+          color: $qs-checkbox-label-color-checked;
+        }
+      }
+    }
+  }
+}
+
+/// Mixin설명: element ui default theme setting값 설정
+/// @author sj.baek
+@mixin qs-element-ui-default-setting() {
+  $--font-path: '~element-ui/lib/theme-chalk/fonts' !global;
+}
+
+/// Mixin설명: Text overflow시 ellipsis처리 공통화
+/// @author sj.baek
+@mixin qs-text-overflow-ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/// Mixin설명: 드래그 방지
+/// @author hl.lee
+@mixin qs-disable-drag() {
+  user-select: none;
+  -ms-user-select: none; 
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}

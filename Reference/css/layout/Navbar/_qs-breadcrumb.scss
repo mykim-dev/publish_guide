@@ -1,0 +1,35 @@
+/** @define breadcrumb */
+/// navbar의 Page Depth 표시 style<br />
+/// @author sj.baek
+.qs-breadcrumb.el-breadcrumb {
+  float: left;
+  line-height: $qs-navbar-height;
+
+  .el-breadcrumb__separator {
+    color: #c6c6c6;
+  }
+
+  .el-breadcrumb__inner {
+    &.is-link,
+    & a {
+      font-size: $qs-breadcrumb-font-size;
+      color: $qs-breadcrumb-link-color;
+      font-weight: $qs-breadcrumb-font-weight;
+
+      &:hover {
+        color: $qs-breadcrumb-color-hover;
+      }
+    }
+
+    .qs-breadcrumb__home {
+      // color: $qs-breadcrumb-color;
+      // font-weight: $qs-breadcrumb-current-font-weight;
+    }
+
+    & .is-no-redirect {
+      font-size: $qs-breadcrumb-font-size;
+      color: $qs-breadcrumb-color-hover;
+      // font-weight: $qs-breadcrumb-current-font-weight;
+    }
+  }
+}

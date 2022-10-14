@@ -1,0 +1,17 @@
+/** @define text */
+/// QSText control style<br />
+/// @author sj.baek
+.qs-text {
+  margin-bottom: $qs-form-item-margin-bottom;
+  @include qs-set-form-style('.qs-text');
+
+  &.is-login {
+    margin-bottom: 0;
+  }
+}
+
+.el-input {
+  &.el-invisible {
+    display: none;
+  }
+}

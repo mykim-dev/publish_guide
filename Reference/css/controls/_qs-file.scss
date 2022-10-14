@@ -1,0 +1,77 @@
+/** @define input[type="file"] */
+/// QSFile control style<br />
+/// @author hh.go
+.qs-file {
+    margin-bottom: $qs-form-item-margin-bottom;
+  
+    &__input {
+      .el-input__inner {
+        border-right: 0 none;
+      }
+  
+      &.search-size-sm {
+        .el-input-group__append {
+          height: $qs-form-item-height-xs;
+        }
+      }
+  
+      .el-input-group__append {
+        padding: 0;
+        height: $qs-form-item-height;
+        border-radius: $qs-form-item-border-radius;
+        // 20201012 element ui 기본 style 오버라이딩 - hl.lee
+        border-left: 1px solid #DCDFE6;
+        background-color: $qs-white;
+        line-height: $qs-line-height-base;
+  
+        .qs-file__button {
+          margin: 0;
+          height: 100%;
+          padding: $qs-form-inner-button-padding-y $qs-form-inner-button-padding-x;
+          color: $qs-form-inner-button-color;
+          background-color: $qs-input-background-color;
+          // 20201012 style 수정 - hl.lee
+          border: none 0;
+          // border-left: 1px solid $qs-form-inner-border-color;
+          border-radius: $qs-form-item-border-radius;
+          cursor: pointer;
+  
+          &:hover {
+            // 20201012 style 수정 - hl.lee
+            // border-left: 1px solid $qs-form-inner-border-color;
+          }
+  
+          &.is-disabled {
+            color: $qs-input-color-disabled;
+            background-color: $qs-input-background-color-disabled;
+  
+            &:hover {
+              color: $qs-input-color-disabled;
+              background-color: $qs-input-background-color-disabled;
+            }
+          }
+        }
+      }
+  
+      &.edit-element {
+        .el-input-group__append {
+          height: 28px;
+          .qs-lookup__button {
+            padding: 0 6px;
+          }
+        }
+      }
+    }
+
+    input[type="file"] {
+        position: absolute;
+        width: 0;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+    }
+
+    @include qs-set-form-style('.qs-file');
+  }
+  

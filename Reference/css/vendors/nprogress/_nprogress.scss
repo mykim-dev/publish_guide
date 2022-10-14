@@ -1,0 +1,12 @@
+#nprogress {
+  .qs-nprogress {
+    .peg {
+      box-shadow: $qs-nprogress-peg-box-shadow;
+    }
+  }
+
+  .spinner .spinner-icon {
+    border-top-color: $qs-nprogress-spinner-border-color;
+    border-left-color: $qs-nprogress-spinner-border-color;
+  }
+}

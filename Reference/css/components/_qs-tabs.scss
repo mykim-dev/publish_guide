@@ -1,0 +1,69 @@
+/** @define tab */
+/// QSTabs component style<br />
+/// @author sj.baek
+.qs-tab {
+  padding-top: $qs-component-margin-top;
+
+  &.el-tabs--card {
+    > .el-tabs__header {
+      margin-bottom: 0;
+      border-color: $qs-tab-item-border-color;
+
+      .el-tabs__nav {
+        border-radius: 0;
+        border: none;
+        &-prev{
+          line-height: 28px;
+          height: 28px;
+        }
+        &-next{
+          line-height: 28px;
+          height: 28px;
+        }
+      }
+
+      .el-tabs__item {
+        font-size: $qs-tab-font-size;
+        font-weight: $qs-font-weight-regular;
+        color: $qs-tab-item-color;
+        background-color: $qs-tab-item-background-color;
+        border-radius: 4px 4px 0 0;
+        margin-right: 10px;
+        border: 1px solid  $qs-tab-item-border-color;
+        border-bottom: 1px solid $qs-tab-item-border-color;
+        @include qs-set-oneline-height(#{$qs-tab-item-height});
+        box-sizing: content-box;
+
+        &:first-child {
+          border-left: 1px solid  $qs-tab-item-border-color;
+        }
+
+        &.is-active {
+          color: $qs-tab-item-color-active;
+          background-color: $qs-tab-item-background-color-active;
+          border-bottom: 0 none;
+        }
+
+        &:hover {
+          color: $qs-tab-item-color-hover;
+        }
+
+        &.is-disabled,
+        &.is-disabled:hover {
+          color: $qs-tab-item-color;
+          background-color: $qs-tab-item-background-color;
+          opacity: 0.4;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    > .el-tabs__content {
+      padding-top: 10px;
+
+      & .qs-component {
+        padding: 0;
+      }
+    }
+  }
+}

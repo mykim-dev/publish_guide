@@ -1,0 +1,12 @@
+.qs-diagram {
+  background-color: #fff;
+  @include qs-clearfix();
+
+  &__symbol-palette.el-col {
+    width: $qs-symbol-palette-width;
+  }
+
+  &__canvas.el-col {
+    width: $qs-canvas-width;
+  }
+}

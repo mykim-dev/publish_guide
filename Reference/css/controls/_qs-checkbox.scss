@@ -1,0 +1,34 @@
+/** @define checkbox */
+/// QSCheckbox control style<br />
+/// @author sj.baek
+.qs-checkbox {
+  margin-bottom: $qs-form-item-margin-bottom;
+  @include qs-set-form-style('.qs-checkbox', 'checkbox');
+
+  &__input {
+    @include qs-set-oneline-height(#{$qs-form-item-height});
+  }
+  @include qs-set-checkbox-style();
+
+  &.is-left__label {
+    align-items: center;
+    height: 27px;
+
+    .qs-checkbox__label {
+      width:initial !important;
+      padding-right:10px;
+    }
+
+    .qs-checkbox__input{     
+      height: initial; 
+      line-height: 1;
+
+      .el-checkbox,
+      .el-checkbox__input,
+      .el-checkbox__inner{
+        line-height: 1;
+        vertical-align: top;
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+.qs-inlineedittoolbar {
+  background-color: #F5FAFC;
+  position: relative;
+  color: #000;
+  padding: 4px 10px;
+  border: 1px solid #EAF2F9;
+
+
+  .qs-list__header-cell-inline-new {
+    padding: 0px;
+    border: 0 none;
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: url("~assets/img/newEdit-icon.png") no-repeat center;
+    background-size: contain;
+    background-color: transparent;
+  }
+
+  .qs-list__header-cell-inline-edit {
+    padding: 0px;
+    border: 0 none;
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: url("~assets/img/edit-icon.png") no-repeat center;
+    background-size: contain;
+    background-color: transparent;
+  }
+
+  .qs-list__header-cell-inline-deletemode {
+    padding: 0px;
+    border: 0 none;
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: url("~assets/img/delmode-icon.png") no-repeat center;
+    background-size: contain;
+    background-color: transparent;
+  }
+
+  .qs-list__header-cell-inline-delete {
+    padding: 0px;
+    border: 0 none;
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: url("~assets/img/del-icon.png") no-repeat center;
+    background-size: contain;
+    background-color: transparent;
+  }
+
+  .qs-list__header-cell-inline-save {
+    padding: 0px;
+    border: 0 none;
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: url("~assets/img/save-icon.png") no-repeat center;
+    background-size: contain;
+    background-color: transparent;
+  }
+
+  .qs-list__header-cell-inline-cancel {
+    padding: 0px;
+    border: 0 none;
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: url("~assets/img/cancel-icon.png") no-repeat center;
+    background-size: contain;
+    background-color: transparent;
+  }
+
+  .qs-list__header-cell-inline-show {
+    display: inline-block;
+  }
+
+  .qs-list__header-cell-inline-hide {
+    display: none;
+  }
+
+  .el-button.is-disabled {
+    &.qs-list__header-cell-inline-disabled {
+      opacity: 0.2;
+      background-color: transparent;
+
+      &.qs-list__header-cell-inline-new {
+        background: url("~assets/img/newEdit-icon.png") no-repeat center;
+      }
+    
+      &.qs-list__header-cell-inline-edit {
+        background: url("~assets/img/edit-icon.png") no-repeat center;
+      }
+    
+      &.qs-list__header-cell-inline-deletemode {
+        background-size: contain;
+      }
+    
+      &.qs-list__header-cell-inline-delete {
+        background: url("~assets/img/del-icon.png") no-repeat center;
+      }
+    
+      &.qs-list__header-cell-inline-save {
+        background: url("~assets/img/save-icon.png") no-repeat center;
+      }
+    
+      &.qs-list__header-cell-inline-cancel {
+        background: url("~assets/img/cancel-icon.png") no-repeat center;
+      }
+    }
+  }
+}

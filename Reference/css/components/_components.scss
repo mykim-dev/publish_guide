@@ -1,0 +1,176 @@
+@import '_qs-list';
+@import '_qs-tabs';
+@import '_qs-tree';
+@import '_qs-form';
+@import '_qs-toolbar';
+@import '_qs-full-loading';
+@import '_qs-loading';
+@import '_qs-mapper';
+@import '_qs-symbol-palette';
+@import '_qs-comment';
+@import '_qs-box';
+@import '_qs-chart';
+@import '_qs-schedule';
+@import '_qs-timeline';
+@import '_qs-kanban';
+@import '_qs-iframe';
+
+/** @define card-panel */
+/// Component layout 공통<br />
+/// @author sj.baek
+.qs-card-panel {
+
+  &__col-5n {
+    width: 20% !important;
+  }
+  &__item {
+    // padding: $qs-component-padding-top $qs-component-padding-x $qs-component-padding-bottom;
+    // margin-bottom: $qs-component-gutter-y;
+    // background-color: $qs-component-background-color;
+
+    /* box-shadow: 6px 8px 4px rgba($qs-black, .05); */
+
+    .has-folder-outline {
+      // background-color: #d9e3e9;
+      background-color: $qs-lightemerald2;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        height: 60px;
+        left: 0px;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        // border-left: 6px solid #d2dce6;
+        border-left: 6px solid $qs-lightemerald2;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: calc(100% - 110px);
+        top: 110px;
+        left: 0;
+        border-left: 6px solid $qs-lightemerald2;
+        border-top: 4px solid transparent;
+      }
+    }
+  }
+  &__col-padding {
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+  }
+
+  .el-collapse {
+    border-top: 0 none;
+    border-bottom: 0 none;
+  }
+
+  .el-collapse-item__header {
+    position: relative;
+    // sjbaek style작업
+    color: inherit;
+    @include qs-box-sizing(content-box);
+    @include qs-set-oneline-height(#{$qs-component-title-height});
+
+    border-bottom: $qs-component-title-border-bottom-width solid $qs-component-title-border-color;
+
+    &.focusing {
+      &:focus:not(:hover) {
+        color: $qs-component-color;
+      }
+    }
+
+    &.is-active {
+      border-bottom-color: $qs-component-title-border-color;
+    }
+
+    .el-collapse-item__arrow {
+      color: rgba($base-font-color, 0.6);
+      font-weight: $qs-font-weight-bold;
+      font-size: $qs-component-title-arrow-font-size;
+      margin: $qs-component-title-arrow-margin;
+    }
+  }
+
+  .el-collapse-item__wrap {
+    border-bottom: 0 none;
+    // sjbaek style작업
+    background-color: transparent;
+  }
+
+  .el-collapse-item__content {
+    padding-bottom: 0;
+  }
+
+  // 비활성화 css 추가
+  // hl-lee
+
+  .el-collapse-item.is-disabled .el-collapse-item__header {
+    color :#1b2732;
+    // border-bottom: none;
+    cursor: auto;
+
+    .el-collapse-item__arrow {
+      display: none;
+    }
+  }
+}
+
+/** @end */
+
+/** @define component */
+/// Component title 공통<br />
+/// @author sj.baek
+.qs-component {
+  border-radius: $qs-component-border-radius;
+  padding: $qs-component-padding-top $qs-component-padding-x $qs-component-padding-bottom;
+  margin-bottom: $qs-component-gutter-y;
+  background-color: $qs-component-background-color;
+  // sjbaek style작업
+  // color: #111;
+
+  &__title {
+    position: relative;
+    border-bottom: $qs-component-title-border-bottom-width solid $qs-component-title-border-color;
+    
+    @include qs-box-sizing(content-box);
+    @include qs-set-oneline-height(#{$qs-component-title-height});
+  }
+
+  // hl-lee dashboard page 에서 위 3개 컴포넌트에 box 컴포넌트가 맵핑될 경우 padding 값 다르게 적용
+  &.dashboard-3n.is-box {
+    padding: 15px 20px !important;
+  }
+
+  // hl-lee dashboard1 page 적용
+  &.dashboard-component {
+    height: 615px;
+    overflow: hidden;
+    padding: 15px 20px !important;
+
+    &.item {
+      height: 300px;
+
+      .qs-box__wrap {
+        height: auto;
+      }
+    }
+  }
+}
+
+/** @end */
+
+/// Component 사이 간격, 팝업 내 컴포넌트 표현시 마지막 컴포넌트 마진 조정<br />
+/// @author sj.baek
+.el-tab-pane {
+  & > li {
+    margin-bottom: $qs-tab-item-gutter-y;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

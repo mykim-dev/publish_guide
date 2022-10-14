@@ -1,0 +1,7 @@
+/** @define textarea */
+/// QSTextarea control style<br />
+/// @author sj.baek
+.qs-textarea {
+  margin-bottom: $qs-form-item-margin-bottom;
+  @include qs-set-form-style('.qs-textarea', 'textarea');
+}

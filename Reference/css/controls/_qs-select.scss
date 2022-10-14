@@ -1,0 +1,84 @@
+/** @define select */
+/// QSSelect control style<br />
+/// @author sj.baek
+.qs-select {
+  margin-bottom: $qs-form-item-margin-bottom;
+  @include qs-set-form-style('.qs-select', 'select');
+
+  .is-disabled {
+    .el-input__inner {
+      background-color: $qs-input-background-color-disabled;
+      color: $qs-input-color-disabled;
+    }
+  }
+
+  &.qs-login-select {
+    text-align: center;
+
+    .qs-select__select {
+      width: 120px;
+
+      .el-input__inner {
+        color: #fff;
+        background: transparent;
+        font-size: 20px;
+        border: 0 none;
+      }
+
+      .el-input__suffix i {
+        font-size: 20px;
+      }
+    }
+  }
+  
+  .el-select .el-input.is-focus .el-input__inner {
+    border-color: $qs-input-border-color-focus;
+  }
+
+  &-currency-code {
+    &-item {
+      &__left {
+        float: left;
+      }
+      &__right {
+        float: right;
+        color: #8492a6; 
+        font-size: 13px;
+      } 
+    }
+  }
+}
+
+.el-select {
+  &.el-invisible {
+    display: none;
+  }
+}
+
+.el-select-dropdown {
+  & &__item {    
+    font-size: $qs-font-size-small;
+    &.selected {
+      color: $qs-select-item-color-selected;
+      background-color: $qs-select-item-background-color-selected;
+    }
+  }
+
+  &.is-left {
+    .el-select-dropdown__item {
+      text-align: left;
+    }
+  }
+
+  &.is-center {
+    .el-select-dropdown__item {
+      text-align: center;
+    }
+  }
+
+  &.is-right {
+    .el-select-dropdown__item {
+      text-align: right;
+    }
+  }
+}

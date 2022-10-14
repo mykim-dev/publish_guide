@@ -1,0 +1,412 @@
+/** @define popup */
+/// Modal Popup style<br />
+/// @author sj.baek
+.qs-popup {
+  &__header {
+    position: relative;
+    background-color: $qs-popup-header-background-color;
+  }
+
+  &__title {
+    @include qs-set-oneline-height(#{$qs-popup-header-height});
+
+    padding: $qs-popup-header-padding-y $qs-popup-header-padding-x;
+    display: inline-block;
+    width: 100%;
+  }
+
+  // popup scrollbar를 위해 추가
+  &__content {
+    &::-webkit-scrollbar {width:6px; height:6px;} /* width */
+    // &::-webkit-scrollbar-track {background:rgba(255,255,255,0.7);} /* Track */
+    &::-webkit-scrollbar-thumb {background:rgba(144, 147, 153, 0.3); border-radius:4px;} /* Handle */
+    &::-webkit-scrollbar-thumb:hover {background:rgba(144, 147, 153, 0.5);} /* Handle on hover */
+  }
+
+  //hl.lee login page password popup
+  &__body {
+    padding: 22.5px 100px 27.5px 100px;
+
+    &-desc {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 3.25;
+      letter-spacing: -0.4px;
+      text-align: center;
+      color: #111;
+    }
+
+    .qs-text {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__footer {
+    padding-bottom: 10px;
+
+    .qs-button__wrap--bottom {
+      padding: 10px 10px 0;
+    }
+  }
+
+  &__button-close {
+    position: absolute;
+    top: 50%;
+    width: $qs-popup-close-button-width;
+    @include qs-set-oneline-height(#{$qs-popup-close-button-height});
+
+    right: $qs-popup-header-padding-x;
+    transform: translateY(-50%);
+
+    &::before {
+      content: "\00d7";
+      font-size: $qs-popup-close-button-font-size;
+    }
+  }
+
+  .qs-card-panel__item {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.el-dialog__wrapper {
+    .el-dialog__header {
+      padding: 0;
+      position: relative;
+      background-color: $qs-popup-header-background-color;
+
+      .el-dialog__title {
+        @include qs-set-oneline-height(#{$qs-popup-header-height});
+
+        padding: $qs-popup-header-padding-y $qs-popup-header-padding-x;
+        color: $qs-popup-header-color;
+        display: inline-block;
+      }
+
+      .el-dialog__headerbtn {
+        position: absolute;
+        top: 50%;
+        width: $qs-popup-close-button-width;
+        @include qs-set-oneline-height(#{$qs-popup-close-button-height});
+
+        right: $qs-popup-header-padding-x;
+        transform: translateY(-50%);
+
+        &::before {
+          content: "\00d7";
+          font-size: $qs-popup-close-button-font-size;
+        }
+
+        .el-dialog__close {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__login2Factor {
+    .qs-popup__body {
+      padding: 40px 40px 30px;
+
+      &-header {
+        padding-bottom: 35px;
+        text-align: center;
+        color: #000;
+
+        &-title {
+          font-size: 24px;
+        }
+
+        &-desc {
+          margin-top: 13px;
+          font-size: 16px;
+        }
+      }
+
+      &-descbox {
+        padding: 25px 0 20px;
+      }
+
+      &-desc {
+        font-size: 12px;
+        color: #000;
+        line-height: initial;
+        letter-spacing: initial;
+      }
+
+      .qs-popup__button-close {
+        top: 40px;
+        right: 40px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        transform: initial;
+
+        &::before {
+          font-size: 35px;
+          color: #666;
+        }
+      }
+    }
+
+    .qs-form {
+      padding-top: 0;
+
+      &__inline {
+        display: flex;
+
+        &.inline-center {
+          justify-content: center;
+        }
+
+        & + .qs-form__inline {
+          margin-left: 15px;
+        }
+      }
+    }
+
+    .qs-text {
+      &__otp {
+        &.el-input {
+          margin: 0 2.5px;
+          width: 28px;
+
+          &--medium {
+            font-size: 27px;
+
+            .el-input__inner {
+              height: 45px;
+              line-height: 45px;
+              border: 0 none;
+              border-bottom: 3px solid #707070;
+              border-radius: 0;
+              padding: 0;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    .qs-button-area {
+      padding-bottom: 45px;
+
+      .qs-button {
+        margin: 0;
+        display: block;
+        text-align: center;
+
+        & > button.el-button {
+          width: 340px;
+          height: 36px;
+          text-align: center;
+          font-size: 16px;
+          line-height: 24px;
+          
+          font-weight: 500;
+          color: #fff;
+        }
+
+        &-confirm {
+          background-color: #3386A2;
+          
+          &:hover, &:active, &:focus {
+            background-color: #3386A2;
+            opacity: 0.8;
+          }
+          
+        }
+
+        &-resetOTP {
+          background-color: #FFB24D;
+
+          &:hover, &:active, &:focus {
+            background-color: #FFB24D;
+            opacity: 0.8;
+          }
+        }
+
+        & + .qs-button {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .qs-popup__footer {
+      padding-bottom: 0px;
+      
+      .otpSettingGuide {
+        .el-carousel__item {
+          background-color: #ECECEC;
+          padding: 20px 40px;
+
+          p {
+            &.title {
+              font-size: 18px;
+              color: #707070;
+              margin-bottom: 24px;
+            }
+            
+            &.step {
+              color: #4A4A4A;
+              font-size: 14px;
+              position: absolute;
+              font-weight: 500;
+              top: 7px;
+              left: 115px;
+
+              span {
+                color: #47B2F4;
+                font-size: 20px;
+                font-weight: bold;
+              }
+            }
+
+            &.desc {
+              font-size: 14px;
+              color: #707070;
+              margin-top: 8px;
+              position: absolute;
+              top: 115px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 250px;
+            }
+          }
+        }
+
+        .el-carousel__indicators {
+          &--horizontal {
+            bottom: 20px;
+          }
+        }
+
+        .el-carousel__indicator {
+          &--horizontal {
+            padding: 0px 6px;
+          }
+
+          &.is-active {
+            button {
+              background-color: #3386A2;
+            }
+          }
+        }
+
+        .el-carousel__button {
+          border-radius: 50%;
+          border: 1px solid #E4E4E4;
+          opacity: 1;
+          width: 10px;
+          height: 10px;
+        }
+
+        .display-flex {
+          &__item {
+            padding: 0px 30px 35px;
+
+            &.mark {
+              padding-bottom: 0px;
+            }
+          }
+        }
+      }
+    }
+
+    .display-flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__item {
+        text-align: center;
+        position: relative;
+      }
+    }
+
+    &.login2Factor-qr {
+      .qs-popup__body {
+        &-header {
+          padding-bottom: 45px;
+        }
+      }
+
+      .display-flex {
+        justify-content: space-evenly;
+
+        &__item {
+          &.step1 {
+            width: 300px;
+            position: relative;
+
+            .step {
+              position: absolute;
+              font-weight: bold;
+              color: #000;
+              font-size: 18px;
+              left: 10px;
+              span {
+                color: #305461;
+              }
+            }
+
+            .desc {
+              font-size: 16px;
+              color: #000000;
+              margin-top: 10px;
+            }
+          }
+
+          &.arrow {
+            position: absolute;
+            top: 235px;
+            background: url("~assets/img/arrow.gif") no-repeat center;
+            background-size: contain;
+            background-color: transparent;
+            width: 32px;
+            height: 21px;
+          }
+
+          &.step2 {
+            width: 220px;
+
+            .step {
+              position: absolute;
+              top: -25px;
+              font-size: 18px;
+              color: #000;
+              font-weight: bold;
+              left: -45px;
+              span {
+                color: #305461;
+              }
+            }
+
+            .qs-form {
+              padding-bottom: 45px;
+              padding-top: 0;
+            }
+
+            .desc {
+              font-size: 16px;
+              color: #000;
+              position: absolute;
+              bottom: -30px;
+            }
+          }
+        }
+      }
+
+      .qs-popup__footer {  
+        .otpSettingGuide {
+          .display-flex {
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

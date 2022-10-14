@@ -1,0 +1,90 @@
+@import '_qs-breadcrumb';
+@import '_qs-hamburger';
+@import '_qs-lang-select';
+@import '_qs-alarm-bell';
+@import '_qs-settings';
+@import '_qs-searchbar';
+
+/** @define header */
+/// navbar 공통 header style<br />
+/// @author sj.baek
+.qs-header {
+  background-color: $qs-background-color;
+  position: relative;
+  @include qs-clearfix();
+
+  &__left {
+    float: left;
+
+    &__title {
+      @include qs-set-oneline-height(#{$qs-navbar-height});
+    }
+  }
+
+  &__right {
+    float: right;
+    padding-right: $qs-navbar-padding-right;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+
+    &-item {
+      display: block;
+      margin-left: $qs-navbar-item-spacing;
+      float: left;
+
+      &.el-input.el-input--medium {
+        width: auto;
+      }
+
+      svg {
+        font-size: $qs-navbar-icon-font-size-big;
+        color: $qs-navbar-icon-color;
+      }
+    }
+  }
+}
+
+/** @end */
+
+/** @define avatar */
+/// navbar 프로필영역 style<br />
+/// @author sj.baek
+.qs-avatar {
+  position: relative;
+
+  &__image {
+    float: left;
+    width: $qs-avatar-profile-width;
+    height: $qs-avatar-profile-height;
+    cursor: pointer;
+    // border-radius: 100%;
+    // border: $qs-avatar-profile-border-width solid $qs-avatar-profile-color;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
+    // text-align: center;
+    // overflow: hidden;
+
+    // svg {
+    //   color: $qs-avatar-image-color;
+    //   font-size: $qs-avatar-image-font-size;
+    //   margin-top: $qs-avatar-image-margin-top;
+    // }
+  }
+
+  &__name {
+    float: left;
+    @include qs-set-oneline-height(#{$qs-avatar-profile-height});
+
+    margin-left: $qs-avatar-item-spacing;
+    font-size: $qs-font-size-regular;
+    font-weight: $qs-font-weight-medium;
+    color: $qs-avatar-name-color;
+  }
+}
+
+/** @end */

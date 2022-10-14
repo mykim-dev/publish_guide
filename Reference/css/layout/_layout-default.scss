@@ -1,0 +1,53 @@
+@import "Navbar/_qs-navbar";
+@import "RightPanel/_qs-right-panel";
+@import "BottomPanel/_qs-bottom-panel";
+@import "Sidebar/_qs-sidebar";
+@import "TagsView/_qs-tags-view";
+
+/** @define app-wrapper */
+/// layout 전체 최상단 class 높이값 100% 설정<br />
+/// @author sj.baek
+.qs-app-wrapper {
+  min-width: 1440px;
+  min-height: 100vh;
+  background-color: $qs-layout-background-color;
+}
+
+/** @end */
+
+/** @define main */
+/// 좌측 메뉴리스트 열림/닫힘에 따른 컨텐츠영역 style<br />
+/// @author sj.baek
+.qs-main__container {  
+  
+  @include qs-control-by-parent(".is-open") {
+    margin-left: $qs-sidebar-width;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  @include qs-control-by-parent(".is-close") {
+    margin-left: $qs-sidebar-width-collapse;
+    transition: margin-left 0.3s;
+  }
+
+  .qs-main__app {
+    padding: $qs-screen-padding;
+  }
+
+  .qs_main__content {
+    .el-scrollbar__wrap {
+      max-height: calc(100vh - 110px);
+      padding-right: 25px;
+      overflow-x: hidden;
+    }
+
+    & > .el-scrollbar__bar.is-horizontal{
+      display: none;
+    }
+
+    & > .el-scrollbar__bar.is-vertical{
+      opacity: 1;
+    }
+  }
+}
+
+/** @end */

@@ -1,0 +1,65 @@
+/** @define mapper */
+/// QSMapper  component style<br />
+/// @author sj.baek
+.qs-mapper {
+  @include qs-clearfix();
+
+  &__wrap {
+    float: left;
+    padding: $qs-mapper-padding-y $qs-mapper-padding-x;
+    border: 1px solid $qs-mapper-border-color;
+    margin-right: $qs-mapper-gutter;
+    @include qs-clearfix();
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--target {
+      border: 0 none;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: $qs-mapper-title-margin-bottom;
+  }
+
+  &__list {
+    width: $qs-mapper-list-width;
+    min-height: $qs-mapper-list-item-height;
+
+    &.is-empty {
+      border: 1px dashed #ddd;
+      position: relative;
+
+      &::after {
+        content: "+ Drag here";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 40px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__list-item {
+    width: 100%;
+    height: $qs-mapper-list-item-height;
+    line-height: $qs-mapper-list-item-height;
+    cursor: move;
+    @include qs-text-overflow-ellipsis();
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__ghost {
+    opacity: 0.5;
+    background: $qs-mapper-list-item-ghost-background-color;
+  }
+}

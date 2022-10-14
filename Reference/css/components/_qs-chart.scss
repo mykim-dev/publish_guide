@@ -1,0 +1,19 @@
+/** @define chart */
+/// QSChart component style<br />
+/// @author sj.baek
+.qs-chart {
+  padding-top: 10px;
+  min-height: 457px;
+
+  &.small-size, &.normal-size {
+    min-height: auto;
+  }
+
+  // .e-chart {
+  //   overflow: auto !important;
+  // }
+  
+  // path, ellipse  {
+  //   cursor: pointer; 
+  // }
+}

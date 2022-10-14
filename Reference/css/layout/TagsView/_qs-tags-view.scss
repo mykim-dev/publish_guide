@@ -1,0 +1,109 @@
+/** @define tags-view */
+/// 방문페이지 히스토리 tag style<br />
+/// @author sj.baek
+.qs-tags-view {
+  &__wrapper {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .el-scrollbar__view {
+    padding-bottom: $qs-tags-gutter-y;
+    padding-top: $qs-tags-padding-top;
+  }
+
+  &__item {
+    border-radius: $qs-tags-item-border-radius;
+    position: relative;
+    font-size: $qs-tags-item-font-size;
+    font-weight: $qs-font-weight-regular;
+    color: $qs-tags-item-color;
+    background-color: $qs-tags-item-background-color;
+    padding: $qs-tags-item-padding-y $qs-tags-item-padding-x;
+    display: inline-block;
+    // box-shadow: 0 3px 6px rgba($qs-black, 0.08);
+    cursor: pointer;
+    margin-left: $qs-tags-item-spacing;
+    border: solid $qs-tags-item-border-width $qs-tags-item-border-color;
+    @include qs-set-oneline-height(#{$qs-tags-item-height});
+    box-sizing: content-box;
+    
+    &.is-active {
+      color: $qs-tags-item-active-color;
+      background-color: $qs-tags-item-active-background-color;
+      // box-shadow: 0 3px 6px rgba($qs-black, 0.16);
+      border: solid $qs-tags-item-border-width $qs-tags-item-active-background-color;
+      
+      .qs-tags-view__btn-close {
+        background-color: $qs-tags-item-active-background-color;
+        border-color: $qs-white;
+        opacity: 1;
+
+        &::before {
+          color: $qs-white;
+        }
+      }
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    .qs-tags-view__btn-close {
+      cursor: pointer;
+      font-size: $qs-tags-item-button-font-size;
+      font-weight: $qs-font-weight-regular;
+      // margin-left: $qs-tags-item-button-spacing;
+      color: inherit;
+      position: absolute;
+      // 추가
+      top: $qs-tags-btn-position;
+      right: $qs-tags-btn-position;
+      // 추가
+      width: $qs-tags-item-button-width;
+      height: $qs-tags-item-button-height;      
+      line-height: $qs-tags-item-button-height;      
+      border: $qs-tags-item-button-border;
+      background-color: $qs-tags-item-button-background-color;
+      border-radius: $qs-tags-item-button-border-radius;
+      text-align: center;
+      box-sizing: content-box;
+      opacity: 0.3;
+
+      &::before {
+        // position: absolute;
+        // transform: translate(-50%);
+        // margin-top: 2px;
+        // left: 50%;        
+        display: inline-block;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__contextmenu {
+    position: absolute;
+    background-color: $qs-white;
+    z-index: 5;
+
+    > li {
+      padding: 10px;
+      font-size: $qs-font-size-small;
+      cursor: pointer;
+      border-left: 1px solid $qs-border-color-base;
+      border-right: 1px solid $qs-border-color-base;
+      border-top: 1px solid $qs-border-color-base;
+
+      &:last-child {
+        border-bottom: 1px solid $qs-border-color-base;
+      }
+
+      &:hover {
+        background-color: rgba($qs-primary, 0.15);
+      }
+    }
+  }
+}

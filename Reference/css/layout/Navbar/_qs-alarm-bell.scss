@@ -1,0 +1,31 @@
+/** @define alarm-bell */
+/// navbar의 알림 버튼 style<br />
+/// @author sj.baek
+.qs-alarm-bell {
+  // width: $qs-navbar-item-width;
+  // height: $qs-navbar-item-height;
+  // position: relative;
+  cursor: pointer;
+  // transform: translateY(($qs-avatar-profile-height - $qs-navbar-item-height)/2);
+
+  svg {
+    font-size: $qs-navbar-icon-font-size;
+  }
+
+  > span {
+    display: block;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: $qs-alarm-bell-badge-width;
+    @include qs-set-oneline-height(#{$qs-alarm-bell-badge-height});
+
+    border-radius: 100%;
+    color: $qs-alarm-bell-badge-color;
+    font-size: $qs-alarm-bell-badge-font-size;
+    background-color: $qs-alarm-bell-badge-background-color;
+    border: $qs-alarm-bell-badge-border-width solid $qs-alarm-bell-badge-border-color;
+    text-align: center;
+    box-sizing: content-box;
+  }
+}

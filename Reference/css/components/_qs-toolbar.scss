@@ -1,0 +1,19 @@
+/** @define toolbar */
+/// QSToolbar component style<br />
+/// @author sj.baek
+.qs-toolbar {
+  @include qs-set-oneline-height(#{$qs-component-title-height});
+
+  position: relative;
+
+  > h6 {
+    @include qs-set-oneline-height(#{$qs-component-title-height});
+  }
+
+  & &__button-wrap {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    @include qs-set-oneline-height(#{$qs-component-title-height});
+  }
+}

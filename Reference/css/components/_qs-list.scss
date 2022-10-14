@@ -1,0 +1,440 @@
+/** @define list */
+/// QSList component style<br />
+/// @author sj.baek
+.qs-list {
+  padding-top: $qs-component-margin-top;
+  &.is-disable-drag {
+    @include qs-disable-drag();
+  }
+
+  // .is-pointer {
+  //   position: relative;    
+  // }
+
+  .el-invisible {
+    display: none;
+  }
+
+  .el-table {
+    // sjbaek style작업
+    border:1px solid #EAF2F9;
+    background-color: transparent;
+
+    // hhgo style 추가 _ 2022.08.04 
+    // fixed header 설정시 데이터가 겹쳐보이는 현상 확인하여 style 추가
+    &__fixed {
+      &-body-wrapper {
+        background-color: #fff;
+      }
+    }
+  }
+
+  .el-table--medium th,
+  .el-table--medium td {
+    padding: 0;
+  }
+
+  .el-table__header {
+    border-bottom:1px solid #C5C5C5;
+    
+    .qs-list__header-row {
+      // sjbaek style작업
+      background-color: inherit;
+
+      th.qs-list__header-cell {
+        background-color: #F5FAFC/*$qs-gray-cooler*/;
+
+        .cell {
+          font-size: $qs-list-font-size;
+          font-weight: $qs-font-weight-medium;
+          color: $qs-text-color-high;
+          padding: 0;
+          position: relative;
+
+          > div {
+            position: relative;
+            color: $qs-text-color-high;
+            padding: $qs-list-cell-padding-y $qs-list-cell-padding-x;
+
+            &.is-gray {
+              background-color: $qs-gray-cool;
+            }
+
+            &.is-red {
+              background-color: $qs-red;
+            }
+
+            > span {
+              color: inherit;
+              @include qs-clearfix();
+
+              .qs-list__header-cell-text {
+                display: block;
+                float: left;
+                width: 100%;
+                font-size: $qs-list-font-size;
+                font-weight: $qs-font-weight-medium;
+                color: inherit;
+                @include qs-text-overflow-ellipsis();
+
+                &.qs-list__header-cell-text__searchable {
+                  padding-right: 15px;
+                }
+
+                &__sortable {
+                  width: calc(100% - 25px);
+
+                  &.qs-list__header-cell-text__searchable {
+                    width: calc(100% - 35px);
+                    padding-right: 0px;
+                  }
+                }
+              }
+
+              svg {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+                cursor: pointer;
+              }
+
+              .el-popover__reference {
+                font-size: $qs-list-font-size;
+                font-weight: $qs-font-weight-medium;
+              }
+            }
+          }
+
+          &.is-searched {
+            > div {
+              > span {
+                .qs-list__header-cell-text {
+                  color: $qs-list-header-color-searched;
+                }
+              }  
+            }
+          }
+
+          & .is-sorting .caret-wrapper {
+            right: 10px;
+          }
+
+          & .is-search.is-sorting .caret-wrapper {
+            right: 25px;
+          }
+        }
+
+        .caret-wrapper {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 6px;
+          cursor: pointer;
+
+          .sort-caret {
+            left:5px;
+            &.ascending {
+              top: -2px;
+            }
+  
+            &.descending {
+              bottom: 0;
+            }
+          }
+        }
+
+        &.ascending {
+          .caret-wrapper {
+            .sort-caret {
+              &.ascending {
+                border-bottom-color: $qs-list-header-arrow-highlight;
+              }
+            }
+          }
+        }
+
+        &.descending {
+          .caret-wrapper {
+            .sort-caret {
+              &.descending {
+                border-top-color: $qs-list-header-arrow-highlight;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .el-table__footer {
+    tbody {
+      td {
+        background-color: $qs-list-footer-background-color;
+
+        .cell {
+          font-size: $qs-list-font-size;
+          font-weight: $qs-font-weight-regular;
+          color: $qs-text-color-high;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .el-table__body {
+    .el-table__row {
+      // sjbaek style작업
+      background-color: transparent;
+
+      > td {
+        font-weight: $qs-font-weight-light;
+        // sjbaek style작업
+        background-color: #fff;
+
+        .cell {
+          font-size: $qs-list-font-size;
+          color: $qs-text-color-high;
+          padding: 0;
+          @include qs-text-overflow-ellipsis();
+
+          > div {
+            padding: $qs-list-cell-padding-y $qs-list-cell-padding-x;
+            color: $qs-text-color-high;
+
+            &.is-gray {
+              background-color: $qs-gray-cool;
+            }
+
+            &.is-red {
+              color: $qs-red;
+            }
+
+            &.is-background-red {
+              background-color: $qs-red;
+            }
+
+            > span {
+              font-size: $qs-list-font-size;
+              color: inherit;
+            }
+          }
+
+          .is-link{
+            font-size: $qs-list-font-size;
+          }
+        }
+
+        .qs-list__cell--added-icon {
+          display: block;
+          position: relative;
+          min-height: 12px;
+
+          &.el-invisible {
+            display: none;
+          }
+
+          > svg {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+
+        .qs-list__cell-direct-edit {
+          display: block;
+          position: relative;
+          font-size: inherit;
+
+          &.el-invisible {
+            display: none;
+          }
+
+          @include qs-text-overflow-ellipsis();
+
+          > svg {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            font-size: $qs-list-cell-icon-font-size;
+            cursor: pointer;
+            display: none;
+          }
+
+          &:hover {
+            > svg {
+              display: block;
+            }
+          }
+        }
+
+        .qs-list__cell-progress {
+          display: block;
+          min-width: $qs-list-cell-progress-min-width;
+          height: $qs-list-cell-progress-height;
+          border: $qs-list-cell-progress-border-width solid $qs-list-cell-progress-border-color;
+          position: relative;
+          overflow: hidden;
+
+          &.el-invisible {
+            display: none;
+          }
+
+          .qs-list__cell-progress__progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: $qs-list-cell-progress-background-color;
+          }
+        }
+
+        .qs-list__cell-rating {
+          unicode-bidi: bidi-override;
+          color: $qs-list-cell-rating-color;
+          font-size: $qs-list-cell-rating-font-size;
+          height: $qs-list-cell-rating-height;
+          width: $qs-list-cell-rating-width;
+          position: relative;
+          padding: 0;
+          display: inline-block;
+
+          &.el-invisible {
+            display: none;
+          }
+
+          &__top {
+            color: $qs-list-cell-rating-color-highlight;
+            padding: 0;
+            position: absolute;
+            z-index: 1;
+            display: inline-block;
+            top: 1.5px;
+            left: 0;
+            height: 100%;
+            overflow: hidden;
+          }
+
+          &__bottom {
+            padding: 0;
+            display: inline-block;
+            z-index: 0;
+          }
+        }
+
+        &.qs-list__radio, &.qs-list__checkbox {
+          .cell {
+            padding: $qs-list-cell-padding-y $qs-list-cell-padding-x;
+            text-overflow: initial;
+          }
+        }
+
+        .edit-required {
+          border: 2px solid $qs-danger;
+        }
+      }
+
+      &:hover {
+        > td {
+          background-color: $qs-gray-coolest;
+        }
+      }
+
+      &.current-row {
+        > td {
+          background-color: $qs-list-cell-background-color-highlight;
+        }
+      }
+    }
+  }
+
+  // 2022-07-15 page total 이벤트 추가를 위해 적용된 style
+  &__total {
+    &-popover {
+      &.el-popover {
+        min-width: auto;
+      }
+    }
+
+    &-content {
+      text-align: center;
+      p {
+        font-size: $qs-font-size-root;
+        font-weight: $qs-font-weight-medium;
+      }
+      span {
+        font-size: inherit;
+        font-weight: inherit;
+        color: #3386a2;
+      }
+    }
+  }
+
+  @include qs-set-radio-style();
+  @include qs-set-checkbox-style();
+
+  .el-pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__jump {
+      display: inline-flex !important;
+    }
+  }
+
+  .el-pager li {
+    color: $qs-gray-n5;
+    font-weight: normal;
+  }
+
+  .el-pager li.active,
+  .el-pager li:hover,
+  .el-pagination button:hover {
+    color: $active-background-color;
+    font-weight: bold;
+  }
+
+  .el-pagination .el-select .el-input__inner:focus,
+  .el-pagination__sizes .el-input .el-input__inner:hover {
+    border-color: $focus-border-color;
+  }
+
+  .el-pagination .el-pagination__jump {
+    display: flex;
+  }
+
+  .is-virtual {
+    & .el-checkbox .el-checkbox__input.is-checked .el-checkbox__inner,
+    & .qs-list .el-checkbox .el-checkbox__input.is-indeterminate .el-checkbox__inner,
+    & .el-checkbox .el-checkbox__input.is-checked .el-checkbox__inner::after,
+    & .qs-list .el-checkbox .el-checkbox__input.is-indeterminate .el-checkbox__inner::after {
+      transition: none;
+    }
+  }
+}
+
+// 2022-03-22 page total 이벤트 추가를 위해 적용된 style
+.qs-button {
+  &.qs-list__total__wrap {
+    // position: relative;
+
+    > button.el-button {
+      &.qs-list__total-button {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        border: 0 none;
+        background: url("~assets/img/list_total.png") no-repeat center;
+        background-size: contain;
+        vertical-align: middle;
+
+        &.loading {
+          background-image: url("~assets/img/list_total_gif.gif");
+        }
+      }
+    }
+  }
+}

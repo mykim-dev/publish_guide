@@ -1,0 +1,13 @@
+/** @define radio */
+/// QSRadio control style<br />
+/// @author sj.baek
+.qs-radio {
+  margin-bottom: $qs-form-item-margin-bottom;
+  @include qs-set-form-style('.qs-radio', 'radio');
+
+  &__input {
+    overflow-y: auto;
+    @include qs-set-oneline-height(#{$qs-form-item-height});
+  }
+  @include qs-set-radio-style();
+}

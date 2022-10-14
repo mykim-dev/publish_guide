@@ -1,0 +1,8 @@
+/// 함수설명: 테마 적용시 컬러값 구하기
+/// @param {String} $key
+///     `$theme-map` 객체의 key값.
+/// @return {String} `$theme-map` 내에서 `$key`값에 맞는 value
+/// @author sj.baek
+@function qs-themed($key) {
+  @return map-get($theme-map, $key);
+}

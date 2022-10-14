@@ -1,0 +1,7 @@
+/** @define editor */
+/// QSTeditor control style<br />
+/// @author sj.baek
+.qs-editor {
+  margin-bottom: $qs-form-item-margin-bottom;
+  @include qs-set-form-style('.qs-editor', 'editor');
+}

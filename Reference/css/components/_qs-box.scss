@@ -1,0 +1,57 @@
+/** @define box */
+/// QSBox component style<br />
+/// @author sh.won
+
+.dashboard-item {
+  height: 160px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 15px 20px !important;
+
+  .qs-box__wrap {
+    height: auto;
+  }
+
+  &.is-last {
+    height: 335px;
+    padding-top: 50px;
+  }
+  // hl-lee 추가
+  // dashboard2 에서 사용
+  &.is-5n {
+    height: 250px;
+    .qs-box-label {
+      > div {
+        font-size: 17px;
+      }
+    }
+    .qs-box-data__item {
+      font-size: 30px;
+    }
+    .qs-box-data__suffix {
+      font-size: 1.1rem;
+      line-height: $qs-line-height-base;
+    }
+  }
+
+  &.pointer {
+    cursor: pointer;
+  }
+}
+
+.qs-box {
+  padding: 15px 0;
+  // padding: 25px 0 10px 0;
+
+  &__wrap {
+    width: 100%;
+  }
+
+  .qs-box__img {
+    text-align: center;
+  }
+
+  .qs-box__conts {
+    padding: 16px 0;
+  }
+}

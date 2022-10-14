@@ -1,0 +1,26 @@
+/** @define image view */
+/// QSImageView control style<br />
+/// @author hl.lee
+.qs-image-view {
+  margin-bottom: $qs-form-item-margin-bottom;
+  @include qs-set-form-style('.qs-image-view');
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    background: #f5f7fa;
+
+    &-failed {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      background: #f5f7fa;
+      color: #909399;
+
+      i {
+        font-size: 30px;
+      }
+    }
+  }
+}

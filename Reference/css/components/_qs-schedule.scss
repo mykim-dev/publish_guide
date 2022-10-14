@@ -1,0 +1,13 @@
+.qs-schedule {
+  padding-top: $qs-component-margin-top;
+  .e-more-popup-wrapper {
+    width: 225px;
+  }
+  .e-btn.e-round, .e-css.e-btn.e-round {
+    width: 2em;
+    height: 2em;
+  }
+  .e-btn.e-round .e-btn-icon {
+    line-height: 2em;
+  }
+}

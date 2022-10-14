@@ -1,0 +1,69 @@
+/** @define lookup */
+/// QSLookUp control style<br />
+/// @author sj.baek
+.qs-lookup {
+  margin-bottom: $qs-form-item-margin-bottom;
+
+  &__input {
+    .el-input__inner {
+      border-right: 0 none;
+    }
+
+    &.search-size-sm {
+      .el-input-group__append {
+        height: $qs-form-item-height-xs;
+      }
+    }
+
+    &.is-disabled{
+      .el-input-group__append{
+        border-color:$base-border-color;
+      }
+    }
+
+    .el-input-group__append {
+      padding: 0;
+      height: $qs-form-item-height;
+      border-radius: $qs-form-item-border-radius;
+      // 20201012 element ui 기본 style 오버라이딩 - hl.lee
+      border-left: 1px solid $base-border-color;
+
+      .qs-lookup__button {
+        margin: 0;
+        height: 100%;
+        padding: $qs-form-inner-button-padding-y $qs-form-inner-button-padding-x;
+        color: $qs-form-inner-button-color;
+        background-color: $qs-input-background-color;
+        // 20201012 style 수정 - hl.lee
+        border: none 0;
+        // border-left: 1px solid $qs-form-inner-border-color;
+        border-radius: $qs-form-item-border-radius;
+
+        &:hover {
+          // 20201012 style 수정 - hl.lee
+          // border-left: 1px solid $qs-form-inner-border-color;
+        }
+
+        &.is-disabled {
+          color: $qs-input-color-disabled;
+          background-color: $qs-input-background-color-disabled;
+
+          &:hover {
+            color: $qs-input-color-disabled;
+            background-color: $qs-input-background-color-disabled;
+          }
+        }
+      }
+    }
+
+    &.edit-element {
+      .el-input-group__append {
+        height: 28px;
+        .qs-lookup__button {
+          padding: 0 6px;
+        }
+      }
+    }
+  }
+  @include qs-set-form-style('.qs-lookup');
+}

@@ -1,0 +1,15 @@
+/** @define settings */
+/// navbar 설정버튼 style<br />
+/// @author sj.baek
+.qs-settings {
+  width: $qs-navbar-item-width;
+  height: $qs-navbar-item-height;
+  position: relative;
+  cursor: pointer;
+  transform: translateY(($qs-avatar-profile-height - $qs-navbar-item-height)/2);
+  
+  &__icon {
+    font-size: $qs-navbar-icon-font-size;
+    color: $qs-text-color-high;
+  }
+}

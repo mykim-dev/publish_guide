@@ -1,0 +1,558 @@
+/* for reset */
+$qs-html-elements: "div, h1, h2, h3, h4, h5, h6, form, fieldset, p, blockquote, button, address, caption, cite, code, dfn, i, var, label, table, tbody, tfoot, thead, tr, th, td, article, aside, canvas, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video" !default;
+$qs-list-elements: "ul, ol, li, dl, dt, dd";
+
+$qs-magenta: #d744aa !default;
+$qs-purple: #b620e0 !default;
+$qs-violet: #8000ff !default;
+$qs-blue: #0091ff !default;
+$qs-cyan: #598ec3 !default;
+$qs-indigo: #5e80f6 !default;
+$qs-mint: #44c5d7 !default;
+$qs-teal: #2fc898 !default;
+$qs-red: #f75456 !default;
+$qs-coral: #ff6f61 !default;
+$qs-amber: #f8af2b !default;
+$qs-yellow: #ffce00 !default;
+$qs-lime: #dae369 !default;
+$qs-green: #6dd400 !default;
+$qs-white: #fff !default;
+$qs-black: #000 !default;
+
+$base-font-color: #000;
+
+$base-border-color: #e8e8e8 !default;
+$base-border-radius: 4px;
+
+$focus-border-color: #9DC5D4 !default;
+
+$active-font-color: #305461 !default;
+$active-border-color: #3386A2 !default;
+$active-background-color: #3386A2 !default;
+
+$readonly-background-color: lighten($base-border-color, 10%);
+$disabled-background-color: lighten($base-border-color, 10%);
+
+/* default color */
+$qs-gray-light: #f8f8f8 !default;
+$qs-gray-warm: #ddd !default;
+$qs-gray-medium: #9f9f9f !default;
+
+$qs-gray-cool: #f0f3f5 !default;
+$qs-gray-cooler: #fafafa !default;
+$qs-gray-coolest: #f6f6f6 !default;
+
+$qs-lightgreen :#D9E9E7 !default;
+$qs-lightemerald : #ECF5F3 !default;
+$qs-lightemerald2: #F3F5F5 !default;
+$qs-bluegreen: #055a78 !default;
+$qs-bluegreen-light: #4bafc8 !default;
+$qs-navy-deep: #0a3746 !default;
+$qs-grey: #c3cdd2 !default;
+$qs-grey-medium: #afb9be !default;
+$qs-grey-warm-light: #fcfcfc !default;
+
+$qs-blue-medium: #007dbc !default;
+$qs-blue-deep: #005b86 !default;
+$qs-green-deep :#066E92 !default;
+
+
+$qs-gray: #889194 !default;
+
+$qs-bluegreen-n3:#88B7C8 !default;
+$qs-bluegreen-n4:#9FCAD9 !default;
+$qs-bluegreen-n7:#F4F7F8 !default;
+
+$qs-bluegreen-n8:#5796AD !default;
+$qs-bluegreen-n9:#21667E !default;
+
+$qs-gray-n1:#f1f1f1 !default;
+
+$qs-gray-n3: #e5e5e5 !default;
+$qs-gray-n4: #e1e1e1 !default;
+$qs-gray-n5: #c6c6c6 !default;
+
+/* system color */
+$qs-primary: $qs-bluegreen-light !default;
+
+$qs-secondary: $qs-gray-medium !default;
+$qs-success: $qs-teal !default;
+$qs-danger: $qs-red !default;
+
+/* default theme object declaration */
+$qs-themes: () !default;
+
+/* default font style */
+$qs-font-weight-thin: 100 !default;
+$qs-font-weight-light: 300 !default;
+$qs-font-weight-regular: 400 !default;
+$qs-font-weight-medium: 500 !default;
+$qs-font-weight-bold: 700 !default;
+$qs-font-weight-black: 900 !default;
+
+$qs-font-size-root: 14px !default;
+$qs-font-size-base: 1rem;
+$qs-font-size-regular: 1.15rem;
+$qs-font-size-small: 0.875rem;
+$qs-font-size-s: 0.79rem;
+$qs-font-size-xs: 0.75rem;
+$qs-font-size-xxs: 0.5625rem;
+$qs-font-weight-base: $qs-font-weight-regular;
+$qs-line-height-base: 1.5;
+
+/* default font-family */
+$qs-font-family-notosans: notosans, sans-serif;
+$qs-font-family-nanumbarungothic: NanumBarunGothic, sans-serif;
+$qs-font-family-nanumsquare: NanumSquare, sans-serif;
+
+$qs-font-family-base: $qs-font-family-notosans !default;
+
+/* default text-color */
+$qs-text-color-high: $qs-black;
+$qs-text-color-medium: rgba($base-font-color, 0.6);
+
+/* default background color */
+$qs-background-color: $qs-white;
+
+/* default layout background color */
+$qs-layout-background-color : $qs-lightemerald2;
+
+/* default anchor-color */
+$qs-anchor-color: $qs-blue-medium;
+$qs-anchor-color-hover: $qs-bluegreen-light;
+$qs-anchor-color-visited: $qs-blue-deep;
+
+/* login setting */
+$qs-login-height: 100vh;
+$qs-login-background-color: $qs-white;
+$qs-login-area-box-shadow: 5px 0 15px rgba(16, 16, 16, .2);
+$qs-login-logo-big-width: 185px;
+$qs-login-logo-big-height: 99px;
+$qs-login-logo-big-margin: 0 auto 20px;
+$qs-login-img-login-width: 340px;
+$qs-login-img-login-height: 170px;
+$qs-login-img-login-margin: 0 auto 40px;
+$qs-login-form-width: 340px;
+$qs-login-form-item-margin-bottom: 10px;
+$qs-login-form-input-width: 100%;
+$qs-login-form-input-height: 36px;
+$qs-login-form-input-line-height: 34px;
+$qs-login-form-input-font-size: $qs-font-size-small;
+$qs-login-form-input-font-weight: $qs-font-weight-regular;
+$qs-login-form-input-padding-x: 10px;
+$qs-login-form-input-padding-y: 0;
+$qs-login-form-input-border-width: 1px;
+$qs-login-form-input-border-radius: $base-border-radius;
+$qs-login-form-input-border-color: $qs-gray-warm;
+$qs-login-form-input-border-color-hover: $focus-border-color;
+$qs-login-form-input-border-color-focus: $focus-border-color;
+$qs-login-form-input-background-color-readonly: $qs-gray-medium;
+$qs-login-form-input-background-color-disabled: $qs-gray-light;
+$qs-login-form-button-margin-top: 20px;
+$qs-login-form-button-width: 100%;
+$qs-login-form-button-height: 40px;
+$qs-login-form-button-line-height: 40px;
+$qs-login-form-button-font-size: 1.1rem;
+$qs-login-form-button-font-weight: $qs-font-weight-regular;
+$qs-login-form-button-color: $qs-white;
+$qs-login-form-button-border-color: $active-border-color;
+$qs-login-form-button-background-color: $active-background-color;
+$qs-login-copyright-color: $qs-gray-medium;
+$qs-login-copyright-font-size: 0.9rem;
+$qs-login-copyright-font-weight: $qs-font-weight-regular;
+
+/* popup setting */
+$qs-popup-header-height: 50px;
+$qs-popup-header-color: $qs-black;
+$qs-popup-header-background-color: $qs-gray-cool;
+$qs-popup-header-padding-x: 20px;
+$qs-popup-header-padding-y: 0;
+$qs-popup-close-button-width: 26px;
+$qs-popup-close-button-height: 26px;
+$qs-popup-close-button-font-size: 1.5rem;
+
+/* sidebar default setting */
+$qs-sidebar-width: 250px;
+$qs-sidebar-width-collapse: 65px;
+$qs-sidebar-color: $active-background-color;
+$qs-sidebar-color-highlight: $active-font-color;
+$qs-sidebar-border-color: $qs-bluegreen;
+$qs-sidebar-background-color: $qs-bluegreen;
+$qs-sidebar-background-color-hover: $qs-navy-deep;
+$qs-sidebar-background-color-active: $qs-navy-deep;
+$qs-sidebar-item-margin: 0px;
+$qs-sidebar-item-main-height: 44px;
+$qs-sidebar-item-main-color: $active-background-color;
+$qs-sidebar-item-main-color-active: $qs-sidebar-color-highlight;
+$qs-sidebar-item-main-background-color: $qs-bluegreen;
+$qs-sidebar-item-main-background-color-hover: $qs-navy-deep;
+$qs-sidebar-item-main-background-color-active: $qs-navy-deep;
+$qs-sidebar-item-collapse-main-background-color-hover: $qs-navy-deep;
+$qs-sidebar-item-collapse-main-background-color-active: $qs-navy-deep;
+$qs-sidebar-item-collapse-sub-color: $active-background-color;
+$qs-sidebar-item-collapse-sub-color-hover: $qs-sidebar-color-highlight;
+$qs-sidebar-item-collapse-sub-color-active: $qs-sidebar-color-highlight;
+$qs-sidebar-item-collapse-sub-background-color-active: $qs-grey;
+$qs-sidebar-item-sub-height: 36px;
+$qs-sidebar-item-sub-color: $active-background-color;
+$qs-sidebar-item-sub-color-active: $active-background-color;
+$qs-sidebar-item-sub-arrow-font-size: 16px;
+$qs-sidebar-item-sub-background-color: $qs-bluegreen-n7;
+$qs-sidebar-item-sub-background-color-hover: $qs-bluegreen-n7;
+$qs-sidebar-item-sub-background-color-active: $qs-bluegreen-n7;
+$qs-sidebar-icon-size: 20px;
+
+$qs-sidebar-item-sub-deaph2-background-color:$qs-bluegreen-n3;
+$qs-sidebar-item-sub-deaph3-background-color:$qs-bluegreen-n8;
+$qs-sidebar-item-sub-deaph4-background-color:$qs-bluegreen-n9;
+
+/* navbar default style */
+$qs-header-background-color: #fff;
+$qs-navbar-item-width: 25px;
+$qs-navbar-item-height: 25px;
+$qs-navbar-item-spacing: 30px;
+$qs-navbar-icon-font-size-small: 20px;
+$qs-navbar-icon-font-size: 22px;
+$qs-navbar-icon-font-size-big: 24px;
+$qs-navbar-icon-color: $active-background-color;
+$qs-navbar-padding-right: 20px;
+$qs-navbar-height: 60px; //include border
+
+/* alarm bell default style */
+$qs-alarm-bell-badge-color: $qs-white;
+$qs-alarm-bell-badge-background-color: $qs-coral;
+$qs-alarm-bell-badge-font-size: $qs-font-size-xxs;
+$qs-alarm-bell-badge-border-width: 2px;
+$qs-alarm-bell-badge-border-color: $qs-white;
+$qs-alarm-bell-badge-width: 16px;
+$qs-alarm-bell-badge-height: 16px;
+
+/* navbar - hamburger */
+$qs-hamburger-height: 59px; //without border
+$qs-hamburger-svg-padding-x: 20px;
+$qs-hamburger-svg-padding-y: 20px;
+$qs-hamburger-svg-fill-color: $qs-black;
+
+/* navbar - breadcrumb */
+$qs-breadcrumb-font-size: $qs-font-size-regular; //without border
+$qs-breadcrumb-font-weight: $qs-font-weight-regular;
+$qs-breadcrumb-current-font-weight: $qs-font-weight-regular;
+$qs-breadcrumb-color: $qs-black;
+$qs-breadcrumb-link-color: $qs-black;
+$qs-breadcrumb-color-hover: $active-background-color;
+
+/* navbar - avatar */
+$qs-avatar-item-spacing: 10px;
+$qs-avatar-profile-width: 25px;
+$qs-avatar-profile-height: 25px;
+$qs-avatar-image-margin-top: 5px;
+$qs-avatar-name-color: rgba($base-font-color, 0.6);
+
+/* navbar - searchbar */
+$qs-searchbar-icon-width: 21px;
+$qs-searchbar-icon-height: 20px;
+$qs-searchbar-input-width: 352px;
+$qs-searchbar-input-height: 40px;
+$qs-searchbar-input-border-width: 2px;
+$qs-searchbar-input-border-color: $qs-bluegreen;
+$qs-searchbar-input-color: $qs-grey-medium;
+
+/* tags view */
+$qs-tags-gutter-y: 10px;
+$qs-tags-padding-top: 10px;
+$qs-tags-item-spacing: 15px;
+$qs-tags-item-height: 26px;
+$qs-tags-item-padding-x: 10px;
+$qs-tags-item-padding-y: 0;
+$qs-tags-item-border-width: 2px;
+$qs-tags-item-border-color: $qs-white;
+$qs-tags-btn-position: -10px;
+$qs-tags-item-background-color: $qs-white;
+$qs-tags-item-color: $qs-gray-medium;
+$qs-tags-item-border-radius: $base-border-radius;
+$qs-tags-item-active-color: $active-font-color;;
+$qs-tags-item-active-background-color: $qs-bluegreen-n4;
+$qs-tags-item-button-width: 14px;
+$qs-tags-item-button-height: 14px;
+$qs-tags-item-button-border: solid 1px $qs-gray;
+$qs-tags-item-button-border-radius: 25px;
+$qs-tags-item-button-background-color: $qs-white;
+$qs-tags-item-button-spacing: 5px;
+$qs-tags-item-button-font-size: $qs-font-size-small;
+$qs-tags-item-font-size: 14px;
+
+/* right panel */
+$qs-right-panel-width: 577px;
+$qs-right-panel-background-color: $qs-gray-cool;
+$qs-right-panel-box-shadow: -3px 0 13px rgba($qs-black, 0.1);
+$qs-right-panel-padding-x: 15px;
+$qs-right-panel-padding-y: 15px;
+$qs-right-panel-header-margin-bottom: 15px;
+$qs-right-panel-header-height: 26px;
+$qs-right-panel-close-button-width: 26px;
+$qs-right-panel-close-button-height: 26px;
+$qs-right-panel-close-button-font-size: 1.6rem;
+$qs-right-panel-close-button-background-color: transparent;
+
+/* default title font style */
+$qs-h1-font-size: 5.625rem;
+$qs-h1-font-weight: $qs-font-weight-bold;
+
+$qs-h2-font-size: 3.75rem;
+$qs-h2-font-weight: $qs-font-weight-medium;
+
+$qs-h3-font-size: 3rem;
+$qs-h3-font-weight: $qs-font-weight-regular;
+
+$qs-h4-font-size: 2.125rem;
+$qs-h4-font-weight: $qs-font-weight-bold;
+
+$qs-h5-font-size: 1.5rem;
+$qs-h5-font-weight: $qs-font-weight-regular;
+
+$qs-h6-font-size: $qs-font-size-small;
+$qs-h6-font-weight: $qs-font-weight-bold;
+
+/* default screen style */
+$qs-screen-padding: 0 0 0 15px;
+
+/* default component style */
+$qs-component-margin-top: 10px;
+$qs-component-title-border-bottom-width: 1px;
+$qs-component-title-border-color: $focus-border-color;
+$qs-component-title-height: 34px;
+$qs-component-title-arrow-font-size: 1.3rem;
+$qs-component-title-arrow-margin: 0 0 0 auto;
+$qs-component-color: $qs-text-color-high;
+$qs-component-background-color: $qs-white;
+$qs-component-padding-x: 20px;
+$qs-component-border-radius : $base-border-radius;
+$qs-component-padding-bottom: 15px;
+$qs-component-padding-top: $qs-component-padding-bottom - $qs-component-margin-top;
+$qs-component-gutter-y: 15px;
+
+/* alert style */
+$qs-alert-box-shadow: 3px 3px 7px rgba($qs-black, 0.35);
+$qs-alert-success-color: $qs-success;
+$qs-alert-success-border-color: scale-color($qs-alert-success-color, $lightness: 80%);
+$qs-alert-success-background-color: scale-color($qs-alert-success-color, $lightness: 80%);
+$qs-alert-error-color: $qs-danger;
+$qs-alert-error-border-color: scale-color($qs-alert-error-color, $lightness: 80%);
+$qs-alert-error-background-color: scale-color($qs-alert-error-color, $lightness: 80%);
+
+/* nprogress style */
+$qs-nprogress-peg-box-shadow: 0 0 10px $qs-primary, 0 0 5px $qs-primary;
+$qs-nprogress-spinner-border-color: $qs-primary;
+
+/* defualt form style */
+$qs-form-item-margin-bottom: 20px;
+$qs-form-item-height: 27px;
+$qs-form-item-height-xs: 28px;
+$qs-form-item-font-size: $qs-font-size-small;
+$qs-form-item-font-size-xs: $qs-font-size-xs;
+$qs-form-item-border-radius: $base-border-radius;
+$qs-form-inner-button-padding-x: 10px;
+$qs-form-inner-button-padding-y: 0;
+$qs-form-inner-button-height: 27px;
+$qs-form-inner-button-color: $qs-bluegreen-n9;
+$qs-form-inner-border-color: $qs-lightgreen;
+$qs-form-item-label-margin-bottom: 2px;
+
+/* default toolbar button style */
+$qs-button-font-size: $qs-font-size-small;
+$qs-button-font-weight: $qs-font-weight-medium;
+$qs-button-color: $qs-black;
+$qs-button-color-hover: $qs-black;
+$qs-button-color-disabled: rgba($qs-button-color, 0.6);
+$qs-button-background-color: $qs-white;
+$qs-button-background-color-hover: darken($qs-button-background-color, 10%);
+$qs-button-background-color-disabled: $qs-white;
+$qs-button-border-color: transparent;
+$qs-button-border-color-hover: transparent;
+$qs-button-border-color-disabled: transparent;
+$qs-button-padding-x: 7px;
+$qs-button-padding-y: 5px;
+$qs-button-spacing: 15px;
+$qs-button-wrap-position-right: 40px;
+$qs-button-wrap-line-height: 230%;
+$qs-button-image-margin-right: 5px;
+
+/* default form button style */
+$qs-form-button-font-size: $qs-font-size-small;
+$qs-form-button-font-weight: $qs-font-weight-medium;
+$qs-form-button-color: $qs-form-inner-button-color;
+$qs-form-button-color-hover: $qs-form-inner-button-color;
+$qs-form-button-color-disabled: rgba($qs-text-color-high, 0.2);
+$qs-form-button-background-color: $qs-white;
+$qs-form-button-background-color-hover: darken($qs-form-button-background-color, 10%);
+$qs-form-button-background-color-disabled: $qs-gray-n1;
+$qs-form-button-border-color: $qs-form-inner-border-color;
+$qs-form-button-border-color-hover: darken($qs-form-button-background-color, 10%);
+$qs-form-button-border-color-disabled: $qs-gray-n3;
+$qs-form-button-padding-x: 7px;
+$qs-form-button-padding-y: 1px;
+$qs-form-button-spacing: 20px;
+$qs-form-button-wrap-position-right: 40px;
+$qs-form-button-wrap-line-height: 230%;
+$qs-form-button-image-margin-right: 5px;
+$qs-form-button-height: $qs-form-item-height;
+
+/* default label style */
+$qs-label-font-size: $qs-font-size-small;
+$qs-label-font-weight: $qs-font-weight-regular;
+$qs-label-color: $qs-text-color-high;
+$qs-label-content-font-size: $qs-font-size-small;
+$qs-label-content-font-weight: $qs-font-weight-regular;
+$qs-label-content-color: $qs-text-color-high;
+$qs-label-height: 20px;
+$qs-label-padding-top: 0;
+$qs-label-padding-right: 10px;
+$qs-label-padding-bottom: 0;
+$qs-label-padding-left: 11px;
+
+/* default border */
+$qs-border-color-base: $qs-gray-warm;
+
+/* default input style */
+$qs-input-color: $qs-text-color-high;
+$qs-input-color-disabled: rgba($qs-text-color-high, 0.6);
+$qs-input-border-color: $base-border-color;
+$qs-input-border-color-focus: $focus-border-color;
+$qs-input-border-color-disabled: $base-border-color;
+$qs-input-background-color: $qs-white;
+$qs-input-background-color-disabled: $qs-gray-n1;
+
+/* default select style */
+$qs-select-item-color-selected: $qs-bluegreen;
+$qs-select-item-background-color-selected: rgba($qs-select-item-color-selected, 0.15);
+
+/* default radio style */
+$qs-radio-label-color: $qs-text-color-high;
+$qs-radio-label-color-checked: $qs-text-color-high;
+$qs-radio-border-color: $qs-gray-n5;
+$qs-radio-border-color-checked: $qs-bluegreen-n9;
+$qs-radio-inner-bullet-checked-width: 6px;
+$qs-radio-inner-bullet-checked-height: 6px;
+$qs-radio-background-color: $qs-white;
+$qs-radio-background-color-checked: $qs-white;
+$qs-radio-pseudo-background-color: $qs-white;
+$qs-radio-pseudo-background-color-checked: $qs-bluegreen-n9;
+
+/* default checkbox style */
+$qs-checkbox-label-color: $qs-text-color-high;
+$qs-checkbox-label-color-checked: $qs-text-color-high;
+$qs-checkbox-border-width: 2px;
+$qs-checkbox-border-color: $qs-gray-n5;
+$qs-checkbox-border-color-checked: $qs-bluegreen-n9;
+$qs-checkbox-background-color: $qs-white;
+$qs-checkbox-background-color-checked: $qs-white;
+$qs-checkbox-pseudo-border-width: 1px;
+$qs-checkbox-pseudo-border-color: $qs-white;
+$qs-checkbox-pseudo-background-color: $qs-white;
+$qs-checkbox-pseudo-border-width-checked: 1px;
+$qs-checkbox-pseudo-border-color-checked: $qs-bluegreen-n9;
+$qs-checkbox-pseudo-background-color-checked: $qs-white;
+
+/* default list style */
+$qs-list-font-size: $qs-font-size-small;
+$qs-list-header-color-searched: $qs-primary;
+$qs-list-header-arrow-highlight: $qs-primary;
+$qs-list-cell-background-color: $qs-white;
+$qs-list-cell-background-color-highlight: rgba($qs-primary, 0.15);
+$qs-list-cell-padding-x: 10px;
+$qs-list-cell-padding-y: 4px;
+$qs-list-cell-icon-padding-right: 25px;
+$qs-list-cell-icon-font-size: 1.3rem;
+$qs-list-cell-progress-height: 15px;
+$qs-list-cell-progress-min-width: 100px;
+$qs-list-cell-progress-border-color: $qs-gray-medium;
+$qs-list-cell-progress-border-width: 1px;
+$qs-list-cell-progress-background-color: rgba($qs-primary, 0.5);
+$qs-list-cell-rating-font-size: 1.4rem;
+$qs-list-cell-rating-color: $qs-gray-warm;
+$qs-list-cell-rating-color-highlight: $qs-yellow;
+$qs-list-cell-rating-width: auto;
+$qs-list-cell-rating-height: 20px;
+$qs-list-footer-background-color: $qs-gray-coolest;
+$qs-list-loading-stroke-color: $qs-primary;
+
+/* default tab style */
+$qs-tab-font-size: $qs-font-size-base;
+$qs-tab-item-color: $qs-gray;
+$qs-tab-item-color-hover: $active-background-color;
+$qs-tab-item-color-active: $active-font-color;
+$qs-tab-item-background-color: $qs-white;
+$qs-tab-item-background-color-hover: $qs-white;
+$qs-tab-item-background-color-active: $qs-bluegreen-n4;
+$qs-tab-item-border-color: $qs-bluegreen-n4;
+$qs-tab-item-gutter-y: 10px;
+$qs-tab-item-height: 30px;
+
+/* symbol palette style */
+$qs-symbol-palette-width: 240px;
+$qs-symbol-palette-header-color: $qs-black;
+
+/* canvas palette style */
+$qs-canvas-width: calc(100% - #{$qs-symbol-palette-width});
+$qs-canvas-background-color: $qs-white;
+$qs-canvas-node-stroke-color: $qs-primary;
+$qs-canvas-node-background-color: $qs-white;
+$qs-canvas-node-handle-stroke-color: $qs-white;
+$qs-canvas-node-handle-background-color: $qs-primary;
+
+/* shape style */
+$qs-shape-font-size: 20px;
+$qs-shape-background-color: $qs-white;
+$qs-shape-border-color: $qs-gray-medium;
+$qs-shape-border-width: 1px;
+
+/* mapper style */
+$qs-mapper-padding-x: 15px;
+$qs-mapper-padding-y: 0;
+$qs-mapper-gutter: 30px;
+$qs-mapper-border-color: $qs-gray-warm;
+$qs-mapper-title-margin-bottom: 15px;
+$qs-mapper-list-width: 140px;
+$qs-mapper-list-item-height: 40px;
+$qs-mapper-list-item-ghost-background-color: lighten($qs-primary, 40%);
+
+/* file upload style */
+$qs-fileupload-thumb-width: 80px;
+$qs-fileupload-list-row-height: 50px;
+$qs-fileupload-list-th-font-size: $qs-font-size-small;
+$qs-fileupload-list-th-font-weight: $qs-font-weight-medium;
+$qs-fileupload-list-th-color: $qs-text-color-high;
+$qs-fileupload-list-th-border-width: 1px;
+$qs-fileupload-list-th-border-color: $qs-gray-cool;
+$qs-fileupload-list-th-border-top-color: $qs-gray-warm;
+$qs-fileupload-list-th-background-color: $qs-gray-cooler;
+$qs-fileupload-list-th-padding-x: 10px;
+$qs-fileupload-list-th-padding-y: 0;
+$qs-fileupload-list-td-font-size: $qs-font-size-small;
+$qs-fileupload-list-td-font-weight: $qs-font-weight-regular;
+$qs-fileupload-list-td-color: $qs-text-color-high;
+$qs-fileupload-list-td-border-width: 1px;
+$qs-fileupload-list-td-border-color: $qs-gray-cool;
+$qs-fileupload-list-td-background-color: $qs-white;
+$qs-fileupload-list-td-padding-x: 10px;
+$qs-fileupload-list-td-padding-y: 0;
+$qs-fileupload-list-thumb-max-height: 40px;
+$qs-fildupload-preview-max-width: 500px;
+
+/* comment style */
+$qs-comment-padding-x: 15px;
+$qs-comment-padding-y: 15px;
+$qs-comment-border-width: 1px;
+$qs-comment-border-color: #ddd;
+$qs-comment-top-bottom-margin: 10px;
+$qs-comment-button-top: 15px;
+$qs-comment-more-button-font-size: $qs-font-size-base;
+$qs-comment-more-button-font-weight: $qs-font-weight-medium;
+$qs-comment-more-button-color: $qs-text-color-high;
+$qs-comment-more-button-background-color: $qs-white;
+$qs-comment-more-button-background-color-hover: $qs-gray-light;
+
+/* text content style */
+$qs-text-content-font-size: $qs-font-size-small;
+$qs-text-content-font-weight: $qs-font-weight-regular;
+$qs-text-content-color: $qs-text-color-high;

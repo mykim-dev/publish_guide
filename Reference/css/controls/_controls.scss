@@ -1,0 +1,127 @@
+@import '_qs-text';
+@import '_qs-textarea';
+@import '_qs-lookup';
+@import '_qs-editor';
+@import '_qs-select';
+@import '_qs-checkbox';
+@import '_qs-radio';
+@import '_qs-password';
+@import '_qs-datepicker';
+@import '_qs-number';
+@import '_qs-button';
+@import '_qs-script';
+@import '_qs-shape';
+@import '_qs-canvas';
+@import '_qs-label';
+@import '_qs-fileupload';
+@import '_qs-commentbutton';
+@import '_qs-textcontent';
+@import '_qs-box-data';
+@import '_qs-box-icon';
+@import '_qs-box-label';
+@import '_qs-imageview';
+@import '_qs-tablecolumn';
+@import '_qs-form-button';
+@import '_qs-file';
+@import '_qs-inlineedittoolbar';
+
+/// Control 공통 - hidden 강제처리 class<br />
+/// @author sj.baek
+.qs-control-hidden {
+  display: none !important;
+}
+
+/// input control focus border color 공통<br />
+/// @author sj.baek
+.el-input__inner {
+  vertical-align: top;
+  padding: 0 7px;
+  &:focus {
+    border-color: $qs-input-border-color-focus;
+  }
+}
+.el-input.is-disabled input.el-input__inner {
+  border-color: $qs-input-border-color-disabled;
+  background-color: $qs-input-background-color-disabled;
+}
+
+/// grid reload시 노출되는 loading layer z-index override<br />
+/// @author sj.baek
+.el-loading-mask {
+  z-index: 997;
+}
+
+/// qsAlert에서 사용하는 success / error message style override<br />
+/// @author sj.baek
+.el-message {
+  box-shadow: $qs-alert-box-shadow;
+  border-radius: 0;
+
+  &.el-message--success {
+    border-color: $qs-alert-success-border-color;
+    background-color: $qs-alert-success-background-color;
+
+    .el-message__content {
+      color: $qs-alert-success-color;
+    }
+
+    .el-message__icon.el-icon-success {
+      color: $qs-alert-success-color;
+    }
+  }
+
+  &.el-message--error {
+    border-color: $qs-alert-error-border-color;
+    background-color: $qs-alert-error-background-color;
+
+    .el-message__content {
+      color: $qs-alert-error-color;
+    }
+
+    .el-message__icon.el-icon-error {
+      color: $qs-alert-error-color;
+    }
+  }
+}
+
+.is-left__label{
+  display: flex;
+  flex-direction: row;  
+  // overflow: hidden;
+
+  & label.active-label,
+  & span.active-label {
+    // display: inline-block;
+    // float: left;    
+    width:110px;
+    // line-height: 27px;
+    // padding-right:10px;
+    margin-bottom: 0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  & .active-label-form {
+    // width: calc( 100% - 110px ) !important;
+    // float: right;
+    flex:1;
+  }
+}
+
+.qs-password.is-left__label {
+  & .qs-password__input {
+    width: calc( 100% - 110px ) !important;
+    float: right;
+  }
+}
+
+.qs-fileupload.is-left__label  {
+  & .active-label {
+    padding-bottom: 3px;
+  }
+  & .qs-fileupload__desc {
+    right:auto;
+    top: 20px;
+  } 
+}

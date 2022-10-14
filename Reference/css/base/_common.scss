@@ -1,0 +1,43 @@
+/// Common CSS<br />
+/// @author sj.baek
+html {
+  // font-family: $qs-font-family-notosans;
+  font-family: $qs-font-family-base;
+  font-size: $qs-font-size-root;
+
+  *,
+  *::before,
+  *::after {
+    @include qs-box-sizing();
+  }
+
+  h1 {
+    font-size: $qs-h1-font-size;
+    font-weight: $qs-h1-font-weight;
+  }
+
+  h2 {
+    font-size: $qs-h2-font-size;
+    font-weight: $qs-h2-font-weight;
+  }
+
+  h3 {
+    font-size: $qs-h3-font-size;
+    font-weight: $qs-h3-font-weight;
+  }
+
+  h4 {
+    font-size: $qs-h4-font-size;
+    font-weight: $qs-h4-font-weight;
+  }
+
+  h5 {
+    font-size: $qs-h5-font-size;
+    font-weight: $qs-h5-font-weight;
+  }
+
+  h6 {
+    font-size: $qs-h6-font-size;
+    font-weight: $qs-h6-font-weight;
+  }
+}

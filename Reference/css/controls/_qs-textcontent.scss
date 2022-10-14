@@ -1,0 +1,11 @@
+/** @define text-content */
+/// QSTextContent control style<br />
+/// @author sj.baek
+.qs-text-content {
+  > div {
+    font-size: $qs-text-content-font-size;
+    font-weight: $qs-text-content-font-weight;
+    color: $qs-text-content-color;
+    white-space: break-spaces;
+  }
+}

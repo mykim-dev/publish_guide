@@ -1,0 +1,68 @@
+/** @define datepicker */
+/// QSDatePicker control style<br />
+/// @author sj.baek
+.qs-datepicker {
+  margin-bottom: $qs-form-item-margin-bottom;
+  @include qs-set-form-style('.qs-datepicker');
+
+  .el-input--medium {
+    .el-input__prefix {
+      color: $qs-black;
+    }
+
+    .el-input__suffix {
+      color: $qs-black;
+    }
+
+    .el-input__icon {
+      line-height: $qs-form-item-height;
+    }
+
+    &.search-size-sm {
+      .el-input__icon {
+        line-height: $qs-form-item-height-xs;
+      }
+    }
+  }
+
+  .el-date-editor.el-input,
+  .el-date-editor.el-input__inner {
+    vertical-align: top;
+    width: 100%;
+    border-color: $qs-input-border-color;
+  }
+
+  .el-range-editor {
+    &.el-input__inner {      
+      justify-content: space-between;
+      padding: 0 7px;
+    }
+
+    &--medium {
+      &.el-input__inner {
+        height: $qs-form-item-height;
+      }
+
+      .el-range__icon, 
+      .el-range__close-icon {
+        line-height: $qs-line-height-base;
+      }
+
+      .el-range-separator {
+        line-height: $qs-line-height-base;
+      }
+    }
+
+    .el-range-input{
+      font-size: $qs-font-size-small;
+    }
+
+    &.el-range-editor.is-active:hover{
+      border-color: $focus-border-color;
+    }
+  }
+}
+
+.el-date-editor.el-input.edit-element {
+  width: 100%;
+}
