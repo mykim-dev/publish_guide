@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+<link rel="stylesheet" type="text/css" href="./lib/tui/tui-select-box.min.css">
+<script type="text/javascript" src="./lib/tui/tui-select-box.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./lib/tui/tui-date-picker.min.css">
+<script type="text/javascript" src="./lib/tui/tui-date-picker.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./lib/tui/tui-pagination.min.css">
+<script type="text/javascript" src="./lib/tui/tui-pagination.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./lib/tui/tui-grid.min.css">
+<script type="text/javascript" src="./lib/tui/tui-grid.min.js"></script>
+
+
+<script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="./js/ogaGrid.js"></script>
+
+<script type="text/javascript" src="./basic-dummy.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./css/common.css">
+<script type="text/javascript" src="./js/common.js"></script>
+
+<style>
+    .grid-page-info{display: inline-flex;align-items: center;position: absolute;}
+    .grid-page-info > .grid-data-total{width: 100px;text-align: right;}
+    .grid-page-info > .grid-data-view{width: 100px;margin: 0 15px;}
+</style>
+
+</head>
+<body>
+<div class="wrap">            
+    <dl class="qs-toolbar">
+        <dt>
+            <div class="qs-title">test</div>
+            <div>
+                <button class="qs-button" id="resetData">resetData</button>
+                <button class="qs-button toolbar-toggle"><i class="qs-icon"></i></button>
+            </div>
+        </dt>
+        <dd>
+            <div id="grid"></div>
+        </dd>
+    </dl>
+</div>
+
+<script>
+// const grid = new tui.Grid({
+//     el: document.getElementById('grid'),
+//     data: gridData,
+//     rowHeight: 32,
+//     minRowHeight: 32,
+//     bodyHeight: 337,
+//     minBodyHeight: 337,
+//     scrollX: true,
+//     scrollY: true,
+//     pageOptions: {
+//         useClient: true,
+//         perPage: 10
+//     },
+//     header: {
+//         height: 32
+//     },
+//     rowHeaders: [
+//         { type: 'rowNum' },
+//         { type: 'checkbox', width: '50', align: 'center' }
+//     ],        
+//     columns: [
+//         { name: 'name' },
+//         { header: 'Artist', name: 'artist' },
+//         { header: 'Type', name: 'type' },
+//         { header: 'Release', name: 'release' },
+//         { header: 'Genre', name: 'genre' },
+//         { header: 'Price', name: 'price' }
+//     ]
+// });
+
+let grid = $("#grid").ogaGrid({
+    datasource: gridData,
+    options: {
+        rowHeight: 32,
+        minRowHeight: 32,
+        bodyHeight: 337,
+        minBodyHeight: 337,
+        scrollX: true,
+        scrollY: true,
+        pageOptions: {
+            useClient: true,
+            perPage: 10
+        },
+        header: {
+            height: 32
+        },
+        rowHeaders: [
+            { type: 'rowNum' },
+            { type: 'checkbox', width: '50', align: 'center' }
+        ],        
+        columns: [
+            { name: 'name' },
+            { header: 'Artist', name: 'artist' },
+            { header: 'Type', name: 'type' },
+            { header: 'Release', name: 'release' },
+            { header: 'Genre', name: 'genre' },
+            { header: 'Price', name: 'price' }
+        ]
+    }
+});
+
+// grid.on('onGridMounted', function(ev) {
+//     // dataTotalCount(ev);
+//     gridInit(ev)    
+// });
+
+// grid.on('onGridUpdated', function(ev) {
+//     console.log(ev);
+    
+// });
+
+// grid.on('afterPageMove', function(ev) {
+//     console.log(ev);
+// });
+
+// function gridInit(ev){
+//     // if(document.querySelector(".page-total")){
+//     //     document.querySelector(".page-total b").innerText = `${ev.instance.getPaginationTotalCount()}`;
+//     // }else{
+//     //     document.querySelector(".tui-grid-pagination").insertAdjacentHTML("afterbegin",`<div class="page-total">총  <b>${ev.instance.getPaginationTotalCount()}</b>건</div>`);
+//     // }
+
+//     let tmpGrid = ev.instance;
+//     let tmpPagePos = ev.instance.getPagination()._view._containerElement.children[0].getBoundingClientRect();
+//     let tmpData = ev.instance.getData();
+
+//     tmpGrid.el.insertAdjacentHTML('beforeend',`<div class="grid-page-info">
+//         <div class="grid-data-total">총 <b>${tmpGrid.getPaginationTotalCount()}</b></div>
+//         <div class="grid-data-view"></div>
+//     </div>`);
+
+//     document.querySelector('.grid-page-info').style.top = `${tmpPagePos.top}px`;
+//     document.querySelector('.grid-page-info').style.left = `${tmpPagePos.left - 230}px`;
+
+//     let tmpSelect = new tui.SelectBox(".grid-data-view", {
+//         data: [
+//             { label: '1 / Page', value: '1' },
+//             { label: '2 / Page', value: '2' },
+//             { label: '3 / Page', value: '3' },
+//             { label: '4 / Page', value: '4' },
+//         ]
+//     }).on('mount, change', ev => {
+//         tmpGrid.setPerPage(ev.curr.value, tmpData);
+//     });
+// }
+
+// function changeTotal(ev) {
+//     document.querySelector(".grid-data-total b").innerText = `${ev.instance.getPaginationTotalCount()}`;
+// }
+
+// function changeView(ev) {
+//     console.log(ev.el.pagernt.filter('.grid-data-view'))
+// }
+
+// // function dataTotalCount(ev){
+    
+// // }
+
+document.querySelector("#resetData").addEventListener("click", function(){
+    // console.log("click");
+    const tmpData = gridData.filter(item => item.price >= 20000)
+    // console.log(tmpData)
+    grid.resetData(tmpData);
+});
+</script>
+</body>
+</html>
