@@ -126,3 +126,7 @@ input:disabled{background-color: var(--input-disabled-background-color);}
 .tui-grid-container .tui-pagination .tui-last-child.tui-is-selected,
 .tui-grid-container .tui-pagination .tui-is-selected, 
 .tui-grid-container .tui-pagination strong{background-color: var(--pagination-selected-background-color);border-color: var(--pagination-selected-background-color);}
+
+.grid-page-info{display: inline-flex;align-items: center;position: absolute;bottom: 0;}
+.grid-page-info > .grid-data-total{width: 100px;text-align: right;}
+.grid-page-info > .grid-data-view{width: 100px;margin: 0 15px;}
