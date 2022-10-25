@@ -19,19 +19,24 @@ $qs-green: #6dd400 !default;
 $qs-white: #fff !default;
 $qs-black: #000 !default;
 
-$base-font-color: #000;
-
-$base-border-color: #e8e8e8 !default;
 $base-border-radius: 4px;
 
-$focus-border-color: #9DC5D4 !default;
+$base-font-color: #000;
+$base-border-color: #e8e8e8 !default;
+$base-background-color: #ffffff !default;
+
+$focus-font-color: #305461 !default;
+$focus-border-color: #3386A2 !default;
+$focus-background-color: #9DC5D4 !default;
 
 $active-font-color: #305461 !default;
 $active-border-color: #3386A2 !default;
-$active-background-color: #3386A2 !default;
+$active-background-color: #9DC5D4 !default;
 
-$readonly-background-color: lighten($base-border-color, 10%);
-$disabled-background-color: lighten($base-border-color, 10%);
+$disabled-font-color: #888888 !default;
+$disabled-border-color: #e8e8e8 !default;
+$disabled-background-color: #f1f1f1 !default;
+
 
 /* default color */
 $qs-gray-light: #f8f8f8 !default;

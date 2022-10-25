@@ -4,28 +4,28 @@
         const datasource = arguments.datasource || {};
         const options = arguments.options || {};
 
-        this._datasource = $.extend({
-            initialRequest: true,
-            withCredentials: false,
-            contentType: 'application/json',
-            headers: {},
-            api: {
-                readData: {
-                    url: datasource.readUri,
-                    method: 'POST',
-                    initParams: datasource.params || {}
-                }
-            },
-            hideLoadingBar: true,
-            serializer(params) {
+        // this._datasource = $.extend({
+        //     initialRequest: true,
+        //     withCredentials: false,
+        //     contentType: 'application/json',
+        //     headers: {},
+        //     api: {
+        //         readData: {
+        //             url: datasource.readUri,
+        //             method: 'POST',
+        //             initParams: datasource.params || {}
+        //         }
+        //     },
+        //     hideLoadingBar: true,
+        //     serializer(params) {
                 
                 
-                return JSON.stringify(params);
+        //         return JSON.stringify(params);
                 
-            }
-        }, datasource);
+        //     }
+        // }, datasource);
 
-        // this._datasource = arguments.datasource;
+        this._datasource = arguments.datasource;
 
         this._options = $.extend({
             el: this[0],
@@ -76,7 +76,8 @@
                 </div>
             `);
             
-            this.grid.el.lastElementChild.style.top = `${this.grid.getPagination()._view._containerElement.children[0].getBoundingClientRect().top}px`;
+            this.grid.el.style.position = 'relative';
+            // this.grid.el.lastElementChild.style.top = `${this.grid.getPagination()._view._containerElement.children[0].getBoundingClientRect().top}px`;
             this.grid.el.lastElementChild.style.left = `${this.grid.getPagination()._view._containerElement.children[0].getBoundingClientRect().left - 230}px`;
             
             // var SelectBox = tui.SelectBox;
