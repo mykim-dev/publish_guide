@@ -3,34 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>tui Grid</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="./node_modules/@toast-ui/select-box/dist/toastui-select-box.min.css">
+<script type="text/javascript" src="./node_modules/@toast-ui/select-box/dist/toastui-select-box.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="./lib/tui/tui-select-box.min.css">
-<script type="text/javascript" src="./lib/tui/tui-select-box.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./node_modules/tui-date-picker/dist/tui-date-picker.min.css">
+<script type="text/javascript" src="./node_modules/tui-date-picker/dist/tui-date-picker.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="./lib/tui/tui-date-picker.min.css">
-<script type="text/javascript" src="./lib/tui/tui-date-picker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./node_modules/tui-pagination/dist/tui-pagination.min.css">
+<script type="text/javascript" src="./node_modules/tui-pagination/dist/tui-pagination.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="./lib/tui/tui-pagination.min.css">
-<script type="text/javascript" src="./lib/tui/tui-pagination.min.js"></script>
-
-<link rel="stylesheet" type="text/css" href="./lib/tui/tui-grid.min.css">
-<script type="text/javascript" src="./lib/tui/tui-grid.min.js"></script>
-
-
-<script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="./js/ogaGrid.js"></script>
-
-<script type="text/javascript" src="./basic-dummy.js"></script>
+<link rel="stylesheet" type="text/css" href="./node_modules/tui-grid/dist/tui-grid.min.css">
+<script type="text/javascript" src="./node_modules/tui-grid/dist/tui-grid.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./css/common.css">
+<script type="text/javascript" src="./js/index.js"></script>
 <script type="text/javascript" src="./js/common.js"></script>
 
 </head>
 <body>
-<div class="wrap">            
+<div class="wrap">
     <dl class="qs-toolbar">
         <dt>
             <div class="qs-title">test</div>
@@ -46,24 +39,24 @@
 </div>
 
 <script>
+
 const dataSource = {
-    result: true,
-  contentType: 'application/json',
-  api: {
-    readData: {
-      url: 'https://infuser.odcloud.kr/oas/docs?namespace=15071046/v1',
-      method: 'GET'
+    contentType: 'application/json',
+    api: {
+        readData: { 
+            url: 'http://127.0.0.1:5500/js/index.js', 
+            method: 'GET'            
+        }
     },
-    updateData: {
-      url: 'https://infuser.odcloud.kr/oas/docs?namespace=15071046/v1',
-      method: 'GET'
-    }
-  }
+    headers: { 'x-custom-header': 'custom-header' }
 };
 
 const objGrid = new tui.Grid({
     el: document.getElementById('grid'),
-    data: dataSource,
+    // withCredentials: false,
+    // initialRequest: true,
+    // data: dataSource,
+    data: gridData,
     rowHeight: 32,
     minRowHeight: 32,
     bodyHeight: 337,
@@ -82,59 +75,37 @@ const objGrid = new tui.Grid({
         { type: 'checkbox', width: '50', align: 'center' }
     ],        
     columns: [
-        { name: 'name' },
-        { header: 'Artist', name: 'artist' },
-        { header: 'Type', name: 'type' },
-        { header: 'Release', name: 'release' },
-        { header: 'Genre', name: 'genre' },
-        { header: 'Price', name: 'price' }
+        {
+          header: 'Name',
+          name: 'name'
+        },
+        {
+          header: 'Artist',
+          name: 'artist'
+        },
+        {
+          header: 'Type',
+          name: 'type'
+        },
+        {
+          header: 'Price',
+          name: 'price'
+        }
     ]
 });
 
-// let grid = $("#grid").ogaGrid({
-//     datasource: gridData,
-//     options: {
-//         rowHeight: 32,
-//         minRowHeight: 32,
-//         bodyHeight: 337,
-//         minBodyHeight: 337,
-//         scrollX: true,
-//         scrollY: true,
-//         pageOptions: {
-//             useClient: true,
-//             perPage: 10
-//         },
-//         header: {
-//             height: 32
-//         },
-//         rowHeaders: [
-//             { type: 'rowNum' },
-//             { type: 'checkbox', width: '50', align: 'center' }
-//         ],        
-//         columns: [
-//             { name: 'name' },
-//             { header: 'Artist', name: 'artist' },
-//             { header: 'Type', name: 'type' },
-//             { header: 'Release', name: 'release' },
-//             { header: 'Genre', name: 'genre' },
-//             { header: 'Price', name: 'price' }
-//         ]
-//     }
-// });
-
 objGrid.on('onGridMounted', function(ev) {
+    // console.log('onGridMounted', ev)
+
+    ev.instance.el.style.position = 'relative';
     objGrid.el.insertAdjacentHTML('beforeend',`
         <div class="grid-data-info" id="grid-data-info">
-            <div class="grid-data-total">총  <b>${ev.instance.getPaginationTotalCount()}</b></div>
+            <div class="grid-data-total">총  <b>${objGrid.getPaginationTotalCount()}</b></div>
             <div class="grid-data-view"></div>
         </div>
     `);
 
-    objGrid.el.style.position = 'relative';
-    let tmpLeft = parseInt(objGrid.el.querySelector('.tui-pagination .tui-page-btn').firstChild.getBoundingClientRect().left);
-    console.log(tmpLeft)
-    objGrid.el.querySelector('.grid-data-info').style.left = `${tmpLeft - 250}px`;            
-    let grid_count = new tui.SelectBox(objGrid.el.querySelector('.grid-data-view'), {
+    let objGrid_view_select = new tui.SelectBox(objGrid.el.querySelector('.grid-data-view'), {
         data: [
             { label: '10 / page', value: '10'},
             { label: '20 / page', value: '20'},
@@ -143,31 +114,37 @@ objGrid.on('onGridMounted', function(ev) {
             { label: '50 / page', value: '50'},
             { label: '100 / page', value: '100'}
         ]
-        }).on('change', ev => {  
-            objGrid.setPerPage(Number(ev.curr.value));
-        });
+    }).on('change', function(ev){
+        gridViewChange(objGrid, ev)
+    });
+
+    gridViewPos(objGrid);
 });
+
+function gridViewPos(grid){
+    // console.log(grid)
+    let grid_pos_left = parseInt(grid.el.querySelector('.tui-pagination .tui-page-btn').firstChild.getBoundingClientRect().left);
+    console.log(grid_pos_left)
+    grid.el.querySelector('.grid-data-info').style.left = `${grid_pos_left - 250}px`;
+}
+
+function gridViewChange(grid, ev){
+    console.log(grid, ev)
+    grid.setPerPage(Number(ev.curr.value));
+    console.log("gridViewChange", ev)
+    setTimeout(() => {
+        gridViewPos(grid);    
+    }, 100);    
+};
 
 objGrid.on('onGridUpdated', function(ev) {
-    console.log('onGridUpdated', ev.instance.dataProvider.reloadData())
-    // console.log(ev.instance.dataManager.isModified)
-    let tmpLeft = parseInt(objGrid.el.querySelector('.tui-pagination .tui-page-btn').firstChild.getBoundingClientRect().left);
-    // console.log(tmpLeft)
-    // console.log(objGrid.el.querySelector('.grid-data-total b'))
+    console.log('onGridUpdated', ev)
     ev.instance.el.querySelector('.grid-data-total b').innerText = ev.instance.getPaginationTotalCount();
-    ev.instance.el.querySelector('.grid-data-info').style.left = `${tmpLeft - 250}px`;
+    gridViewPos(objGrid);
 });
 
-objGrid.on('response', function(ev) {
-    console.log('response', ev)
-    // console.log('response', ev.instance.dataManager.getOriginData());
-});
-
-objGrid.on('afterPageMove', function(ev) {
-});
-
-document.querySelector("#resetData").addEventListener("click", function(){
-    // console.log(dataSource);
+document.querySelector("#resetData").addEventListener("click", function(ev){
+    // console.log('resetData',ev)
     const tmpData = gridData.filter(item => item.price >= 20000)
     // console.log(tmpData)
     objGrid.resetData(tmpData);

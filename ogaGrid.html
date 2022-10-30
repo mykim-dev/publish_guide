@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tui Grid</title>
+
+<link rel="stylesheet" type="text/css" href="./node_modules/@toast-ui/select-box/dist/toastui-select-box.min.css">
+<script type="text/javascript" src="./node_modules/@toast-ui/select-box/dist/toastui-select-box.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./node_modules/tui-date-picker/dist/tui-date-picker.min.css">
+<script type="text/javascript" src="./node_modules/tui-date-picker/dist/tui-date-picker.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./node_modules/tui-pagination/dist/tui-pagination.min.css">
+<script type="text/javascript" src="./node_modules/tui-pagination/dist/tui-pagination.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./node_modules/tui-grid/dist/tui-grid.min.css">
+<script type="text/javascript" src="./node_modules/tui-grid/dist/tui-grid.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./css/common.css">
+<!-- <script type="text/javascript" src="./js/index.js"></script> -->
+
+<script type="text/javascript" src="./js/ogaGrid.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+
+</head>
+<body>
+<div class="wrap">
+    <dl class="qs-toolbar">
+        <dt>
+            <div class="qs-title">test</div>
+            <div>
+                <button class="qs-button" id="resetData">resetData</button>
+                <button class="qs-button toolbar-toggle"><i class="qs-icon"></i></button>
+            </div>
+        </dt>
+        <dd>
+            <div id="grid"></div>
+        </dd>
+    </dl>
+</div>
+
+<script>
+    let arguments = {
+        datasource: {
+            readUri: './js/index.js'
+        },
+        options: {
+            el: document.getElementById('grid')
+        }
+    }    
+
+    let grid = ogaGrid(arguments);
+    // let grid = document.getElementById('grid');
+    console.log(grid)
+</script>
+</body>
+</html>

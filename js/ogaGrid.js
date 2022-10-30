@@ -1,31 +1,30 @@
-(function ($) {
-    $.fn.ogaGrid = function (arguments) {
-
+(function () {
+    ogaGrid = function(arguments) {
         const datasource = arguments.datasource || {};
         const options = arguments.options || {};
 
-        // this._datasource = $.extend({
-        //     initialRequest: true,
-        //     withCredentials: false,
-        //     contentType: 'application/json',
-        //     headers: {},
-        //     api: {
-        //         readData: {
-        //             url: datasource.readUri,
-        //             method: 'POST',
-        //             initParams: datasource.params || {}
-        //         }
-        //     },
-        //     hideLoadingBar: true,
-        //     serializer(params) {
-                
-                
-        //         return JSON.stringify(params);
-                
-        //     }
-        // }, datasource);
+        console.log(datasource.readUri)
+        console.log(options)
 
-        this._datasource = arguments.datasource;
+        this._datasource = $.extend({
+            initialRequest: true,
+            withCredentials: false,
+            contentType: 'application/json',
+            headers: {},
+            api: {
+                readData: {
+                    url: datasource.readUri,
+                    method: 'POST',
+                    initParams: datasource.params || {}
+                }
+            },
+            hideLoadingBar: true,
+            serializer(params) {
+                return JSON.stringify(params);
+            }
+        }, datasource);
+
+        // this._datasource = arguments.datasource;
 
         this._options = $.extend({
             el: this[0],
@@ -47,7 +46,7 @@
             }
         }, options);
 	
-       this.init = function () {
+        this.init = function () {
             // var Grid = tui.Grid;
             this.grid = new tui.Grid(this._options);
             this.data('instance', this);
@@ -166,6 +165,6 @@
         this.init();
         this.setupEvent();        
 
-        return this;
+        // return this;
     };
-})(window.jQuery);
+}());
