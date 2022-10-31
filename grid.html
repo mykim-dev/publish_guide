@@ -18,6 +18,7 @@
 <script type="text/javascript" src="./node_modules/tui-grid/dist/tui-grid.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./css/common.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="text/javascript" src="./js/index.js"></script>
 <script type="text/javascript" src="./js/common.js"></script>
 
@@ -115,33 +116,24 @@ objGrid.on('onGridMounted', function(ev) {
             { label: '100 / page', value: '100'}
         ]
     }).on('change', function(ev){
-        gridViewChange(objGrid, ev)
+        objGrid.setPerPage(Number(ev.curr.value));
+        gridRePosition();
     });
 
-    gridViewPos(objGrid);
+    gridRePosition();
 });
-
-function gridViewPos(grid){
-    // console.log(grid)
-    let grid_pos_left = parseInt(grid.el.querySelector('.tui-pagination .tui-page-btn').firstChild.getBoundingClientRect().left);
-    console.log(grid_pos_left)
-    grid.el.querySelector('.grid-data-info').style.left = `${grid_pos_left - 250}px`;
-}
-
-function gridViewChange(grid, ev){
-    console.log(grid, ev)
-    grid.setPerPage(Number(ev.curr.value));
-    console.log("gridViewChange", ev)
-    setTimeout(() => {
-        gridViewPos(grid);    
-    }, 100);    
-};
 
 objGrid.on('onGridUpdated', function(ev) {
-    console.log('onGridUpdated', ev)
     ev.instance.el.querySelector('.grid-data-total b').innerText = ev.instance.getPaginationTotalCount();
-    gridViewPos(objGrid);
+    gridRePosition();
 });
+
+function gridRePosition(){    
+    setTimeout(() => {
+        objGrid.el.querySelector('.grid-data-info').style.left = 
+        `${parseInt(objGrid.el.querySelector('.tui-pagination .tui-page-btn').firstChild.getBoundingClientRect().left) - 250}px`;            
+    }, 100);
+}
 
 document.querySelector("#resetData").addEventListener("click", function(ev){
     // console.log('resetData',ev)
