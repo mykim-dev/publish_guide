@@ -18,10 +18,12 @@
 <script type="text/javascript" src="./node_modules/tui-grid/dist/tui-grid.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="./css/common.css">
-<!-- <script type="text/javascript" src="./js/index.js"></script> -->
+<script type="text/javascript" src="./js/index.js"></script>
 
-<script type="text/javascript" src="./js/ogaGrid.js"></script>
-<script type="text/javascript" src="./js/common.js"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+
+<!-- <script type="text/javascript" src="./js/ogaGrid.js"></script> -->
+<!-- <script type="text/javascript" src="./js/common.js"></script> -->
 
 </head>
 <body>
@@ -35,24 +37,118 @@
             </div>
         </dt>
         <dd>
-            <div id="grid"></div>
+            <div id="grid1"></div>
         </dd>
     </dl>
 </div>
 
 <script>
-    let arguments = {
-        datasource: {
-            readUri: './js/index.js'
+const gridDatas = gridData;
+const objGrid = new tui.Grid({
+    el: document.getElementById('grid1'),
+    data: gridDatas,
+    rowHeight: 32,
+    minRowHeight: 32,
+    bodyHeight: 337,
+    minBodyHeight: 337,
+    scrollX: true,
+    scrollY: true,
+    pageOptions: {
+        useClient: true,
+        perPage: 10
+    },
+    header: {
+        height: 32
+    },
+    rowHeaders: [
+        // { type: 'rowNum' },
+        // { type: 'checkbox', width: '50', align: 'center' }
+    ],        
+    columns: [
+        {
+        header: 'movieCd',
+        name: 'movieCd'
         },
-        options: {
-            el: document.getElementById('grid')
+        {
+        header: 'movieNm',
+        name: 'movieNm'
+        },
+        {
+        header: 'companyPartNm',
+        name: 'companyPartNm'
         }
-    }    
+    ]
+});
 
-    let grid = ogaGrid(arguments);
-    // let grid = document.getElementById('grid');
-    console.log(grid)
+function fetchMovies() {
+    axios
+    .get('http://kobis.or.kr/kobisopenapi/webservice/rest/company/searchCompanyInfo.json?key=a8bc8a43a99646c40ea23f325ed2438a&companyCd=20122497')
+    .then(response => {
+        // console.log(response)
+        objGrid.resetData(response.data.companyInfoResult.companyInfo.filmos);
+    })
+}
+
+fetchMovies();
+
+objGrid.on('onGridMounted', function(ev) {
+    // console.log('onGridMounted', ev)
+
+    ev.instance.el.style.position = 'relative';
+    objGrid.el.insertAdjacentHTML('beforeend',`
+        <div class="grid-data-info" id="grid-data-info">
+            <div class="grid-data-total">총  <b>${objGrid.getPaginationTotalCount()}</b></div>
+            <div class="grid-data-view"></div>
+        </div>
+    `);
+
+    let objGrid_view_select = new tui.SelectBox(objGrid.el.querySelector('.grid-data-view'), {
+        data: [
+            { label: '10 / page', value: '10'},
+            { label: '20 / page', value: '20'},
+            { label: '30 / page', value: '30'},
+            { label: '40 / page', value: '40'},
+            { label: '50 / page', value: '50'},
+            { label: '100 / page', value: '100'}
+        ]
+    }).on('change', function(ev){
+        objGrid.setPerPage(Number(ev.curr.value));
+        gridRePosition();
+    });
+
+    gridRePosition();
+});
+
+objGrid.on('response', function(ev) {
+    console.log('response')
+    gridRePosition();
+});
+
+objGrid.on('onGridUpdated', function(ev) {
+    ev.instance.el.querySelector('.grid-data-total b').innerText = ev.instance.getPaginationTotalCount();
+    gridRePosition();
+});
+
+function gridRePosition(){    
+    setTimeout(() => {
+        objGrid.el.querySelector('.grid-data-info').style.left = 
+        `${parseInt(objGrid.el.querySelector('.tui-pagination .tui-page-btn').firstChild.getBoundingClientRect().left) - 250}px`;            
+    }, 10);
+}
+
+let paganation = objGrid.getPagination();
+paganation.on('afterMove', (event) => {
+    console.log('afterMove')
+    gridRePosition();
+});
+
+document.querySelector("#resetData").addEventListener("click", function(ev){
+    // console.log('resetData',ev)
+    const tmpData = gridData.filter(item => item.price >= 20000)
+    // console.log(tmpData)
+    objGrid.resetData(tmpData);
+});
+
 </script>
 </body>
 </html>
