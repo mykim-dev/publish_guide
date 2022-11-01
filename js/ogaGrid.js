@@ -1,5 +1,5 @@
 (function () {
-    ogaGrid = function(arguments) {
+    let ogaGrid = function(arguments) {
         const datasource = arguments.datasource || {};
         const options = arguments.options || {};
 

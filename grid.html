@@ -42,22 +42,20 @@
 <script>
 
 const dataSource = {
-    contentType: 'application/json',
     api: {
         readData: { 
             url: 'http://127.0.0.1:5500/js/index.js', 
             method: 'GET'            
         }
-    },
-    headers: { 'x-custom-header': 'custom-header' }
+    }
 };
 
 const objGrid = new tui.Grid({
     el: document.getElementById('grid'),
     // withCredentials: false,
     // initialRequest: true,
-    // data: dataSource,
-    data: gridData,
+    data: dataSource,
+    // data: gridData,
     rowHeight: 32,
     minRowHeight: 32,
     bodyHeight: 337,
